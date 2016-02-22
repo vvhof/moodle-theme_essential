@@ -27,7 +27,6 @@
  *
  * Content source reference: http://getbootstrap.com/2.3.2/base-css.html.
  */
-
 class essential_admin_setting_styleguide extends admin_setting {
 
     /**
@@ -41,7 +40,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $this->nosave = true;
 
         global $PAGE;
-        if ($PAGE->bodyid == 'page-admin-setting-'.$name) {
+        if ($PAGE->bodyid == 'page-admin-setting-' . $name) {
             $bc = new block_contents();
             $bc->title = get_string('styleguide', 'theme_essential');
             $bc->attributes['class'] = 'block';
@@ -53,10 +52,6 @@ class essential_admin_setting_styleguide extends admin_setting {
 <li><a href="#buttons"><i class="icon-chevron-right"></i> Buttons</a></li>
 <li><a href="#images"><i class="icon-chevron-right"></i> Images</a></li>
 </ul>';
-		//page-admin-setting-theme_essential_styleguide
-		//page-admin-setting-.$name
-		//$bc->content .= $PAGE->bodyid;
-
             $defaultregion = $PAGE->blocks->get_default_region();
             $PAGE->blocks->add_fake_block($bc, $defaultregion);
         }
@@ -85,7 +80,7 @@ class essential_admin_setting_styleguide extends admin_setting {
      * @return string Always returns an empty string
      */
     public function write_setting($data) {
-    // do not write any setting
+        // do not write any setting
         return '';
     }
 
@@ -93,367 +88,382 @@ class essential_admin_setting_styleguide extends admin_setting {
      * Returns an HTML string
      * @return string Returns an HTML string
      */
-    public function output_html($data, $query='') {
+    public function output_html($data, $query = '') {
         global $OUTPUT;
         $return = '';
         if ($this->visiblename != '') {
             $return .= $OUTPUT->heading($this->visiblename, 3, 'main');
         }
         if ($this->description != '') {
-            $return .= $OUTPUT->box(highlight($query, markdown_to_html($this->description)), 'generalbox formsettingheading');
+            $return .= $OUTPUT->box(highlight($query, markdown_to_html($this->description)),
+                    'generalbox formsettingheading');
         }
 
-        $return .= '        <!-- Typography
-        ================================================== -->
-        <section id="typography">
-          <div class="page-header">
-            <h1>Typography</h1>
-          </div>
+        $return .= '        <!-- Typography';
+        $return .= '================================================== -->';
+        $return .= '<section id="typography">';
+        $return .= '<div class="page-header">';
+        $return .= '<h1>Typography</h1>';
+        $return .= '</div>';
 
-          <h2 id="headings">Headings</h2>
-          <p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are available.</p>
-          <div class="bs-docs-example">
-            <h1>h1. Heading 1</h1>
-            <h2>h2. Heading 2</h2>
-            <h3>h3. Heading 3</h3>
-            <h4>h4. Heading 4</h4>
-            <h5>h5. Heading 5</h5>
-            <h6>h6. Heading 6</h6>
-          </div>
+        $return .= '<h2 id="headings">Headings</h2>';
+        $return .= '<p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are available.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<h1>h1. Heading 1</h1>';
+        $return .= '<h2>h2. Heading 2</h2>';
+        $return .= '<h3>h3. Heading 3</h3>';
+        $return .= '<h4>h4. Heading 4</h4>';
+        $return .= '<h5>h5. Heading 5</h5>';
+        $return .= '<h6>h6. Heading 6</h6>';
+        $return .= '</div>';
 
-          <h2 id="body-copy">Body copy</h2>
-          <p>Bootstrap\'s global default <code>font-size</code> is <strong>14px</strong>, with a <code>line-height</code> of <strong>20px</strong>. This is applied to the <code>&lt;body&gt;</code> and all paragraphs. In addition, <code>&lt;p&gt;</code> (paragraphs) receive a bottom margin of half their line-height (10px by default).</p>
-          <div class="bs-docs-example">
-            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-          </div>
-          <pre class="prettyprint">&lt;p&gt;...&lt;/p&gt;</pre>
+        $return .= '<h2 id="body-copy">Body copy</h2>';
+        $return .= '<p>Bootstrap\'s global default <code>font-size</code> is <strong>14px</strong>, with a <code>line-height';
+        $return .= '</code> of <strong>20px</strong>. This is applied to the <code>&lt;body&gt;</code> and all paragraphs.';
+        $return .= 'In addition, <code>&lt;p&gt;</code> (paragraphs) receive a bottom margin of half their line-height ';
+        $return .= '(10px by default).</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis ';
+        $return .= 'dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>';
+        $return .= '<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ';
+        $return .= 'ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat ';
+        $return .= 'porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>';
+        $return .= '<p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta ';
+        $return .= 'gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia ';
+        $return .= 'odio sem nec elit.</p>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint">&lt;p&gt;...&lt;/p&gt;</pre>';
 
-          <h3>Lead body copy</h3>
-          <p>Make a paragraph stand out by adding <code>.lead</code>.</p>
-          <div class="bs-docs-example">
-            <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
-          </div>
-          <pre class="prettyprint">&lt;p class="lead"&gt;...&lt;/p&gt;</pre>
+        $return .= '<h3>Lead body copy</h3>';
+        $return .= '<p>Make a paragraph stand out by adding <code>.lead</code>.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, ';
+        $return .= 'est non commodo luctus.</p>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint">&lt;p class="lead"&gt;...&lt;/p&gt;</pre>';
 
-          <h3>Built with Less</h3>
-          <p>The typographic scale is based on two LESS variables in <strong>variables.less</strong>: <code>@baseFontSize</code> and <code>@baseLineHeight</code>. The first is the base font-size used throughout and the second is the base line-height. We use those variables and some simple math to create the margins, paddings, and line-heights of all our type and more. Customize them and Bootstrap adapts.</p>
-
-
-          <hr class="bs-docs-separator">
-
-
-          <h2 id="emphasis">Emphasis</h2>
-          <p>Make use of HTML\'s default emphasis tags with lightweight styles.</p>
-
-          <h3><code>&lt;small&gt;</code></h3>
-          <p>For de-emphasizing inline or blocks of text, <small>use the small tag.</small></p>
-          <div class="bs-docs-example">
-            <p><small>This line of text is meant to be treated as fine print.</small></p>
-          </div>
-<pre class="prettyprint">
-&lt;p&gt;
-  &lt;small&gt;This line of text is meant to be treated as fine print.&lt;/small&gt;
-&lt;/p&gt;
-</pre>
-
-          <h3>Bold</h3>
-          <p>For emphasizing a snippet of text with a heavier font-weight.</p>
-          <div class="bs-docs-example">
-            <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
-          </div>
-          <pre class="prettyprint">&lt;strong&gt;rendered as bold text&lt;/strong&gt;</pre>
-
-          <h3>Italics</h3>
-          <p>For emphasizing a snippet of text with italics.</p>
-          <div class="bs-docs-example">
-            <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
-          </div>
-          <pre class="prettyprint">&lt;em&gt;rendered as italicized text&lt;/em&gt;</pre>
-
-          <p><span class="label label-info">Heads up!</span> Feel free to use <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> in HTML5. <code>&lt;b&gt;</code> is meant to highlight words or phrases without conveying additional importance while <code>&lt;i&gt;</code> is mostly for voice, technical terms, etc.</p>
-
-          <h3>Alignment classes</h3>
-          <p>Easily realign text to components with text alignment classes.</p>
-          <div class="bs-docs-example">
-            <p class="text-left">Left aligned text.</p>
-            <p class="text-center">Center aligned text.</p>
-            <p class="text-right">Right aligned text.</p>
-          </div>
-<pre class="prettyprint linenums">
-&lt;p class="text-left"&gt;Left aligned text.&lt;/p&gt;
-&lt;p class="text-center"&gt;Center aligned text.&lt;/p&gt;
-&lt;p class="text-right"&gt;Right aligned text.&lt;/p&gt;
-</pre>
-
-          <h3>Emphasis classes</h3>
-          <p>Convey meaning through color with a handful of emphasis utility classes.</p>
-          <div class="bs-docs-example">
-            <p class="muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
-            <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
-            <p class="text-error">Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p class="text-info">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</p>
-            <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-          </div>
-<pre class="prettyprint linenums">
-&lt;p class="muted"&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.&lt;/p&gt;
-&lt;p class="text-warning"&gt;Etiam porta sem malesuada magna mollis euismod.&lt;/p&gt;
-&lt;p class="text-error"&gt;Donec ullamcorper nulla non metus auctor fringilla.&lt;/p&gt;
-&lt;p class="text-info"&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.&lt;/p&gt;
-&lt;p class="text-success"&gt;Duis mollis, est non commodo luctus, nisi erat porttitor ligula.&lt;/p&gt;
-</pre>
+        $return .= '<h3>Built with Less</h3>';
+        $return .= '<p>The typographic scale is based on two LESS variables in <strong>variables.less</strong>: <code>';
+        $return .= '@baseFontSize</code> and <code>@baseLineHeight</code>. The first is the base font-size used throughout';
+        $return .= 'and the second is the base line-height. We use those variables and some simple math to create the margins, ';
+        $return .= 'paddings, and line-heights of all our type and more. Customize them and Bootstrap adapts.</p>';
 
 
-          <hr class="bs-docs-separator">
+        $return .= '<hr class="bs-docs-separator">';
 
 
-          <h2 id="abbreviations">Abbreviations</h2>
-          <p>Stylized implementation of HTML\'s <code>&lt;abbr&gt;</code> element for abbreviations and acronyms to show the expanded version on hover. Abbreviations with a <code>title</code> attribute have a light dotted bottom border and a help cursor on hover, providing additional context on hover.</p>
+        $return .= '<h2 id="emphasis">Emphasis</h2>';
+        $return .= '<p>Make use of HTML\'s default emphasis tags with lightweight styles.</p>';
 
-          <h3><code>&lt;abbr&gt;</code></h3>
-          <p>For expanded text on long hover of an abbreviation, include the <code>title</code> attribute.</p>
-          <div class="bs-docs-example">
-            <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
-          </div>
-          <pre class="prettyprint">&lt;abbr title="attribute"&gt;attr&lt;/abbr&gt;</pre>
+        $return .= '<h3><code>&lt;small&gt;</code></h3>';
+        $return .= '<p>For de-emphasizing inline or blocks of text, <small>use the small tag.</small></p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<p><small>This line of text is meant to be treated as fine print.</small></p>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint">';
+        $return .= '&lt;p&gt;';
+        $return .= '&lt;small&gt;This line of text is meant to be treated as fine print.&lt;/small&gt;';
+        $return .= '&lt;/p&gt;';
+        $return .= '</pre>';
 
-          <h3><code>&lt;abbr class="initialism"&gt;</code></h3>
-          <p>Add <code>.initialism</code> to an abbreviation for a slightly smaller font-size.</p>
-          <div class="bs-docs-example">
-            <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr> is the best thing since sliced bread.</p>
-          </div>
-          <pre class="prettyprint">&lt;abbr title="HyperText Markup Language" class="initialism"&gt;HTML&lt;/abbr&gt;</pre>
+        $return .= '<h3>Bold</h3>';
+        $return .= '<p>For emphasizing a snippet of text with a heavier font-weight.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<p>The following snippet of text is <strong>rendered as bold text</strong>.</p>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint">&lt;strong&gt;rendered as bold text&lt;/strong&gt;</pre>';
 
+        $return .= '<h3>Italics</h3>';
+        $return .= '<p>For emphasizing a snippet of text with italics.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<p>The following snippet of text is <em>rendered as italicized text</em>.</p>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint">&lt;em&gt;rendered as italicized text&lt;/em&gt;</pre>';
 
-          <hr class="bs-docs-separator">
+        $return .= '<p><span class="label label-info">Heads up!</span> Feel free to use <code>&lt;b&gt;</code> and <code>';
+        $return .= '&lt;i&gt;</code> in HTML5. <code>&lt;b&gt;</code> is meant to highlight words or phrases without conveying';
+        $return .= 'additional importance while <code>&lt;i&gt;</code> is mostly for voice, technical terms, etc.</p>';
 
+        $return .= '<h3>Alignment classes</h3>';
+        $return .= '<p>Easily realign text to components with text alignment classes.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<p class="text-left">Left aligned text.</p>';
+        $return .= '<p class="text-center">Center aligned text.</p>';
+        $return .= '<p class="text-right">Right aligned text.</p>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;p class="text-left"&gt;Left aligned text.&lt;/p&gt;';
+        $return .= '&lt;p class="text-center"&gt;Center aligned text.&lt;/p&gt;';
+        $return .= '&lt;p class="text-right"&gt;Right aligned text.&lt;/p&gt;';
+        $return .= '</pre>';
 
-          <h2 id="addresses">Addresses</h2>
-          <p>Present contact information for the nearest ancestor or the entire body of work.</p>
+        $return .= '<h3>Emphasis classes</h3>';
+        $return .= '<p>Convey meaning through color with a handful of emphasis utility classes.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<p class="muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>';
+        $return .= '<p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>';
+        $return .= '<p class="text-error">Donec ullamcorper nulla non metus auctor fringilla.</p>';
+        $return .= '<p class="text-info">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</p>';
+        $return .= '<p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;p class="muted"&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.&lt;/p&gt;';
+        $return .= '&lt;p class="text-warning"&gt;Etiam porta sem malesuada magna mollis euismod.&lt;/p&gt;';
+        $return .= '&lt;p class="text-error"&gt;Donec ullamcorper nulla non metus auctor fringilla.&lt;/p&gt;';
+        $return .= '&lt;p class="text-info"&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.&lt;/p&gt;';
+        $return .= '&lt;p class="text-success"&gt;Duis mollis, est non commodo luctus, nisi erat porttitor ligula.&lt;/p&gt;';
+        $return .= '</pre>';
 
-          <h3><code>&lt;address&gt;</code></h3>
-          <p>Preserve formatting by ending all lines with <code>&lt;br&gt;</code>.</p>
-          <div class="bs-docs-example">
-            <address>
-              <strong>Twitter, Inc.</strong><br>
-              795 Folsom Ave, Suite 600<br>
-              San Francisco, CA 94107<br>
-              <abbr title="Phone">P:</abbr> (123) 456-7890
-            </address>
-            <address>
-              <strong>Full Name</strong><br>
-              <a href="mailto:#">first.last@example.com</a>
-            </address>
-          </div>
-<pre class="prettyprint linenums">
-&lt;address&gt;
-  &lt;strong&gt;Twitter, Inc.&lt;/strong&gt;&lt;br&gt;
-  795 Folsom Ave, Suite 600&lt;br&gt;
-  San Francisco, CA 94107&lt;br&gt;
-  &lt;abbr title="Phone"&gt;P:&lt;/abbr&gt; (123) 456-7890
-&lt;/address&gt;
+        $return .= '<hr class="bs-docs-separator">';
 
-&lt;address&gt;
-  &lt;strong&gt;Full Name&lt;/strong&gt;&lt;br&gt;
-  &lt;a href="mailto:#"&gt;first.last@example.com&lt;/a&gt;
-&lt;/address&gt;
-</pre>
+        $return .= '<h2 id="abbreviations">Abbreviations</h2>';
+        $return .= '<p>Stylized implementation of HTML\'s <code>&lt;abbr&gt;</code> element for abbreviations and acronyms to ';
+        $return .= 'show the expanded version on hover. Abbreviations with a <code>title</code> attribute have a light dotted ';
+        $return .= 'bottom border and a help cursor on hover, providing additional context on hover.</p>';
 
+        $return .= '<h3><code>&lt;abbr&gt;</code></h3>';
+        $return .= '<p>For expanded text on long hover of an abbreviation, include the <code>title</code> attribute.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint">&lt;abbr title="attribute"&gt;attr&lt;/abbr&gt;</pre>';
 
-          <hr class="bs-docs-separator">
+        $return .= '<h3><code>&lt;abbr class="initialism"&gt;</code></h3>';
+        $return .= '<p>Add <code>.initialism</code> to an abbreviation for a slightly smaller font-size.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr> is the best thing since sliced ';
+        $return .= 'bread.</p>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint">&lt;abbr title="HyperText Markup Language" class="initialism"&gt;HTML&lt;/abbr&gt;';
+        $return .= '</pre>';
 
+        $return .= '<hr class="bs-docs-separator">';
 
-          <h2 id="blockquotes">Blockquotes</h2>
-          <p>For quoting blocks of content from another source within your document.</p>
+        $return .= '<h2 id="addresses">Addresses</h2>';
+        $return .= '<p>Present contact information for the nearest ancestor or the entire body of work.</p>';
 
-          <h3>Default blockquote</h3>
-          <p>Wrap <code>&lt;blockquote&gt;</code> around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote. For straight quotes we recommend a <code>&lt;p&gt;</code>.</p>
-          <div class="bs-docs-example">
-            <blockquote>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            </blockquote>
-          </div>
-<pre class="prettyprint linenums">
-&lt;blockquote&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
-&lt;/blockquote&gt;
-</pre>
+        $return .= '<h3><code>&lt;address&gt;</code></h3>';
+        $return .= '<p>Preserve formatting by ending all lines with <code>&lt;br&gt;</code>.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<address>';
+        $return .= '<strong>Twitter, Inc.</strong><br>';
+        $return .= '795 Folsom Ave, Suite 600<br>';
+        $return .= 'San Francisco, CA 94107<br>';
+        $return .= '<abbr title="Phone">P:</abbr> (123) 456-7890';
+        $return .= '</address>';
+        $return .= '<address>';
+        $return .= '<strong>Full Name</strong><br>';
+        $return .= '<a href="mailto:#">first.last@example.com</a>';
+        $return .= '</address>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;address&gt;';
+        $return .= '  &lt;strong&gt;Twitter, Inc.&lt;/strong&gt;&lt;br&gt;';
+        $return .= '  795 Folsom Ave, Suite 600&lt;br&gt;';
+        $return .= '  San Francisco, CA 94107&lt;br&gt;';
+        $return .= '  &lt;abbr title="Phone"&gt;P:&lt;/abbr&gt; (123) 456-7890';
+        $return .= '&lt;/address&gt;';
 
-          <h3>Blockquote options</h3>
-          <p>Style and content changes for simple variations on a standard blockquote.</p>
+        $return .= '&lt;address&gt;';
+        $return .= '  &lt;strong&gt;Full Name&lt;/strong&gt;&lt;br&gt;';
+        $return .= '  &lt;a href="mailto:#"&gt;first.last@example.com&lt;/a&gt;';
+        $return .= '&lt;/address&gt;';
+        $return .= '</pre>';
 
-          <h4>Naming a source</h4>
-          <p>Add <code>&lt;small&gt;</code> tag for identifying the source. Wrap the name of the source work in <code>&lt;cite&gt;</code>.</p>
-          <div class="bs-docs-example">
-            <blockquote>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-            </blockquote>
-          </div>
-<pre class="prettyprint linenums">
-&lt;blockquote&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;
-  &lt;small&gt;Someone famous &lt;cite title="Source Title"&gt;Source Title&lt;/cite&gt;&lt;/small&gt;
-&lt;/blockquote&gt;
-</pre>
+        $return .= '<hr class="bs-docs-separator">';
 
-          <h4>Alternate displays</h4>
-          <p>Use <code>.pull-right</code> for a floated, right-aligned blockquote.</p>
-          <div class="bs-docs-example" style="overflow: hidden;">
-            <blockquote class="pull-right">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
-            </blockquote>
-          </div>
-<pre class="prettyprint linenums">
-&lt;blockquote class="pull-right"&gt;
-  ...
-&lt;/blockquote&gt;
-</pre>
+        $return .= '<h2 id="blockquotes">Blockquotes</h2>';
+        $return .= '<p>For quoting blocks of content from another source within your document.</p>';
 
+        $return .= '<h3>Default blockquote</h3>';
+        $return .= '<p>Wrap <code>&lt;blockquote&gt;</code> around any <abbr title="HyperText Markup Language">HTML</abbr> ';
+        $return .= 'as the quote. For straight quotes we recommend a <code>&lt;p&gt;</code>.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<blockquote>';
+        $return .= '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>';
+        $return .= '</blockquote>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;blockquote&gt;';
+        $return .= '  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;';
+        $return .= '&lt;/blockquote&gt;';
+        $return .= '</pre>';
 
-          <hr class="bs-docs-separator">
+        $return .= '<h3>Blockquote options</h3>';
+        $return .= '<p>Style and content changes for simple variations on a standard blockquote.</p>';
 
+        $return .= '<h4>Naming a source</h4>';
+        $return .= '<p>Add <code>&lt;small&gt;</code> tag for identifying the source. Wrap the name of the source work in <code>';
+        $return .= '&lt;cite&gt;</code>.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<blockquote>';
+        $return .= '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>';
+        $return .= '<small>Someone famous in <cite title="Source Title">Source Title</cite></small>';
+        $return .= '</blockquote>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;blockquote&gt;';
+        $return .= '  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;';
+        $return .= '  &lt;small&gt;Someone famous &lt;cite title="Source Title"&gt;Source Title&lt;/cite&gt;&lt;/small&gt;';
+        $return .= '&lt;/blockquote&gt;';
+        $return .= '</pre>';
 
-          <!-- Lists -->
-          <h2 id="lists">Lists</h2>
+        $return .= '<h4>Alternate displays</h4>';
+        $return .= '<p>Use <code>.pull-right</code> for a floated, right-aligned blockquote.</p>';
+        $return .= '<div class="bs-docs-example" style="overflow: hidden;">';
+        $return .= '<blockquote class="pull-right">';
+        $return .= '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>';
+        $return .= '<small>Someone famous in <cite title="Source Title">Source Title</cite></small>';
+        $return .= '</blockquote>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;blockquote class="pull-right"&gt;';
+        $return .= '  ...';
+        $return .= '&lt;/blockquote&gt;';
+        $return .= '</pre>';
 
-          <h3>Unordered</h3>
-          <p>A list of items in which the order does <em>not</em> explicitly matter.</p>
-          <div class="bs-docs-example">
-            <ul>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Consectetur adipiscing elit</li>
-              <li>Integer molestie lorem at massa</li>
-              <li>Facilisis in pretium nisl aliquet</li>
-              <li>Nulla volutpat aliquam velit
-                <ul>
-                  <li>Phasellus iaculis neque</li>
-                  <li>Purus sodales ultricies</li>
-                  <li>Vestibulum laoreet porttitor sem</li>
-                  <li>Ac tristique libero volutpat at</li>
-                </ul>
-              </li>
-              <li>Faucibus porta lacus fringilla vel</li>
-              <li>Aenean sit amet erat nunc</li>
-              <li>Eget porttitor lorem</li>
-            </ul>
-          </div>
-<pre class="prettyprint linenums">
-&lt;ul&gt;
-  &lt;li&gt;...&lt;/li&gt;
-&lt;/ul&gt;
-</pre>
+        $return .= '<hr class="bs-docs-separator">';
 
-          <h3>Ordered</h3>
-          <p>A list of items in which the order <em>does</em> explicitly matter.</p>
-          <div class="bs-docs-example">
-            <ol>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Consectetur adipiscing elit</li>
-              <li>Integer molestie lorem at massa</li>
-              <li>Facilisis in pretium nisl aliquet</li>
-              <li>Nulla volutpat aliquam velit</li>
-              <li>Faucibus porta lacus fringilla vel</li>
-              <li>Aenean sit amet erat nunc</li>
-              <li>Eget porttitor lorem</li>
-            </ol>
-          </div>
-<pre class="prettyprint linenums">
-&lt;ol&gt;
-  &lt;li&gt;...&lt;/li&gt;
-&lt;/ol&gt;
-</pre>
+        $return .= '<!-- Lists -->';
+        $return .= '<h2 id="lists">Lists</h2>';
 
-        <h3>Unstyled</h3>
-        <p>Remove the default <code>list-style</code> and left padding on list items (immediate children only).</p>
-        <div class="bs-docs-example">
-          <ul class="unstyled">
-            <li>Lorem ipsum dolor sit amet</li>
-            <li>Consectetur adipiscing elit</li>
-            <li>Integer molestie lorem at massa</li>
-            <li>Facilisis in pretium nisl aliquet</li>
-            <li>Nulla volutpat aliquam velit
-              <ul>
-                <li>Phasellus iaculis neque</li>
-                <li>Purus sodales ultricies</li>
-                <li>Vestibulum laoreet porttitor sem</li>
-                <li>Ac tristique libero volutpat at</li>
-              </ul>
-            </li>
-            <li>Faucibus porta lacus fringilla vel</li>
-            <li>Aenean sit amet erat nunc</li>
-            <li>Eget porttitor lorem</li>
-          </ul>
-        </div>
-<pre class="prettyprint linenums">
-&lt;ul class="unstyled"&gt;
-  &lt;li&gt;...&lt;/li&gt;
-&lt;/ul&gt;
-</pre>
+        $return .= '<h3>Unordered</h3>';
+        $return .= '<p>A list of items in which the order does <em>not</em> explicitly matter.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<ul>';
+        $return .= '<li>Lorem ipsum dolor sit amet</li>';
+        $return .= '<li>Consectetur adipiscing elit</li>';
+        $return .= '<li>Integer molestie lorem at massa</li>';
+        $return .= '<li>Facilisis in pretium nisl aliquet</li>';
+        $return .= '<li>Nulla volutpat aliquam velit';
+        $return .= '<ul>';
+        $return .= '<li>Phasellus iaculis neque</li>';
+        $return .= '<li>Purus sodales ultricies</li>';
+        $return .= '<li>Vestibulum laoreet porttitor sem</li>';
+        $return .= '<li>Ac tristique libero volutpat at</li>';
+        $return .= '</ul>';
+        $return .= '</li>';
+        $return .= '<li>Faucibus porta lacus fringilla vel</li>';
+        $return .= '<li>Aenean sit amet erat nunc</li>';
+        $return .= '<li>Eget porttitor lorem</li>';
+        $return .= '</ul>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;ul&gt;';
+        $return .= '  &lt;li&gt;...&lt;/li&gt;';
+        $return .= '&lt;/ul&gt;';
+        $return .= '</pre>';
 
-        <h3>Inline</h3>
-        <p>Place all list items on a single line with <code>inline-block</code> and some light padding.</p>
-        <div class="bs-docs-example">
-          <ul class="inline">
-            <li>Lorem ipsum</li>
-            <li>Phasellus iaculis</li>
-            <li>Nulla volutpat</li>
-          </ul>
-        </div>
-<pre class="prettyprint linenums">
-&lt;ul class="inline"&gt;
-  &lt;li&gt;...&lt;/li&gt;
-&lt;/ul&gt;
-</pre>
+        $return .= '<h3>Ordered</h3>';
+        $return .= '<p>A list of items in which the order <em>does</em> explicitly matter.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<ol>';
+        $return .= '<li>Lorem ipsum dolor sit amet</li>';
+        $return .= '<li>Consectetur adipiscing elit</li>';
+        $return .= '<li>Integer molestie lorem at massa</li>';
+        $return .= '<li>Facilisis in pretium nisl aliquet</li>';
+        $return .= '<li>Nulla volutpat aliquam velit</li>';
+        $return .= '<li>Faucibus porta lacus fringilla vel</li>';
+        $return .= '<li>Aenean sit amet erat nunc</li>';
+        $return .= '<li>Eget porttitor lorem</li>';
+        $return .= '</ol>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;ol&gt;';
+        $return .= '  &lt;li&gt;...&lt;/li&gt;';
+        $return .= '&lt;/ol&gt;';
+        $return .= '</pre>';
 
-        <h3>Description</h3>
-        <p>A list of terms with their associated descriptions.</p>
-        <div class="bs-docs-example">
-          <dl>
-            <dt>Description lists</dt>
-            <dd>A description list is perfect for defining terms.</dd>
-            <dt>Euismod</dt>
-            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-            <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-            <dt>Malesuada porta</dt>
-            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-          </dl>
-        </div>
-<pre class="prettyprint linenums">
-&lt;dl&gt;
-  &lt;dt&gt;...&lt;/dt&gt;
-  &lt;dd&gt;...&lt;/dd&gt;
-&lt;/dl&gt;
-</pre>
+        $return .= '<h3>Unstyled</h3>';
+        $return .= '<p>Remove the default <code>list-style</code> and left padding on list items (immediate children only).</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<ul class="unstyled">';
+        $return .= '<li>Lorem ipsum dolor sit amet</li>';
+        $return .= '<li>Consectetur adipiscing elit</li>';
+        $return .= '<li>Integer molestie lorem at massa</li>';
+        $return .= '<li>Facilisis in pretium nisl aliquet</li>';
+        $return .= '<li>Nulla volutpat aliquam velit';
+        $return .= '<ul>';
+        $return .= '<li>Phasellus iaculis neque</li>';
+        $return .= '<li>Purus sodales ultricies</li>';
+        $return .= '<li>Vestibulum laoreet porttitor sem</li>';
+        $return .= '<li>Ac tristique libero volutpat at</li>';
+        $return .= '</ul>';
+        $return .= '</li>';
+        $return .= '<li>Faucibus porta lacus fringilla vel</li>';
+        $return .= '<li>Aenean sit amet erat nunc</li>';
+        $return .= '<li>Eget porttitor lorem</li>';
+        $return .= '</ul>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;ul class="unstyled"&gt;';
+        $return .= '  &lt;li&gt;...&lt;/li&gt;';
+        $return .= '&lt;/ul&gt;';
+        $return .= '</pre>';
 
-        <h4>Horizontal description</h4>
-        <p>Make terms and descriptions in <code>&lt;dl&gt;</code> line up side-by-side.</p>
-        <div class="bs-docs-example">
-          <dl class="dl-horizontal">
-            <dt>Description lists</dt>
-            <dd>A description list is perfect for defining terms.</dd>
-            <dt>Euismod</dt>
-            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-            <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-            <dt>Malesuada porta</dt>
-            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-            <dt>Felis euismod semper eget lacinia</dt>
-            <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-          </dl>
-        </div>
-<pre class="prettyprint linenums">
-&lt;dl class="dl-horizontal"&gt;
-  &lt;dt&gt;...&lt;/dt&gt;
-  &lt;dd&gt;...&lt;/dd&gt;
-&lt;/dl&gt;
-</pre>
-        <p>
-          <span class="label label-info">Heads up!</span>
-          Horizontal description lists will truncate terms that are too long to fit in the left column fix <code>text-overflow</code>. In narrower viewports, they will change to the default stacked layout.
-        </p>
-      </section>';
+        $return .= '<h3>Inline</h3>';
+        $return .= '<p>Place all list items on a single line with <code>inline-block</code> and some light padding.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<ul class="inline">';
+        $return .= '<li>Lorem ipsum</li>';
+        $return .= '<li>Phasellus iaculis</li>';
+        $return .= '<li>Nulla volutpat</li>';
+        $return .= '</ul>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;ul class="inline"&gt;';
+        $return .= '  &lt;li&gt;...&lt;/li&gt;';
+        $return .= '&lt;/ul&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Description</h3>';
+        $return .= '<p>A list of terms with their associated descriptions.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<dl>';
+        $return .= '<dt>Description lists</dt>';
+        $return .= '<dd>A description list is perfect for defining terms.</dd>';
+        $return .= '<dt>Euismod</dt>';
+        $return .= '<dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>';
+        $return .= '<dd>Donec id elit non mi porta gravida at eget metus.</dd>';
+        $return .= '<dt>Malesuada porta</dt>';
+        $return .= '<dd>Etiam porta sem malesuada magna mollis euismod.</dd>';
+        $return .= '</dl>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;dl&gt;';
+        $return .= '  &lt;dt&gt;...&lt;/dt&gt;';
+        $return .= '  &lt;dd&gt;...&lt;/dd&gt;';
+        $return .= '&lt;/dl&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h4>Horizontal description</h4>';
+        $return .= '<p>Make terms and descriptions in <code>&lt;dl&gt;</code> line up side-by-side.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<dl class="dl-horizontal">';
+        $return .= '<dt>Description lists</dt>';
+        $return .= '<dd>A description list is perfect for defining terms.</dd>';
+        $return .= '<dt>Euismod</dt>';
+        $return .= '<dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>';
+        $return .= '<dd>Donec id elit non mi porta gravida at eget metus.</dd>';
+        $return .= '<dt>Malesuada porta</dt>';
+        $return .= '<dd>Etiam porta sem malesuada magna mollis euismod.</dd>';
+        $return .= '<dt>Felis euismod semper eget lacinia</dt>';
+        $return .= '<dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit ';
+        $return .= 'amet risus.</dd>';
+        $return .= '</dl>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;dl class="dl-horizontal"&gt;';
+        $return .= '  &lt;dt&gt;...&lt;/dt&gt;';
+        $return .= '  &lt;dd&gt;...&lt;/dd&gt;';
+        $return .= '&lt;/dl&gt;';
+        $return .= '</pre>';
+        $return .= '<p>';
+        $return .= '<span class="label label-info">Heads up!</span>';
+        $return .= 'Horizontal description lists will truncate terms that are too long to fit in the left column fix <code>';
+        $return .= 'text-overflow</code>. In narrower viewports, they will change to the default stacked layout.';
+        $return .= '</p>';
+        $return .= '</section>';
 
         $return .= '<!-- Code
         ================================================== -->
@@ -1833,29 +1843,80 @@ For example, &lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt; should be wrapped 
 
         </section>';
 
-        $return .= '<!-- Images
-        ================================================== -->
-        <section id="images">
-          <div class="page-header">
-            <h1>Images</h1>
-          </div>
+        $return .= '<!-- Images';
+        $return .= '================================================== -->';
+        $return .= '<section id="images">';
+        $return .= '<div class="page-header">';
+        $return .= '<h1>Images</h1>';
+        $return .= '</div>';
 
-          <p>Add classes to an <code>&lt;img&gt;</code> element to easily style images in any project.</p>
-          <div class="bs-docs-example bs-docs-example-images">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAFOUlEQVR4Xu3YZ0ujURCG4YkgFuyoiGLBiiJi+f+/QLGBqNjLBwvG3sCyzIGIyeqSwTEks7dfXHGYN/PMtScnZrLZ7LvwRQJFJpABTJFJUZYSAAwQTAkAxhQXxYDBgCkBwJjiohgwGDAlABhTXBQDBgOmBABjiotiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKADCmuCgGDAZMCQDGFBfFgMGAKQHAmOKiGDAYMCUAGFNcFAMGA6YEAGOKi2LAYMCUAGBMcVEMGAyYEgCMKS6KAYMBUwKAMcVFMWAwYEoAMKa4KAYMBkwJAMYUF8WAwYApAcCY4qIYMBgwJQAYU1wUAwYDpgQAY4qLYsBgwJQAYExxUQwYDJgSAIwpLooBgwFTAoAxxUUxYDBgSgAwprgoBgwGTAkAxhQXxYDBgCkBwJjiohgwGDAlABhTXBQDBgOmBABjiotiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKoOLBPD4+ytLSUhp6dnZWamtr8wLY2NiQ4+NjGR4eloGBgfS7g4MD2d3dldfXV2lsbJSJiYn0vZivUj+vmNdUypqKBfP+/i7n5+eyubkpz8/PUl9f/xeYbDYrq6ur8vLy8gHm+vpaVlZWpLm5OQHSfyuW6elpyWQy32Zf6ueVEoHlWRUL5vb2VhYXF0UX+fb2lk6WzyeMnh6K4fLyMtXkThg9Xba2tmRkZET6+/tlfn5enp6eZGZmJgHUk6ejoyPVLy8vp1NoampKqqqq3J/X0NBg2VVZ1FYsmLu7u7T47u5u0bed6urqPDCHh4eys7MjLS0tcnFx8QFmbW1Nzs7OZHx8XLq6uj5QTU5OplpF+PDwIE1NTQmbnkJDQ0PyG89rb28vCwSWF1GxYHJD5k6az2By94y6urqEQOHkTphCMIU/n5ycyPr6ejpZ9ASYm5tLGH/reZZllUNtSDB64ugpom8lV1dXsr29XdQJo//j9b6zsLCQTpS+vj4ZHR3N29NXQH/yvHJAYHkN4cDo8Lm3lcIg9JTRi+13dxg9Ufb29tI9Ru89NTU1CZ1ekL87YX76PMuyyqE2HJjCj9X7+/t5J4zeS/Qy3NraKoODg+liq1D0U9L9/X36iK6oOjs75ejoSNra2vI+QX11wnxepOV5//pUVg44vnoN/x0YDUEh6L1G335yf4dRNHqfOT09TZB6e3sTppubGxkbG5Oenp6UnxXMd88r9u8+5Qan4sGUW6DRXw9gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/Yeb4/HZAutcoP83oAAAAASUVORK5CYII=" class="img-rounded">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAFOUlEQVR4Xu3YZ0ujURCG4YkgFuyoiGLBiiJi+f+/QLGBqNjLBwvG3sCyzIGIyeqSwTEks7dfXHGYN/PMtScnZrLZ7LvwRQJFJpABTJFJUZYSAAwQTAkAxhQXxYDBgCkBwJjiohgwGDAlABhTXBQDBgOmBABjiotiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKADCmuCgGDAZMCQDGFBfFgMGAKQHAmOKiGDAYMCUAGFNcFAMGA6YEAGOKi2LAYMCUAGBMcVEMGAyYEgCMKS6KAYMBUwKAMcVFMWAwYEoAMKa4KAYMBkwJAMYUF8WAwYApAcCY4qIYMBgwJQAYU1wUAwYDpgQAY4qLYsBgwJQAYExxUQwYDJgSAIwpLooBgwFTAoAxxUUxYDBgSgAwprgoBgwGTAkAxhQXxYDBgCkBwJjiohgwGDAlABhTXBQDBgOmBABjiotiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKoOLBPD4+ytLSUhp6dnZWamtr8wLY2NiQ4+NjGR4eloGBgfS7g4MD2d3dldfXV2lsbJSJiYn0vZivUj+vmNdUypqKBfP+/i7n5+eyubkpz8/PUl9f/xeYbDYrq6ur8vLy8gHm+vpaVlZWpLm5OQHSfyuW6elpyWQy32Zf6ueVEoHlWRUL5vb2VhYXF0UX+fb2lk6WzyeMnh6K4fLyMtXkThg9Xba2tmRkZET6+/tlfn5enp6eZGZmJgHUk6ejoyPVLy8vp1NoampKqqqq3J/X0NBg2VVZ1FYsmLu7u7T47u5u0bed6urqPDCHh4eys7MjLS0tcnFx8QFmbW1Nzs7OZHx8XLq6uj5QTU5OplpF+PDwIE1NTQmbnkJDQ0PyG89rb28vCwSWF1GxYHJD5k6az2By94y6urqEQOHkTphCMIU/n5ycyPr6ejpZ9ASYm5tLGH/reZZllUNtSDB64ugpom8lV1dXsr29XdQJo//j9b6zsLCQTpS+vj4ZHR3N29NXQH/yvHJAYHkN4cDo8Lm3lcIg9JTRi+13dxg9Ufb29tI9Ru89NTU1CZ1ekL87YX76PMuyyqE2HJjCj9X7+/t5J4zeS/Qy3NraKoODg+liq1D0U9L9/X36iK6oOjs75ejoSNra2vI+QX11wnxepOV5//pUVg44vnoN/x0YDUEh6L1G335yf4dRNHqfOT09TZB6e3sTppubGxkbG5Oenp6UnxXMd88r9u8+5Qan4sGUW6DRXw9gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/Yeb4/HZAutcoP83oAAAAASUVORK5CYII=" class="img-circle">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAFOUlEQVR4Xu3YZ0ujURCG4YkgFuyoiGLBiiJi+f+/QLGBqNjLBwvG3sCyzIGIyeqSwTEks7dfXHGYN/PMtScnZrLZ7LvwRQJFJpABTJFJUZYSAAwQTAkAxhQXxYDBgCkBwJjiohgwGDAlABhTXBQDBgOmBABjiotiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKADCmuCgGDAZMCQDGFBfFgMGAKQHAmOKiGDAYMCUAGFNcFAMGA6YEAGOKi2LAYMCUAGBMcVEMGAyYEgCMKS6KAYMBUwKAMcVFMWAwYEoAMKa4KAYMBkwJAMYUF8WAwYApAcCY4qIYMBgwJQAYU1wUAwYDpgQAY4qLYsBgwJQAYExxUQwYDJgSAIwpLooBgwFTAoAxxUUxYDBgSgAwprgoBgwGTAkAxhQXxYDBgCkBwJjiohgwGDAlABhTXBQDBgOmBABjiotiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKoOLBPD4+ytLSUhp6dnZWamtr8wLY2NiQ4+NjGR4eloGBgfS7g4MD2d3dldfXV2lsbJSJiYn0vZivUj+vmNdUypqKBfP+/i7n5+eyubkpz8/PUl9f/xeYbDYrq6ur8vLy8gHm+vpaVlZWpLm5OQHSfyuW6elpyWQy32Zf6ueVEoHlWRUL5vb2VhYXF0UX+fb2lk6WzyeMnh6K4fLyMtXkThg9Xba2tmRkZET6+/tlfn5enp6eZGZmJgHUk6ejoyPVLy8vp1NoampKqqqq3J/X0NBg2VVZ1FYsmLu7u7T47u5u0bed6urqPDCHh4eys7MjLS0tcnFx8QFmbW1Nzs7OZHx8XLq6uj5QTU5OplpF+PDwIE1NTQmbnkJDQ0PyG89rb28vCwSWF1GxYHJD5k6az2By94y6urqEQOHkTphCMIU/n5ycyPr6ejpZ9ASYm5tLGH/reZZllUNtSDB64ugpom8lV1dXsr29XdQJo//j9b6zsLCQTpS+vj4ZHR3N29NXQH/yvHJAYHkN4cDo8Lm3lcIg9JTRi+13dxg9Ufb29tI9Ru89NTU1CZ1ekL87YX76PMuyyqE2HJjCj9X7+/t5J4zeS/Qy3NraKoODg+liq1D0U9L9/X36iK6oOjs75ejoSNra2vI+QX11wnxepOV5//pUVg44vnoN/x0YDUEh6L1G335yf4dRNHqfOT09TZB6e3sTppubGxkbG5Oenp6UnxXMd88r9u8+5Qan4sGUW6DRXw9gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/Yeb4/HZAutcoP83oAAAAASUVORK5CYII=" class="img-polaroid">
-          </div>
-<pre class="prettyprint linenums">
-&lt;img src="..." class="img-rounded"&gt;
-&lt;img src="..." class="img-circle"&gt;
-&lt;img src="..." class="img-polaroid"&gt;
-</pre>
-          <p><span class="label label-info">Heads up!</span> <code>.img-rounded</code> and <code>.img-circle</code> do not work in IE7-8 due to lack of <code>border-radius</code> support.</p>
-
-
-        </section>';
+        $return .= '<p>Add classes to an <code>&lt;img&gt;</code> element to easily style images in any project.</p>';
+        $return .= '<div class="bs-docs-example bs-docs-example-images">';
+        $return .= '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAFOUlEQVR4Xu3YZ0ujURCG4YkgFuyoi';
+        $return .= 'GLBiiJi+f+/QLGBqNjLBwvG3sCyzIGIyeqSwTEks7dfXHGYN/PMtScnZrLZ7LvwRQJFJpABTJFJUZYSAAwQTAkAxhQXxYDBgCkBwJjiohgwGD';
+        $return .= 'AlABhTXBQDBgOmBABjiotiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKADCmuCgGDAZMCQDGFBfFgMGAKQHAmOKiGDAYMCUAGFN';
+        $return .= 'cFAMGA6YEAGOKi2LAYMCUAGBMcVEMGAyYEgCMKS6KAYMBUwKAMcVFMWAwYEoAMKa4KAYMBkwJAMYUF8WAwYApAcCY4qIYMBgwJQAYU1wUAwYD';
+        $return .= 'pgQAY4qLYsBgwJQAYExxUQwYDJgSAIwpLooBgwFTAoAxxUUxYDBgSgAwprgoBgwGTAkAxhQXxYDBgCkBwJjiohgwGDAlABhTXBQDBgOmBABji';
+        $return .= 'otiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKoOLBPD4+ytLSUhp6dnZWamtr8wLY2NiQ4+NjGR4eloGBgfS7g4MD2d3dldfXV2';
+        $return .= 'lsbJSJiYn0vZivUj+vmNdUypqKBfP+/i7n5+eyubkpz8/PUl9f/xeYbDYrq6ur8vLy8gHm+vpaVlZWpLm5OQHSfyuW6elpyWQy32Zf6ueVEoH';
+        $return .= 'lWRUL5vb2VhYXF0UX+fb2lk6WzyeMnh6K4fLyMtXkThg9Xba2tmRkZET6+/tlfn5enp6eZGZmJgHUk6ejoyPVLy8vp1NoampKqqqq3J/X0NBg';
+        $return .= '2VVZ1FYsmLu7u7T47u5u0bed6urqPDCHh4eys7MjLS0tcnFx8QFmbW1Nzs7OZHx8XLq6uj5QTU5OplpF+PDwIE1NTQmbnkJDQ0PyG89rb28vC';
+        $return .= 'wSWF1GxYHJD5k6az2By94y6urqEQOHkTphCMIU/n5ycyPr6ejpZ9ASYm5tLGH/reZZllUNtSDB64ugpom8lV1dXsr29XdQJo//j9b6zsLCQTp';
+        $return .= 'S+vj4ZHR3N29NXQH/yvHJAYHkN4cDo8Lm3lcIg9JTRi+13dxg9Ufb29tI9Ru89NTU1CZ1ekL87YX76PMuyyqE2HJjCj9X7+/t5J4zeS/Qy3Nr';
+        $return .= 'aKoODg+liq1D0U9L9/X36iK6oOjs75ejoSNra2vI+QX11wnxepOV5//pUVg44vnoN/x0YDUEh6L1G335yf4dRNHqfOT09TZB6e3sTppubGxkb';
+        $return .= 'G5Oenp6UnxXMd88r9u8+5Qan4sGUW6DRXw9gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AO';
+        $return .= 'AcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT';
+        $return .= '7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/';
+        $return .= 'YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1g';
+        $return .= 'om/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcav';
+        $return .= 'R1gom/Yeb4/HZAutcoP83oAAAAASUVORK5CYII=" class="img-rounded">';
+        $return .= '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAFOUlEQVR4Xu3YZ0ujURCG4YkgFuyoi';
+        $return .= 'GLBiiJi+f+/QLGBqNjLBwvG3sCyzIGIyeqSwTEks7dfXHGYN/PMtScnZrLZ7LvwRQJFJpABTJFJUZYSAAwQTAkAxhQXxYDBgCkBwJjiohgwGD';
+        $return .= 'AlABhTXBQDBgOmBABjiotiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKADCmuCgGDAZMCQDGFBfFgMGAKQHAmOKiGDAYMCUAGFN';
+        $return .= 'cFAMGA6YEAGOKi2LAYMCUAGBMcVEMGAyYEgCMKS6KAYMBUwKAMcVFMWAwYEoAMKa4KAYMBkwJAMYUF8WAwYApAcCY4qIYMBgwJQAYU1wUAwYD';
+        $return .= 'pgQAY4qLYsBgwJQAYExxUQwYDJgSAIwpLooBgwFTAoAxxUUxYDBgSgAwprgoBgwGTAkAxhQXxYDBgCkBwJjiohgwGDAlABhTXBQDBgOmBABji';
+        $return .= 'otiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKoOLBPD4+ytLSUhp6dnZWamtr8wLY2NiQ4+NjGR4eloGBgfS7g4MD2d3dldfXV2';
+        $return .= 'lsbJSJiYn0vZivUj+vmNdUypqKBfP+/i7n5+eyubkpz8/PUl9f/xeYbDYrq6ur8vLy8gHm+vpaVlZWpLm5OQHSfyuW6elpyWQy32Zf6ueVEoH';
+        $return .= 'lWRUL5vb2VhYXF0UX+fb2lk6WzyeMnh6K4fLyMtXkThg9Xba2tmRkZET6+/tlfn5enp6eZGZmJgHUk6ejoyPVLy8vp1NoampKqqqq3J/X0NBg';
+        $return .= '2VVZ1FYsmLu7u7T47u5u0bed6urqPDCHh4eys7MjLS0tcnFx8QFmbW1Nzs7OZHx8XLq6uj5QTU5OplpF+PDwIE1NTQmbnkJDQ0PyG89rb28vC';
+        $return .= 'wSWF1GxYHJD5k6az2By94y6urqEQOHkTphCMIU/n5ycyPr6ejpZ9ASYm5tLGH/reZZllUNtSDB64ugpom8lV1dXsr29XdQJo//j9b6zsLCQTp';
+        $return .= 'S+vj4ZHR3N29NXQH/yvHJAYHkN4cDo8Lm3lcIg9JTRi+13dxg9Ufb29tI9Ru89NTU1CZ1ekL87YX76PMuyyqE2HJjCj9X7+/t5J4zeS/Qy3Nr';
+        $return .= 'aKoODg+liq1D0U9L9/X36iK6oOjs75ejoSNra2vI+QX11wnxepOV5//pUVg44vnoN/x0YDUEh6L1G335yf4dRNHqfOT09TZB6e3sTppubGxkb';
+        $return .= 'G5Oenp6UnxXMd88r9u8+5Qan4sGUW6DRXw9gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AO';
+        $return .= 'AcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT';
+        $return .= '7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/';
+        $return .= 'YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1g';
+        $return .= 'om/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcav';
+        $return .= 'R1gom/Yeb4/HZAutcoP83oAAAAASUVORK5CYII=" class="img-circle">';
+        $return .= '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAYAAACuwEE+AAAFOUlEQVR4Xu3YZ0ujURCG4YkgFuyoi';
+        $return .= 'GLBiiJi+f+/QLGBqNjLBwvG3sCyzIGIyeqSwTEks7dfXHGYN/PMtScnZrLZ7LvwRQJFJpABTJFJUZYSAAwQTAkAxhQXxYDBgCkBwJjiohgwGD';
+        $return .= 'AlABhTXBQDBgOmBABjiotiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKADCmuCgGDAZMCQDGFBfFgMGAKQHAmOKiGDAYMCUAGFN';
+        $return .= 'cFAMGA6YEAGOKi2LAYMCUAGBMcVEMGAyYEgCMKS6KAYMBUwKAMcVFMWAwYEoAMKa4KAYMBkwJAMYUF8WAwYApAcCY4qIYMBgwJQAYU1wUAwYD';
+        $return .= 'pgQAY4qLYsBgwJQAYExxUQwYDJgSAIwpLooBgwFTAoAxxUUxYDBgSgAwprgoBgwGTAkAxhQXxYDBgCkBwJjiohgwGDAlABhTXBQDBgOmBABji';
+        $return .= 'otiwGDAlABgTHFRDBgMmBIAjCkuigGDAVMCgDHFRTFgMGBKoOLBPD4+ytLSUhp6dnZWamtr8wLY2NiQ4+NjGR4eloGBgfS7g4MD2d3dldfXV2';
+        $return .= 'lsbJSJiYn0vZivUj+vmNdUypqKBfP+/i7n5+eyubkpz8/PUl9f/xeYbDYrq6ur8vLy8gHm+vpaVlZWpLm5OQHSfyuW6elpyWQy32Zf6ueVEoH';
+        $return .= 'lWRUL5vb2VhYXF0UX+fb2lk6WzyeMnh6K4fLyMtXkThg9Xba2tmRkZET6+/tlfn5enp6eZGZmJgHUk6ejoyPVLy8vp1NoampKqqqq3J/X0NBg';
+        $return .= '2VVZ1FYsmLu7u7T47u5u0bed6urqPDCHh4eys7MjLS0tcnFx8QFmbW1Nzs7OZHx8XLq6uj5QTU5OplpF+PDwIE1NTQmbnkJDQ0PyG89rb28vC';
+        $return .= 'wSWF1GxYHJD5k6az2By94y6urqEQOHkTphCMIU/n5ycyPr6ejpZ9ASYm5tLGH/reZZllUNtSDB64ugpom8lV1dXsr29XdQJo//j9b6zsLCQTp';
+        $return .= 'S+vj4ZHR3N29NXQH/yvHJAYHkN4cDo8Lm3lcIg9JTRi+13dxg9Ufb29tI9Ru89NTU1CZ1ekL87YX76PMuyyqE2HJjCj9X7+/t5J4zeS/Qy3Nr';
+        $return .= 'aKoODg+liq1D0U9L9/X36iK6oOjs75ejoSNra2vI+QX11wnxepOV5//pUVg44vnoN/x0YDUEh6L1G335yf4dRNHqfOT09TZB6e3sTppubGxkb';
+        $return .= 'G5Oenp6UnxXMd88r9u8+5Qan4sGUW6DRXw9gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AO';
+        $return .= 'AcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT';
+        $return .= '7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/';
+        $return .= 'YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1g';
+        $return .= 'om/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcavR1gom/YeT7AOAcav';
+        $return .= 'R1gom/Yeb4/HZAutcoP83oAAAAASUVORK5CYII=" class="img-polaroid">';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;img src="..." class="img-rounded"&gt;';
+        $return .= '&lt;img src="..." class="img-circle"&gt;';
+        $return .= '&lt;img src="..." class="img-polaroid"&gt;';
+        $return .= '</pre>';
+        $return .= '<p><span class="label label-info">Heads up!</span> <code>.img-rounded</code> and <code>.img-circle</code> do';
+        $return .= 'not work in IE7-8 due to lack of <code>border-radius</code> support.</p>';
+        $return .= '</section>';
 
         return $return;
     }
+
 }
