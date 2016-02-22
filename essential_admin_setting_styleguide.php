@@ -465,1219 +465,1238 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</p>';
         $return .= '</section>';
 
-        $return .= '<!-- Code
-        ================================================== -->
-        <section id="code">
-          <div class="page-header">
-            <h1>Code</h1>
-          </div>
-
-          <h2>Inline</h2>
-          <p>Wrap inline snippets of code with <code>&lt;code&gt;</code>.</p>
-<div class="bs-docs-example">
-  For example, <code>&lt;section&gt;</code> should be wrapped as inline.
-</div>
-<pre class="prettyprint linenums">
-For example, &lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt; should be wrapped as inline.
-</pre>
-
-          <h2>Basic block</h2>
-          <p>Use <code>&lt;pre&gt;</code> for multiple lines of code. Be sure to escape any angle brackets in the code for proper rendering.</p>
-<div class="bs-docs-example">
-  <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
-</div>
-<pre class="prettyprint linenums" style="margin-bottom: 9px;">
-&lt;pre&gt;
-  &amp;lt;p&amp;gt;Sample text here...&amp;lt;/p&amp;gt;
-&lt;/pre&gt;
-</pre>
-          <p><span class="label label-info">Heads up!</span> Be sure to keep code within <code>&lt;pre&gt;</code> tags as close to the left as possible; it will render all tabs.</p>
-          <p>You may optionally add the <code>.pre-scrollable</code> class which will set a max-height of 350px and provide a y-axis scrollbar.</p>
-        </section>';
-
-        $return .= '<!-- Tables
-        ================================================== -->
-        <section id="tables">
-          <div class="page-header">
-            <h1>Tables</h1>
-          </div>
-
-          <h2>Default styles</h2>
-          <p>For basic styling&mdash;light padding and only horizontal dividers&mdash;add the base class <code>.table</code> to any <code>&lt;table&gt;</code>.</p>
-          <div class="bs-docs-example">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-<pre class="prettyprint linenums">
-&lt;table class="table"&gt;
-  …
-&lt;/table&gt;
-</pre>
-
-
-          <hr class="bs-docs-separator">
-
-
-          <h2>Optional classes</h2>
-          <p>Add any of the following classes to the <code>.table</code> base class.</p>
-
-          <h3><code>.table-striped</code></h3>
-          <p>Adds zebra-striping to any table row within the <code>&lt;tbody&gt;</code> via the <code>:nth-child</code> CSS selector (not available in IE7-8).</p>
-          <div class="bs-docs-example">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-<pre class="prettyprint linenums" style="margin-bottom: 18px;">
-&lt;table class="table table-striped"&gt;
-  …
-&lt;/table&gt;
-</pre>
-
-          <h3><code>.table-bordered</code></h3>
-          <p>Add borders and rounded corners to the table.</p>
-          <div class="bs-docs-example">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td rowspan="2">1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@TwBootstrap</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-<pre class="prettyprint linenums">
-&lt;table class="table table-bordered"&gt;
-  …
-&lt;/table&gt;
-</pre>
-
-          <h3><code>.table-hover</code></h3>
-          <p>Enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
-          <div class="bs-docs-example">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-<pre class="prettyprint linenums" style="margin-bottom: 18px;">
-&lt;table class="table table-hover"&gt;
-  …
-&lt;/table&gt;
-</pre>
-
-          <h3><code>.table-condensed</code></h3>
-          <p>Makes tables more compact by cutting cell padding in half.</p>
-          <div class="bs-docs-example">
-            <table class="table table-condensed">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-<pre class="prettyprint linenums" style="margin-bottom: 18px;">
-&lt;table class="table table-condensed"&gt;
-  …
-&lt;/table&gt;
-</pre>
-
-
-          <hr class="bs-docs-separator">
-
-
-          <h2>Optional row classes</h2>
-          <p>Use contextual classes to color table rows.</p>
-          <table class="table table-bordered table-striped">
-            <colgroup>
-              <col class="span1">
-              <col class="span7">
-            </colgroup>
-            <thead>
-              <tr>
-                <th>Class</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <code>.success</code>
-                </td>
-                <td>Indicates a successful or positive action.</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>.error</code>
-                </td>
-                <td>Indicates a dangerous or potentially negative action.</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>.warning</code>
-                </td>
-                <td>Indicates a warning that might need attention.</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>.info</code>
-                </td>
-                <td>Used as an alternative to the default styles.</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="bs-docs-example">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Product</th>
-                  <th>Payment Taken</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="success">
-                  <td>1</td>
-                  <td>TB - Monthly</td>
-                  <td>01/04/2012</td>
-                  <td>Approved</td>
-                </tr>
-                <tr class="error">
-                  <td>2</td>
-                  <td>TB - Monthly</td>
-                  <td>02/04/2012</td>
-                  <td>Declined</td>
-                </tr>
-                <tr class="warning">
-                  <td>3</td>
-                  <td>TB - Monthly</td>
-                  <td>03/04/2012</td>
-                  <td>Pending</td>
-                </tr>
-                <tr class="info">
-                  <td>4</td>
-                  <td>TB - Monthly</td>
-                  <td>04/04/2012</td>
-                  <td>Call in to confirm</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-<pre class="prettyprint linenums">
-...
-  &lt;tr class="success"&gt;
-    &lt;td&gt;1&lt;/td&gt;
-    &lt;td&gt;TB - Monthly&lt;/td&gt;
-    &lt;td&gt;01/04/2012&lt;/td&gt;
-    &lt;td&gt;Approved&lt;/td&gt;
-  &lt;/tr&gt;
-...
-</pre>
-
-
-          <hr class="bs-docs-separator">
-
-
-          <h2>Supported table markup</h2>
-          <p>List of supported table HTML elements and how they should be used.</p>
-          <table class="table table-bordered table-striped">
-            <colgroup>
-              <col class="span1">
-              <col class="span7">
-            </colgroup>
-            <thead>
-              <tr>
-                <th>Tag</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <code>&lt;table&gt;</code>
-                </td>
-                <td>
-                  Wrapping element for displaying data in a tabular format
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <code>&lt;thead&gt;</code>
-                </td>
-                <td>
-                  Container element for table header rows (<code>&lt;tr&gt;</code>) to label table columns
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <code>&lt;tbody&gt;</code>
-                </td>
-                <td>
-                  Container element for table rows (<code>&lt;tr&gt;</code>) in the body of the table
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <code>&lt;tr&gt;</code>
-                </td>
-                <td>
-                  Container element for a set of table cells (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) that appears on a single row
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <code>&lt;td&gt;</code>
-                </td>
-                <td>
-                  Default table cell
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <code>&lt;th&gt;</code>
-                </td>
-                <td>
-                  Special table cell for column (or row, depending on scope and placement) labels
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <code>&lt;caption&gt;</code>
-                </td>
-                <td>
-                  Description or summary of what the table holds, especially useful for screen readers
-                </td>
-              </tr>
-            </tbody>
-          </table>
-<pre class="prettyprint linenums">
-&lt;table&gt;
-  &lt;caption&gt;...&lt;/caption&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;...&lt;/th&gt;
-      &lt;th&gt;...&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;...&lt;/td&gt;
-      &lt;td&gt;...&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</pre>
-
-        </section>';
-
-        $return .= '<!-- Forms
-        ================================================== -->
-        <section id="forms">
-          <div class="page-header">
-            <h1>Forms</h1>
-          </div>
-
-          <h2>Default styles</h2>
-          <p>Individual form controls receive styling, but without any required base class on the <code>&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top of form controls.</p>
-          <form class="bs-docs-example">
-            <fieldset>
-              <legend>Legend</legend>
-              <label>Label name</label>
-              <input type="text" placeholder="Type something…">
-              <span class="help-block">Example block-level help text here.</span>
-              <label class="checkbox">
-                <input type="checkbox"> Check me out
-              </label>
-              <button type="submit" class="btn">Submit</button>
-            </fieldset>
-          </form>
-<pre class="prettyprint linenums">
-&lt;form&gt;
-  &lt;fieldset&gt;
-    &lt;legend&gt;Legend&lt;/legend&gt;
-    &lt;label&gt;Label name&lt;/label&gt;
-    &lt;input type="text" placeholder="Type something…"&gt;
-    &lt;span class="help-block"&gt;Example block-level help text here.&lt;/span&gt;
-    &lt;label class="checkbox"&gt;
-      &lt;input type="checkbox"&gt; Check me out
-    &lt;/label&gt;
-    &lt;button type="submit" class="btn"&gt;Submit&lt;/button&gt;
-  &lt;/fieldset&gt;
-&lt;/form&gt;
-</pre>
-
-
-          <hr class="bs-docs-separator">
-
-
-          <h2>Optional layouts</h2>
-          <p>Included with Bootstrap are three optional form layouts for common use cases.</p>
-
-          <h3>Search form</h3>
-          <p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;</code> for an extra-rounded text input.</p>
-          <form class="bs-docs-example form-search">
-            <input type="text" class="input-medium search-query">
-            <button type="submit" class="btn">Search</button>
-          </form>
-<pre class="prettyprint linenums">
-&lt;form class="form-search"&gt;
-  &lt;input type="text" class="input-medium search-query"&gt;
-  &lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-&lt;/form&gt;
-</pre>
-
-          <h3>Inline form</h3>
-          <p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>
-          <form class="bs-docs-example form-inline">
-            <input type="text" class="input-small" placeholder="Email">
-            <input type="password" class="input-small" placeholder="Password">
-            <label class="checkbox">
-              <input type="checkbox"> Remember me
-            </label>
-            <button type="submit" class="btn">Sign in</button>
-          </form>
-<pre class="prettyprint linenums">
-&lt;form class="form-inline"&gt;
-  &lt;input type="text" class="input-small" placeholder="Email"&gt;
-  &lt;input type="password" class="input-small" placeholder="Password"&gt;
-  &lt;label class="checkbox"&gt;
-    &lt;input type="checkbox"&gt; Remember me
-  &lt;/label&gt;
-  &lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
-&lt;/form&gt;
-</pre>
-
-          <h3>Horizontal form</h3>
-          <p>Right align labels and float them to the left to make them appear on the same line as controls. Requires the most markup changes from a default form:</p>
-          <ul>
-            <li>Add <code>.form-horizontal</code> to the form</li>
-            <li>Wrap labels and controls in <code>.control-group</code></li>
-            <li>Add <code>.control-label</code> to the label</li>
-            <li>Wrap any associated controls in <code>.controls</code> for proper alignment</li>
-          </ul>
-          <form class="bs-docs-example form-horizontal">
-            <div class="control-group">
-              <label class="control-label" for="inputEmail">Email</label>
-              <div class="controls">
-                <input type="text" id="inputEmail" placeholder="Email">
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="inputPassword">Password</label>
-              <div class="controls">
-                <input type="password" id="inputPassword" placeholder="Password">
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="controls">
-                <label class="checkbox">
-                  <input type="checkbox"> Remember me
-                </label>
-                <button type="submit" class="btn">Sign in</button>
-              </div>
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;form class="form-horizontal"&gt;
-  &lt;div class="control-group"&gt;
-    &lt;label class="control-label" for="inputEmail"&gt;Email&lt;/label&gt;
-    &lt;div class="controls"&gt;
-      &lt;input type="text" id="inputEmail" placeholder="Email"&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="control-group"&gt;
-    &lt;label class="control-label" for="inputPassword"&gt;Password&lt;/label&gt;
-    &lt;div class="controls"&gt;
-      &lt;input type="password" id="inputPassword" placeholder="Password"&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="control-group"&gt;
-    &lt;div class="controls"&gt;
-      &lt;label class="checkbox"&gt;
-        &lt;input type="checkbox"&gt; Remember me
-      &lt;/label&gt;
-      &lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/form&gt;
-</pre>
-
-
-          <hr class="bs-docs-separator">
-
-
-          <h2>Supported form controls</h2>
-          <p>Examples of standard form controls supported in an example form layout.</p>
-
-          <h3>Inputs</h3>
-          <p>Most common form control, text-based input fields. Includes support for all HTML5 types: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</p>
-          <p>Requires the use of a specified <code>type</code> at all times.</p>
-          <form class="bs-docs-example form-inline">
-            <input type="text" placeholder="Text input">
-          </form>
-<pre class="prettyprint linenums">
-&lt;input type="text" placeholder="Text input"&gt;
-</pre>
-
-          <h3>Textarea</h3>
-          <p>Form control which supports multiple lines of text. Change <code>rows</code> attribute as necessary.</p>
-          <form class="bs-docs-example form-inline">
-            <textarea rows="3"></textarea>
-          </form>
-<pre class="prettyprint linenums">
-&lt;textarea rows="3"&gt;&lt;/textarea&gt;
-</pre>
-
-          <h3>Checkboxes and radios</h3>
-          <p>Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.</p>
-          <h4>Default (stacked)</h4>
-          <form class="bs-docs-example">
-            <label class="checkbox">
-              <input type="checkbox" value="">
-              Option one is this and that&mdash;be sure to include why it\'s great
-            </label>
-            <br>
-            <label class="radio">
-              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-              Option one is this and that&mdash;be sure to include why it\'s great
-            </label>
-            <label class="radio">
-              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-              Option two can be something else and selecting it will deselect option one
-            </label>
-          </form>
-<pre class="prettyprint linenums">
-&lt;label class="checkbox"&gt;
-  &lt;input type="checkbox" value=""&gt;
-  Option one is this and that&mdash;be sure to include why it\'s great
-&lt;/label&gt;
-
-&lt;label class="radio"&gt;
-  &lt;input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked&gt;
-  Option one is this and that&mdash;be sure to include why it\'s great
-&lt;/label&gt;
-&lt;label class="radio"&gt;
-  &lt;input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"&gt;
-  Option two can be something else and selecting it will deselect option one
-&lt;/label&gt;
-</pre>
-
-          <h4>Inline checkboxes</h4>
-          <p>Add the <code>.inline</code> class to a series of checkboxes or radios for controls appear on the same line.</p>
-          <form class="bs-docs-example">
-            <label class="checkbox inline">
-              <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
-            </label>
-            <label class="checkbox inline">
-              <input type="checkbox" id="inlineCheckbox2" value="option2"> 2
-            </label>
-            <label class="checkbox inline">
-              <input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-            </label>
-          </form>
-<pre class="prettyprint linenums">
-&lt;label class="checkbox inline"&gt;
-  &lt;input type="checkbox" id="inlineCheckbox1" value="option1"&gt; 1
-&lt;/label&gt;
-&lt;label class="checkbox inline"&gt;
-  &lt;input type="checkbox" id="inlineCheckbox2" value="option2"&gt; 2
-&lt;/label&gt;
-&lt;label class="checkbox inline"&gt;
-  &lt;input type="checkbox" id="inlineCheckbox3" value="option3"&gt; 3
-&lt;/label&gt;
-</pre>
-
-          <h3>Selects</h3>
-          <p>Use the default option or specify a <code>multiple="multiple"</code> to show multiple options at once.</p>
-          <form class="bs-docs-example">
-            <select>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-            <br>
-            <select multiple="multiple">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </form>
-<pre class="prettyprint linenums">
-&lt;select&gt;
-  &lt;option&gt;1&lt;/option&gt;
-  &lt;option&gt;2&lt;/option&gt;
-  &lt;option&gt;3&lt;/option&gt;
-  &lt;option&gt;4&lt;/option&gt;
-  &lt;option&gt;5&lt;/option&gt;
-&lt;/select&gt;
-
-&lt;select multiple="multiple"&gt;
-  &lt;option&gt;1&lt;/option&gt;
-  &lt;option&gt;2&lt;/option&gt;
-  &lt;option&gt;3&lt;/option&gt;
-  &lt;option&gt;4&lt;/option&gt;
-  &lt;option&gt;5&lt;/option&gt;
-&lt;/select&gt;
-</pre>
-
-
-          <hr class="bs-docs-separator">
-
-
-          <h2>Extending form controls</h2>
-          <p>Adding on top of existing browser controls, Bootstrap includes other useful form components.</p>
-
-          <h3>Prepended and appended inputs</h3>
-          <p>Add text or buttons before or after any text-based input. Do note that <code>select</code> elements are not supported here.</p>
-
-          <h4>Default options</h4>
-          <p>Wrap an <code>.add-on</code> and an <code>input</code> with one of two classes to prepend or append text to an input.</p>
-          <form class="bs-docs-example">
-            <div class="input-prepend">
-              <span class="add-on">@</span>
-              <input class="span2" id="prependedInput" type="text" placeholder="Username">
-            </div>
-            <br>
-            <div class="input-append">
-              <input class="span2" id="appendedInput" type="text">
-              <span class="add-on">.00</span>
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;div class="input-prepend"&gt;
-  &lt;span class="add-on"&gt;@&lt;/span&gt;
-  &lt;input class="span2" id="prependedInput" type="text" placeholder="Username"&gt;
-&lt;/div&gt;
-&lt;div class="input-append"&gt;
-  &lt;input class="span2" id="appendedInput" type="text"&gt;
-  &lt;span class="add-on"&gt;.00&lt;/span&gt;
-&lt;/div&gt;
-</pre>
-
-          <h4>Combined</h4>
-          <p>Use both classes and two instances of <code>.add-on</code> to prepend and append an input.</p>
-          <form class="bs-docs-example form-inline">
-            <div class="input-prepend input-append">
-              <span class="add-on">$</span>
-              <input class="span2" id="appendedPrependedInput" type="text">
-              <span class="add-on">.00</span>
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;div class="input-prepend input-append"&gt;
-  &lt;span class="add-on"&gt;$&lt;/span&gt;
-  &lt;input class="span2" id="appendedPrependedInput" type="text"&gt;
-  &lt;span class="add-on"&gt;.00&lt;/span&gt;
-&lt;/div&gt;
-</pre>
-
-          <h4>Buttons instead of text</h4>
-          <p>Instead of a <code>&lt;span&gt;</code> with text, use a <code>.btn</code> to attach a button (or two) to an input.</p>
-          <form class="bs-docs-example">
-            <div class="input-append">
-              <input class="span2" id="appendedInputButton" type="text">
-              <button class="btn" type="button">Go!</button>
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;div class="input-append"&gt;
-  &lt;input class="span2" id="appendedInputButton" type="text"&gt;
-  &lt;button class="btn" type="button"&gt;Go!&lt;/button&gt;
-&lt;/div&gt;
-</pre>
-          <form class="bs-docs-example">
-            <div class="input-append">
-              <input class="span2" id="appendedInputButtons" type="text">
-              <button class="btn" type="button">Search</button>
-              <button class="btn" type="button">Options</button>
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;div class="input-append"&gt;
-  &lt;input class="span2" id="appendedInputButtons" type="text"&gt;
-  &lt;button class="btn" type="button"&gt;Search&lt;/button&gt;
-  &lt;button class="btn" type="button"&gt;Options&lt;/button&gt;
-&lt;/div&gt;
-</pre>
-
-          <h4>Button dropdowns</h4>
-          <p></p>
-          <form class="bs-docs-example">
-            <div class="input-append">
-              <input class="span2" id="appendedDropdownButton" type="text">
-              <div class="btn-group">
-                <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div><!-- /btn-group -->
-            </div><!-- /input-append -->
-          </form>
-<pre class="prettyprint linenums">
-&lt;div class="input-append"&gt;
-  &lt;input class="span2" id="appendedDropdownButton" type="text"&gt;
-  &lt;div class="btn-group"&gt;
-    &lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-      Action
-      &lt;span class="caret"&gt;&lt;/span&gt;
-    &lt;/button&gt;
-    &lt;ul class="dropdown-menu"&gt;
-      ...
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-          <form class="bs-docs-example">
-            <div class="input-prepend">
-              <div class="btn-group">
-                <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div><!-- /btn-group -->
-              <input class="span2" id="prependedDropdownButton" type="text">
-            </div><!-- /input-prepend -->
-          </form>
-<pre class="prettyprint linenums">
-&lt;div class="input-prepend"&gt;
-  &lt;div class="btn-group"&gt;
-    &lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-      Action
-      &lt;span class="caret"&gt;&lt;/span&gt;
-    &lt;/button&gt;
-    &lt;ul class="dropdown-menu"&gt;
-      ...
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  &lt;input class="span2" id="prependedDropdownButton" type="text"&gt;
-&lt;/div&gt;
-</pre>
-
-          <form class="bs-docs-example">
-            <div class="input-prepend input-append">
-              <div class="btn-group">
-                <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div><!-- /btn-group -->
-              <input class="span2" id="appendedPrependedDropdownButton" type="text">
-              <div class="btn-group">
-                <button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div><!-- /btn-group -->
-            </div><!-- /input-prepend input-append -->
-          </form>
-<pre class="prettyprint linenums">
-&lt;div class="input-prepend input-append"&gt;
-  &lt;div class="btn-group"&gt;
-    &lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-      Action
-      &lt;span class="caret"&gt;&lt;/span&gt;
-    &lt;/button&gt;
-    &lt;ul class="dropdown-menu"&gt;
-      ...
-    &lt;/ul&gt;
-  &lt;/div&gt;
-  &lt;input class="span2" id="appendedPrependedDropdownButton" type="text"&gt;
-  &lt;div class="btn-group"&gt;
-    &lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;
-      Action
-      &lt;span class="caret"&gt;&lt;/span&gt;
-    &lt;/button&gt;
-    &lt;ul class="dropdown-menu"&gt;
-      ...
-    &lt;/ul&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-          <h4>Segmented dropdown groups</h4>
-          <form class="bs-docs-example">
-            <div class="input-prepend">
-              <div class="btn-group">
-                <button class="btn" tabindex="-1">Action</button>
-                <button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
-              <input type="text">
-            </div>
-            <div class="input-append">
-              <input type="text">
-              <div class="btn-group">
-                <button class="btn" tabindex="-1">Action</button>
-                <button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;form&gt;
-  &lt;div class="input-prepend"&gt;
-    &lt;div class="btn-group"&gt;...&lt;/div&gt;
-    &lt;input type="text"&gt;
-  &lt;/div&gt;
-  &lt;div class="input-append"&gt;
-    &lt;input type="text"&gt;
-    &lt;div class="btn-group"&gt;...&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/form&gt;
-</pre>
-
-          <h4>Search form</h4>
-          <form class="bs-docs-example form-search">
-            <div class="input-append">
-              <input type="text" class="span2 search-query">
-              <button type="submit" class="btn">Search</button>
-            </div>
-            <div class="input-prepend">
-              <button type="submit" class="btn">Search</button>
-              <input type="text" class="span2 search-query">
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;form class="form-search"&gt;
-  &lt;div class="input-append"&gt;
-    &lt;input type="text" class="span2 search-query"&gt;
-    &lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class="input-prepend"&gt;
-    &lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
-    &lt;input type="text" class="span2 search-query"&gt;
-  &lt;/div&gt;
-&lt;/form&gt;
-</pre>
-
-          <h3>Control sizing</h3>
-          <p>Use relative sizing classes like <code>.input-large</code> or match your inputs to the grid column sizes using <code>.span*</code> classes.</p>
-
-          <h4>Block level inputs</h4>
-          <p>Make any <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> element behave like a block level element.</p>
-          <form class="bs-docs-example" style="padding-bottom: 15px;">
-            <div class="controls">
-              <input class="input-block-level" type="text" placeholder=".input-block-level">
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;input class="input-block-level" type="text" placeholder=".input-block-level"&gt;
-</pre>
-
-          <h4>Relative sizing</h4>
-          <form class="bs-docs-example" style="padding-bottom: 15px;">
-            <div class="controls docs-input-sizes">
-              <input class="input-mini" type="text" placeholder=".input-mini">
-              <input class="input-small" type="text" placeholder=".input-small">
-              <input class="input-medium" type="text" placeholder=".input-medium">
-              <input class="input-large" type="text" placeholder=".input-large">
-              <input class="input-xlarge" type="text" placeholder=".input-xlarge">
-              <input class="input-xxlarge" type="text" placeholder=".input-xxlarge">
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;input class="input-mini" type="text" placeholder=".input-mini"&gt;
-&lt;input class="input-small" type="text" placeholder=".input-small"&gt;
-&lt;input class="input-medium" type="text" placeholder=".input-medium"&gt;
-&lt;input class="input-large" type="text" placeholder=".input-large"&gt;
-&lt;input class="input-xlarge" type="text" placeholder=".input-xlarge"&gt;
-&lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge"&gt;
-</pre>
-          <p>
-            <span class="label label-info">Heads up!</span> In future versions, we\'ll be altering the use of these relative input classes to match our button sizes. For example, <code>.input-large</code> will increase the padding and font-size of an input.
-          </p>
-
-          <h4>Grid sizing</h4>
-          <p>Use <code>.span1</code> to <code>.span12</code> for inputs that match the same sizes of the grid columns.</p>
-          <form class="bs-docs-example" style="padding-bottom: 15px;">
-            <div class="controls docs-input-sizes">
-              <input class="span1" type="text" placeholder=".span1">
-              <input class="span2" type="text" placeholder=".span2">
-              <input class="span3" type="text" placeholder=".span3">
-              <select class="span1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-              <select class="span2">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-              <select class="span3">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;input class="span1" type="text" placeholder=".span1"&gt;
-&lt;input class="span2" type="text" placeholder=".span2"&gt;
-&lt;input class="span3" type="text" placeholder=".span3"&gt;
-&lt;select class="span1"&gt;
-  ...
-&lt;/select&gt;
-&lt;select class="span2"&gt;
-  ...
-&lt;/select&gt;
-&lt;select class="span3"&gt;
-  ...
-&lt;/select&gt;
-</pre>
-
-          <p>For multiple grid inputs per line, <strong>use the <code>.controls-row</code> modifier class for proper spacing</strong>. It floats the inputs to collapse white-space, sets the proper margins, and clears the float.</p>
-          <form class="bs-docs-example" style="padding-bottom: 15px;">
-            <div class="controls">
-              <input class="span5" type="text" placeholder=".span5">
-            </div>
-            <div class="controls controls-row">
-              <input class="span4" type="text" placeholder=".span4">
-              <input class="span1" type="text" placeholder=".span1">
-            </div>
-            <div class="controls controls-row">
-              <input class="span3" type="text" placeholder=".span3">
-              <input class="span2" type="text" placeholder=".span2">
-            </div>
-            <div class="controls controls-row">
-              <input class="span2" type="text" placeholder=".span2">
-              <input class="span3" type="text" placeholder=".span3">
-            </div>
-            <div class="controls controls-row">
-              <input class="span1" type="text" placeholder=".span1">
-              <input class="span4" type="text" placeholder=".span4">
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;div class="controls"&gt;
-  &lt;input class="span5" type="text" placeholder=".span5"&gt;
-&lt;/div&gt;
-&lt;div class="controls controls-row"&gt;
-  &lt;input class="span4" type="text" placeholder=".span4"&gt;
-  &lt;input class="span1" type="text" placeholder=".span1"&gt;
-&lt;/div&gt;
-...
-</pre>
-
-          <h3>Uneditable inputs</h3>
-          <p>Present data in a form that\'s not editable without using actual form markup.</p>
-          <form class="bs-docs-example">
-            <span class="input-xlarge uneditable-input">Some value here</span>
-          </form>
-<pre class="prettyprint linenums">
-&lt;span class="input-xlarge uneditable-input"&gt;Some value here&lt;/span&gt;
-</pre>
-
-          <h3>Form actions</h3>
-          <p>End a form with a group of actions (buttons). When placed within a <code>.form-actions</code>, the buttons will automatically indent to line up with the form controls.</p>
-          <form class="bs-docs-example">
-            <div class="form-actions">
-              <button type="submit" class="btn btn-primary">Save changes</button>
-              <button type="button" class="btn">Cancel</button>
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;div class="form-actions"&gt;
-  &lt;button type="submit" class="btn btn-primary"&gt;Save changes&lt;/button&gt;
-  &lt;button type="button" class="btn"&gt;Cancel&lt;/button&gt;
-&lt;/div&gt;
-</pre>
-
-          <h3>Help text</h3>
-          <p>Inline and block level support for help text that appears around form controls.</p>
-          <h4>Inline help</h4>
-          <form class="bs-docs-example form-inline">
-            <input type="text"> <span class="help-inline">Inline help text</span>
-          </form>
-<pre class="prettyprint linenums">
-&lt;input type="text"&gt;&lt;span class="help-inline"&gt;Inline help text&lt;/span&gt;
-</pre>
-
-          <h4>Block help</h4>
-          <form class="bs-docs-example form-inline">
-            <input type="text">
-            <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-          </form>
-<pre class="prettyprint linenums">
-&lt;input type="text"&gt;&lt;span class="help-block"&gt;A longer block of help text that breaks onto a new line and may extend beyond one line.&lt;/span&gt;
-</pre>
-
-
-          <hr class="bs-docs-separator">
-
-
-          <h2>Form control states</h2>
-          <p>Provide feedback to users or visitors with basic feedback states on form controls and labels.</p>
-
-          <h3>Input focus</h3>
-          <p>We remove the default <code>outline</code> styles on some form controls and apply a <code>box-shadow</code> in its place for <code>:focus</code>.</p>
-          <form class="bs-docs-example form-inline">
-            <input class="input-xlarge focused" id="focusedInput" type="text" value="This is focused...">
-          </form>
-<pre class="prettyprint linenums">
-&lt;input class="input-xlarge" id="focusedInput" type="text" value="This is focused..."&gt;
-</pre>
-
-          <h3>Invalid inputs</h3>
-          <p>Style inputs via default browser functionality with <code>:invalid</code>. Specify a <code>type</code>, add the <code>required</code> attribute if the field is not optional, and (if applicable) specify a <code>pattern</code>.</p>
-          <p>This is not available in versions of Internet Explorer 7-9 due to lack of support for CSS pseudo selectors.</p>
-          <form class="bs-docs-example form-inline">
-            <input class="span3" type="email" placeholder="test@example.com" required>
-          </form>
-<pre class="prettyprint linenums">
-&lt;input class="span3" type="email" required&gt;
-</pre>
-
-          <h3>Disabled inputs</h3>
-          <p>Add the <code>disabled</code> attribute on an input to prevent user input and trigger a slightly different look.</p>
-          <form class="bs-docs-example form-inline">
-            <input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>
-          </form>
-<pre class="prettyprint linenums">
-&lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." disabled&gt;
-</pre>
-
-          <h3>Validation states</h3>
-          <p>Bootstrap includes validation styles for error, warning, info, and success messages. To use, add the appropriate class to the surrounding <code>.control-group</code>.</p>
-
-          <form class="bs-docs-example form-horizontal">
-            <div class="control-group warning">
-              <label class="control-label" for="inputWarning">Input with warning</label>
-              <div class="controls">
-                <input type="text" id="inputWarning">
-                <span class="help-inline">Something may have gone wrong</span>
-              </div>
-            </div>
-            <div class="control-group error">
-              <label class="control-label" for="inputError">Input with error</label>
-              <div class="controls">
-                <input type="text" id="inputError">
-                <span class="help-inline">Please correct the error</span>
-              </div>
-            </div>
-            <div class="control-group info">
-              <label class="control-label" for="inputInfo">Input with info</label>
-              <div class="controls">
-                <input type="text" id="inputInfo">
-                <span class="help-inline">Username is taken</span>
-              </div>
-            </div>
-            <div class="control-group success">
-              <label class="control-label" for="inputSuccess">Input with success</label>
-              <div class="controls">
-                <input type="text" id="inputSuccess">
-                <span class="help-inline">Woohoo!</span>
-              </div>
-            </div>
-          </form>
-<pre class="prettyprint linenums">
-&lt;div class="control-group warning"&gt;
-  &lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;
-  &lt;div class="controls"&gt;
-    &lt;input type="text" id="inputWarning"&gt;
-    &lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="control-group error"&gt;
-  &lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;
-  &lt;div class="controls"&gt;
-    &lt;input type="text" id="inputError"&gt;
-    &lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="control-group info"&gt;
-  &lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;
-  &lt;div class="controls"&gt;
-    &lt;input type="text" id="inputInfo"&gt;
-    &lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="control-group success"&gt;
-  &lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;
-  &lt;div class="controls"&gt;
-    &lt;input type="text" id="inputSuccess"&gt;
-    &lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</pre>
-
-        </section>';
+        $return .= '<!-- Code';
+        $return .= '================================================== -->';
+        $return .= '<section id="code">';
+        $return .= '<div class="page-header">';
+        $return .= '<h1>Code</h1>';
+        $return .= '</div>';
+
+        $return .= '<h2>Inline</h2>';
+        $return .= '<p>Wrap inline snippets of code with <code>&lt;code&gt;</code>.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '  For example, <code>&lt;section&gt;</code> should be wrapped as inline.';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= 'For example, &lt;code&gt;&amp;lt;section&amp;gt;&lt;/code&gt; should be wrapped as inline.';
+        $return .= '</pre>';
+
+        $return .= '<h2>Basic block</h2>';
+        $return .= '<p>Use <code>&lt;pre&gt;</code> for multiple lines of code. Be sure to escape any angle brackets in the ';
+        $return .= 'code for proper rendering.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '  <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums" style="margin-bottom: 9px;">';
+        $return .= '&lt;pre&gt;';
+        $return .= '  &amp;lt;p&amp;gt;Sample text here...&amp;lt;/p&amp;gt;';
+        $return .= '&lt;/pre&gt;';
+        $return .= '</pre>';
+        $return .= '<p><span class="label label-info">Heads up!</span> Be sure to keep code within <code>&lt;pre&gt;</code> ';
+        $return .= 'tags as close to the left as possible; it will render all tabs.</p>';
+        $return .= '<p>You may optionally add the <code>.pre-scrollable</code> class which will set a max-height of 350px and ';
+        $return .= 'provide a y-axis scrollbar.</p>';
+        $return .= '</section>';
+
+        $return .= '<!-- Tables';
+        $return .= '================================================== -->';
+        $return .= '<section id="tables">';
+        $return .= '<div class="page-header">';
+        $return .= '<h1>Tables</h1>';
+        $return .= '</div>';
+
+        $return .= '<h2>Default styles</h2>';
+        $return .= '<p>For basic styling&mdash;light padding and only horizontal dividers&mdash;add the base class ';
+        $return .= '<code>.table</code> to any <code>&lt;table&gt;</code>.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<table class="table">';
+        $return .= '<thead>';
+        $return .= '<tr>';
+        $return .= '<th>#</th>';
+        $return .= '<th>First Name</th>';
+        $return .= '<th>Last Name</th>';
+        $return .= '<th>Username</th>';
+        $return .= '</tr>';
+        $return .= '</thead>';
+        $return .= '<tbody>';
+        $return .= '<tr>';
+        $return .= '<td>1</td>';
+        $return .= '<td>Mark</td>';
+        $return .= '<td>Otto</td>';
+        $return .= '<td>@mdo</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>2</td>';
+        $return .= '<td>Jacob</td>';
+        $return .= '<td>Thornton</td>';
+        $return .= '<td>@fat</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>3</td>';
+        $return .= '<td>Larry</td>';
+        $return .= '<td>the Bird</td>';
+        $return .= '<td>@twitter</td>';
+        $return .= '</tr>';
+        $return .= '</tbody>';
+        $return .= '</table>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;table class="table"&gt;';
+        $return .= '  …';
+        $return .= '&lt;/table&gt;';
+        $return .= '</pre>';
+
+        $return .= '<hr class="bs-docs-separator">';
+
+        $return .= '<h2>Optional classes</h2>';
+        $return .= '<p>Add any of the following classes to the <code>.table</code> base class.</p>';
+
+        $return .= '<h3><code>.table-striped</code></h3>';
+        $return .= '<p>Adds zebra-striping to any table row within the <code>&lt;tbody&gt;</code> via the <code>:nth-child';
+        $return .= '</code> CSS selector (not available in IE7-8).</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<table class="table table-striped">';
+        $return .= '<thead>';
+        $return .= '<tr>';
+        $return .= '<th>#</th>';
+        $return .= '<th>First Name</th>';
+        $return .= '<th>Last Name</th>';
+        $return .= '<th>Username</th>';
+        $return .= '</tr>';
+        $return .= '</thead>';
+        $return .= '<tbody>';
+        $return .= '<tr>';
+        $return .= '<td>1</td>';
+        $return .= '<td>Mark</td>';
+        $return .= '<td>Otto</td>';
+        $return .= '<td>@mdo</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>2</td>';
+        $return .= '<td>Jacob</td>';
+        $return .= '<td>Thornton</td>';
+        $return .= '<td>@fat</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>3</td>';
+        $return .= '<td>Larry</td>';
+        $return .= '<td>the Bird</td>';
+        $return .= '<td>@twitter</td>';
+        $return .= '</tr>';
+        $return .= '</tbody>';
+        $return .= '</table>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums" style="margin-bottom: 18px;">';
+        $return .= '&lt;table class="table table-striped"&gt;';
+        $return .= '  …';
+        $return .= '&lt;/table&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3><code>.table-bordered</code></h3>';
+        $return .= '<p>Add borders and rounded corners to the table.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<table class="table table-bordered">';
+        $return .= '<thead>';
+        $return .= '<tr>';
+        $return .= '  <th>#</th>';
+        $return .= '  <th>First Name</th>';
+        $return .= '  <th>Last Name</th>';
+        $return .= '  <th>Username</th>';
+        $return .= '</tr>';
+        $return .= '</thead>';
+        $return .= '<tbody>';
+        $return .= '<tr>';
+        $return .= '  <td rowspan="2">1</td>';
+        $return .= '  <td>Mark</td>';
+        $return .= '  <td>Otto</td>';
+        $return .= '  <td>@mdo</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '  <td>Mark</td>';
+        $return .= '  <td>Otto</td>';
+        $return .= '  <td>@TwBootstrap</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '  <td>2</td>';
+        $return .= '  <td>Jacob</td>';
+        $return .= '  <td>Thornton</td>';
+        $return .= '  <td>@fat</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '  <td>3</td>';
+        $return .= '  <td colspan="2">Larry the Bird</td>';
+        $return .= '  <td>@twitter</td>';
+        $return .= '</tr>';
+        $return .= '</tbody>';
+        $return .= '</table>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;table class="table table-bordered"&gt;';
+        $return .= '  …';
+        $return .= '&lt;/table&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3><code>.table-hover</code></h3>';
+        $return .= '<p>Enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<table class="table table-hover">';
+        $return .= '<thead>';
+        $return .= '<tr>';
+        $return .= '  <th>#</th>';
+        $return .= '  <th>First Name</th>';
+        $return .= '  <th>Last Name</th>';
+        $return .= '  <th>Username</th>';
+        $return .= '</tr>';
+        $return .= '</thead>';
+        $return .= '<tbody>';
+        $return .= '<tr>';
+        $return .= '  <td>1</td>';
+        $return .= '  <td>Mark</td>';
+        $return .= '  <td>Otto</td>';
+        $return .= '  <td>@mdo</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '  <td>2</td>';
+        $return .= '  <td>Jacob</td>';
+        $return .= '  <td>Thornton</td>';
+        $return .= '  <td>@fat</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '  <td>3</td>';
+        $return .= '  <td colspan="2">Larry the Bird</td>';
+        $return .= '  <td>@twitter</td>';
+        $return .= '</tr>';
+        $return .= '</tbody>';
+        $return .= '</table>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums" style="margin-bottom: 18px;">';
+        $return .= '&lt;table class="table table-hover"&gt;';
+        $return .= '  …';
+        $return .= '&lt;/table&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3><code>.table-condensed</code></h3>';
+        $return .= '<p>Makes tables more compact by cutting cell padding in half.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<table class="table table-condensed">';
+        $return .= '<thead>';
+        $return .= '<tr>';
+        $return .= '  <th>#</th>';
+        $return .= '  <th>First Name</th>';
+        $return .= '  <th>Last Name</th>';
+        $return .= '  <th>Username</th>';
+        $return .= '</tr>';
+        $return .= '</thead>';
+        $return .= '<tbody>';
+        $return .= '<tr>';
+        $return .= '  <td>1</td>';
+        $return .= '  <td>Mark</td>';
+        $return .= '  <td>Otto</td>';
+        $return .= '  <td>@mdo</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '  <td>2</td>';
+        $return .= '  <td>Jacob</td>';
+        $return .= '  <td>Thornton</td>';
+        $return .= '  <td>@fat</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '  <td>3</td>';
+        $return .= '  <td colspan="2">Larry the Bird</td>';
+        $return .= '  <td>@twitter</td>';
+        $return .= '</tr>';
+        $return .= '</tbody>';
+        $return .= '</table>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums" style="margin-bottom: 18px;">';
+        $return .= '&lt;table class="table table-condensed"&gt;';
+        $return .= '  …';
+        $return .= '&lt;/table&gt;';
+        $return .= '</pre>';
+
+        $return .= '<hr class="bs-docs-separator">';
+
+        $return .= '<h2>Optional row classes</h2>';
+        $return .= '<p>Use contextual classes to color table rows.</p>';
+        $return .= '<table class="table table-bordered table-striped">';
+        $return .= '<colgroup>';
+        $return .= '<col class="span1">';
+        $return .= '<col class="span7">';
+        $return .= '</colgroup>';
+        $return .= '<thead>';
+        $return .= '<tr>';
+        $return .= '<th>Class</th>';
+        $return .= '<th>Description</th>';
+        $return .= '</tr>';
+        $return .= '</thead>';
+        $return .= '<tbody>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>.success</code>';
+        $return .= '</td>';
+        $return .= '<td>Indicates a successful or positive action.</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>.error</code>';
+        $return .= '</td>';
+        $return .= '<td>Indicates a dangerous or potentially negative action.</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>.warning</code>';
+        $return .= '</td>';
+        $return .= '<td>Indicates a warning that might need attention.</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>.info</code>';
+        $return .= '</td>';
+        $return .= '<td>Used as an alternative to the default styles.</td>';
+        $return .= '</tr>';
+        $return .= '</tbody>';
+        $return .= '</table>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<table class="table">';
+        $return .= '<thead>';
+        $return .= '<tr>';
+        $return .= '  <th>#</th>';
+        $return .= '  <th>Product</th>';
+        $return .= '  <th>Payment Taken</th>';
+        $return .= '  <th>Status</th>';
+        $return .= '</tr>';
+        $return .= '</thead>';
+        $return .= '<tbody>';
+        $return .= '<tr class="success">';
+        $return .= '  <td>1</td>';
+        $return .= '  <td>TB - Monthly</td>';
+        $return .= '  <td>01/04/2012</td>';
+        $return .= '  <td>Approved</td>';
+        $return .= '</tr>';
+        $return .= '<tr class="error">';
+        $return .= '  <td>2</td>';
+        $return .= '  <td>TB - Monthly</td>';
+        $return .= '  <td>02/04/2012</td>';
+        $return .= '  <td>Declined</td>';
+        $return .= '</tr>';
+        $return .= '<tr class="warning">';
+        $return .= '  <td>3</td>';
+        $return .= '  <td>TB - Monthly</td>';
+        $return .= '  <td>03/04/2012</td>';
+        $return .= '  <td>Pending</td>';
+        $return .= '</tr>';
+        $return .= '<tr class="info">';
+        $return .= '  <td>4</td>';
+        $return .= '  <td>TB - Monthly</td>';
+        $return .= '  <td>04/04/2012</td>';
+        $return .= '  <td>Call in to confirm</td>';
+        $return .= '</tr>';
+        $return .= '</tbody>';
+        $return .= '</table>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '...';
+        $return .= '  &lt;tr class="success"&gt;';
+        $return .= '    &lt;td&gt;1&lt;/td&gt;';
+        $return .= '    &lt;td&gt;TB - Monthly&lt;/td&gt;';
+        $return .= '    &lt;td&gt;01/04/2012&lt;/td&gt;';
+        $return .= '    &lt;td&gt;Approved&lt;/td&gt;';
+        $return .= '  &lt;/tr&gt;';
+        $return .= '...';
+        $return .= '</pre>';
+
+        $return .= '<hr class="bs-docs-separator">';
+
+        $return .= '<h2>Supported table markup</h2>';
+        $return .= '<p>List of supported table HTML elements and how they should be used.</p>';
+        $return .= '<table class="table table-bordered table-striped">';
+        $return .= '<colgroup>';
+        $return .= '<col class="span1">';
+        $return .= '<col class="span7">';
+        $return .= '</colgroup>';
+        $return .= '<thead>';
+        $return .= '<tr>';
+        $return .= '<th>Tag</th>';
+        $return .= '<th>Description</th>';
+        $return .= '</tr>';
+        $return .= '</thead>';
+        $return .= '<tbody>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>&lt;table&gt;</code>';
+        $return .= '</td>';
+        $return .= '<td>';
+        $return .= '  Wrapping element for displaying data in a tabular format';
+        $return .= '</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>&lt;thead&gt;</code>';
+        $return .= '</td>';
+        $return .= '<td>';
+        $return .= '  Container element for table header rows (<code>&lt;tr&gt;</code>) to label table columns';
+        $return .= '</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>&lt;tbody&gt;</code>';
+        $return .= '</td>';
+        $return .= '<td>';
+        $return .= '  Container element for table rows (<code>&lt;tr&gt;</code>) in the body of the table';
+        $return .= '</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>&lt;tr&gt;</code>';
+        $return .= '</td>';
+        $return .= '<td>';
+        $return .= '  Container element for a set of table cells (<code>&lt;td&gt;</code> or <code>&lt;th&gt;</code>) ';
+        $return .= 'that appears on a single row';
+        $return .= '</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>&lt;td&gt;</code>';
+        $return .= '</td>';
+        $return .= '<td>';
+        $return .= '  Default table cell';
+        $return .= '</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>&lt;th&gt;</code>';
+        $return .= '</td>';
+        $return .= '<td>';
+        $return .= '  Special table cell for column (or row, depending on scope and placement) labels';
+        $return .= '</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td>';
+        $return .= '  <code>&lt;caption&gt;</code>';
+        $return .= '</td>';
+        $return .= '<td>';
+        $return .= '  Description or summary of what the table holds, especially useful for screen readers';
+        $return .= '</td>';
+        $return .= '</tr>';
+        $return .= '</tbody>';
+        $return .= '</table>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;table&gt;';
+        $return .= '  &lt;caption&gt;...&lt;/caption&gt;';
+        $return .= '  &lt;thead&gt;';
+        $return .= '    &lt;tr&gt;';
+        $return .= '      &lt;th&gt;...&lt;/th&gt;';
+        $return .= '      &lt;th&gt;...&lt;/th&gt;';
+        $return .= '    &lt;/tr&gt;';
+        $return .= '  &lt;/thead&gt;';
+        $return .= '  &lt;tbody&gt;';
+        $return .= '    &lt;tr&gt;';
+        $return .= '      &lt;td&gt;...&lt;/td&gt;';
+        $return .= '      &lt;td&gt;...&lt;/td&gt;';
+        $return .= '    &lt;/tr&gt;';
+        $return .= '  &lt;/tbody&gt;';
+        $return .= '&lt;/table&gt;';
+        $return .= '</pre>';
+
+        $return .= '</section>';
+
+        $return .= '<!-- Forms';
+        $return .= '================================================== -->';
+        $return .= '<section id="forms">';
+        $return .= '<div class="page-header">';
+        $return .= '<h1>Forms</h1>';
+        $return .= '</div>';
+
+        $return .= '<h2>Default styles</h2>';
+        $return .= '<p>Individual form controls receive styling, but without any required base class on the <code>';
+        $return .= '&lt;form&gt;</code> or large changes in markup. Results in stacked, left-aligned labels on top ';
+        $return .= 'of form controls.</p>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<fieldset>';
+        $return .= '<legend>Legend</legend>';
+        $return .= '<label>Label name</label>';
+        $return .= '<input type="text" placeholder="Type something…">';
+        $return .= '<span class="help-block">Example block-level help text here.</span>';
+        $return .= '<label class="checkbox">';
+        $return .= '<input type="checkbox"> Check me out';
+        $return .= '</label>';
+        $return .= '<button type="submit" class="btn">Submit</button>';
+        $return .= '</fieldset>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;form&gt;';
+        $return .= '  &lt;fieldset&gt;';
+        $return .= '    &lt;legend&gt;Legend&lt;/legend&gt;';
+        $return .= '    &lt;label&gt;Label name&lt;/label&gt;';
+        $return .= '    &lt;input type="text" placeholder="Type something…"&gt;';
+        $return .= '    &lt;span class="help-block"&gt;Example block-level help text here.&lt;/span&gt;';
+        $return .= '    &lt;label class="checkbox"&gt;';
+        $return .= '      &lt;input type="checkbox"&gt; Check me out';
+        $return .= '    &lt;/label&gt;';
+        $return .= '    &lt;button type="submit" class="btn"&gt;Submit&lt;/button&gt;';
+        $return .= '  &lt;/fieldset&gt;';
+        $return .= '&lt;/form&gt;';
+        $return .= '</pre>';
+
+        $return .= '<hr class="bs-docs-separator">';
+
+        $return .= '<h2>Optional layouts</h2>';
+        $return .= '<p>Included with Bootstrap are three optional form layouts for common use cases.</p>';
+
+        $return .= '<h3>Search form</h3>';
+        $return .= '<p>Add <code>.form-search</code> to the form and <code>.search-query</code> to the <code>&lt;input&gt;';
+        $return .= '</code> for an extra-rounded text input.</p>';
+        $return .= '<form class="bs-docs-example form-search">';
+        $return .= '<input type="text" class="input-medium search-query">';
+        $return .= '<button type="submit" class="btn">Search</button>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;form class="form-search"&gt;';
+        $return .= '  &lt;input type="text" class="input-medium search-query"&gt;';
+        $return .= '  &lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;';
+        $return .= '&lt;/form&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Inline form</h3>';
+        $return .= '<p>Add <code>.form-inline</code> for left-aligned labels and inline-block controls for a compact layout.</p>';
+        $return .= '<form class="bs-docs-example form-inline">';
+        $return .= '<input type="text" class="input-small" placeholder="Email">';
+        $return .= '<input type="password" class="input-small" placeholder="Password">';
+        $return .= '<label class="checkbox">';
+        $return .= '<input type="checkbox"> Remember me';
+        $return .= '</label>';
+        $return .= '<button type="submit" class="btn">Sign in</button>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;form class="form-inline"&gt;';
+        $return .= '  &lt;input type="text" class="input-small" placeholder="Email"&gt;';
+        $return .= '  &lt;input type="password" class="input-small" placeholder="Password"&gt;';
+        $return .= '  &lt;label class="checkbox"&gt;';
+        $return .= '    &lt;input type="checkbox"&gt; Remember me';
+        $return .= '  &lt;/label&gt;';
+        $return .= '  &lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;';
+        $return .= '&lt;/form&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Horizontal form</h3>';
+        $return .= '<p>Right align labels and float them to the left to make them appear on the same line as controls. Requires ';
+        $return .= 'the most markup changes from a default form:</p>';
+        $return .= '<ul>';
+        $return .= '<li>Add <code>.form-horizontal</code> to the form</li>';
+        $return .= '<li>Wrap labels and controls in <code>.control-group</code></li>';
+        $return .= '<li>Add <code>.control-label</code> to the label</li>';
+        $return .= '<li>Wrap any associated controls in <code>.controls</code> for proper alignment</li>';
+        $return .= '</ul>';
+        $return .= '<form class="bs-docs-example form-horizontal">';
+        $return .= '<div class="control-group">';
+        $return .= '<label class="control-label" for="inputEmail">Email</label>';
+        $return .= '<div class="controls">';
+        $return .= '<input type="text" id="inputEmail" placeholder="Email">';
+        $return .= '</div>';
+        $return .= '</div>';
+        $return .= '<div class="control-group">';
+        $return .= '<label class="control-label" for="inputPassword">Password</label>';
+        $return .= '<div class="controls">';
+        $return .= '<input type="password" id="inputPassword" placeholder="Password">';
+        $return .= '</div>';
+        $return .= '</div>';
+        $return .= '<div class="control-group">';
+        $return .= '<div class="controls">';
+        $return .= '<label class="checkbox">';
+        $return .= '  <input type="checkbox"> Remember me';
+        $return .= '</label>';
+        $return .= '<button type="submit" class="btn">Sign in</button>';
+        $return .= '</div>';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;form class="form-horizontal"&gt;';
+        $return .= '  &lt;div class="control-group"&gt;';
+        $return .= '    &lt;label class="control-label" for="inputEmail"&gt;Email&lt;/label&gt;';
+        $return .= '    &lt;div class="controls"&gt;';
+        $return .= '      &lt;input type="text" id="inputEmail" placeholder="Email"&gt;';
+        $return .= '    &lt;/div&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '  &lt;div class="control-group"&gt;';
+        $return .= '    &lt;label class="control-label" for="inputPassword"&gt;Password&lt;/label&gt;';
+        $return .= '    &lt;div class="controls"&gt;';
+        $return .= '      &lt;input type="password" id="inputPassword" placeholder="Password"&gt;';
+        $return .= '    &lt;/div&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '  &lt;div class="control-group"&gt;';
+        $return .= '    &lt;div class="controls"&gt;';
+        $return .= '      &lt;label class="checkbox"&gt;';
+        $return .= '        &lt;input type="checkbox"&gt; Remember me';
+        $return .= '      &lt;/label&gt;';
+        $return .= '      &lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;';
+        $return .= '    &lt;/div&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '&lt;/form&gt;';
+        $return .= '</pre>';
+
+        $return .= '<hr class="bs-docs-separator">';
+
+        $return .= '<h2>Supported form controls</h2>';
+        $return .= '<p>Examples of standard form controls supported in an example form layout.</p>';
+
+        $return .= '<h3>Inputs</h3>';
+        $return .= '<p>Most common form control, text-based input fields. Includes support for all HTML5 types: text, password, ';
+        $return .= 'datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</p>';
+        $return .= '<p>Requires the use of a specified <code>type</code> at all times.</p>';
+        $return .= '<form class="bs-docs-example form-inline">';
+        $return .= '<input type="text" placeholder="Text input">';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;input type="text" placeholder="Text input"&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Textarea</h3>';
+        $return .= '<p>Form control which supports multiple lines of text. Change <code>rows</code> attribute as necessary.</p>';
+        $return .= '<form class="bs-docs-example form-inline">';
+        $return .= '<textarea rows="3"></textarea>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;textarea rows="3"&gt;&lt;/textarea&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Checkboxes and radios</h3>';
+        $return .= '<p>Checkboxes are for selecting one or several options in a list while radios are for selecting one option ';
+        $return .= 'from many.</p>';
+        $return .= '<h4>Default (stacked)</h4>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<label class="checkbox">';
+        $return .= '<input type="checkbox" value="">';
+        $return .= 'Option one is this and that&mdash;be sure to include why it\'s great';
+        $return .= '</label>';
+        $return .= '<br>';
+        $return .= '<label class="radio">';
+        $return .= '<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>';
+        $return .= 'Option one is this and that&mdash;be sure to include why it\'s great';
+        $return .= '</label>';
+        $return .= '<label class="radio">';
+        $return .= '<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">';
+        $return .= 'Option two can be something else and selecting it will deselect option one';
+        $return .= '</label>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;label class="checkbox"&gt;';
+        $return .= '  &lt;input type="checkbox" value=""&gt;';
+        $return .= '  Option one is this and that&mdash;be sure to include why it\'s great';
+        $return .= '&lt;/label&gt;';
+
+        $return .= '&lt;label class="radio"&gt;';
+        $return .= '  &lt;input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked&gt;';
+        $return .= '  Option one is this and that&mdash;be sure to include why it\'s great';
+        $return .= '&lt;/label&gt;';
+        $return .= '&lt;label class="radio"&gt;';
+        $return .= '  &lt;input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"&gt;';
+        $return .= '  Option two can be something else and selecting it will deselect option one';
+        $return .= '&lt;/label&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h4>Inline checkboxes</h4>';
+        $return .= '<p>Add the <code>.inline</code> class to a series of checkboxes or radios for controls appear on the same ';
+        $return .= 'line.</p>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<label class="checkbox inline">';
+        $return .= '<input type="checkbox" id="inlineCheckbox1" value="option1"> 1';
+        $return .= '</label>';
+        $return .= '<label class="checkbox inline">';
+        $return .= '<input type="checkbox" id="inlineCheckbox2" value="option2"> 2';
+        $return .= '</label>';
+        $return .= '<label class="checkbox inline">';
+        $return .= '<input type="checkbox" id="inlineCheckbox3" value="option3"> 3';
+        $return .= '</label>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;label class="checkbox inline"&gt;';
+        $return .= '  &lt;input type="checkbox" id="inlineCheckbox1" value="option1"&gt; 1';
+        $return .= '&lt;/label&gt;';
+        $return .= '&lt;label class="checkbox inline"&gt;';
+        $return .= '  &lt;input type="checkbox" id="inlineCheckbox2" value="option2"&gt; 2';
+        $return .= '&lt;/label&gt;';
+        $return .= '&lt;label class="checkbox inline"&gt;';
+        $return .= '  &lt;input type="checkbox" id="inlineCheckbox3" value="option3"&gt; 3';
+        $return .= '&lt;/label&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Selects</h3>';
+        $return .= '<p>Use the default option or specify a <code>multiple="multiple"</code> to show multiple options at once.</p>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<select>';
+        $return .= '<option>1</option>';
+        $return .= '<option>2</option>';
+        $return .= '<option>3</option>';
+        $return .= '<option>4</option>';
+        $return .= '<option>5</option>';
+        $return .= '</select>';
+        $return .= '<br>';
+        $return .= '<select multiple="multiple">';
+        $return .= '<option>1</option>';
+        $return .= '<option>2</option>';
+        $return .= '<option>3</option>';
+        $return .= '<option>4</option>';
+        $return .= '<option>5</option>';
+        $return .= '</select>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;select&gt;';
+        $return .= '  &lt;option&gt;1&lt;/option&gt;';
+        $return .= '  &lt;option&gt;2&lt;/option&gt;';
+        $return .= '  &lt;option&gt;3&lt;/option&gt;';
+        $return .= '  &lt;option&gt;4&lt;/option&gt;';
+        $return .= '  &lt;option&gt;5&lt;/option&gt;';
+        $return .= '&lt;/select&gt;';
+
+        $return .= '&lt;select multiple="multiple"&gt;';
+        $return .= '  &lt;option&gt;1&lt;/option&gt;';
+        $return .= '  &lt;option&gt;2&lt;/option&gt;';
+        $return .= '  &lt;option&gt;3&lt;/option&gt;';
+        $return .= '  &lt;option&gt;4&lt;/option&gt;';
+        $return .= '  &lt;option&gt;5&lt;/option&gt;';
+        $return .= '&lt;/select&gt;';
+        $return .= '</pre>';
+
+        $return .= '<hr class="bs-docs-separator">';
+
+        $return .= '<h2>Extending form controls</h2>';
+        $return .= '<p>Adding on top of existing browser controls, Bootstrap includes other useful form components.</p>';
+
+        $return .= '<h3>Prepended and appended inputs</h3>';
+        $return .= '<p>Add text or buttons before or after any text-based input. Do note that <code>select</code> elements are ';
+        $return .= 'not supported here.</p>';
+
+        $return .= '<h4>Default options</h4>';
+        $return .= '<p>Wrap an <code>.add-on</code> and an <code>input</code> with one of two classes to prepend or append text ';
+        $return .= 'to an input.</p>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<div class="input-prepend">';
+        $return .= '<span class="add-on">@</span>';
+        $return .= '<input class="span2" id="prependedInput" type="text" placeholder="Username">';
+        $return .= '</div>';
+        $return .= '<br>';
+        $return .= '<div class="input-append">';
+        $return .= '<input class="span2" id="appendedInput" type="text">';
+        $return .= '<span class="add-on">.00</span>';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;div class="input-prepend"&gt;';
+        $return .= '  &lt;span class="add-on"&gt;@&lt;/span&gt;';
+        $return .= '  &lt;input class="span2" id="prependedInput" type="text" placeholder="Username"&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '&lt;div class="input-append"&gt;';
+        $return .= '  &lt;input class="span2" id="appendedInput" type="text"&gt;';
+        $return .= '  &lt;span class="add-on"&gt;.00&lt;/span&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h4>Combined</h4>';
+        $return .= '<p>Use both classes and two instances of <code>.add-on</code> to prepend and append an input.</p>';
+        $return .= '<form class="bs-docs-example form-inline">';
+        $return .= '<div class="input-prepend input-append">';
+        $return .= '<span class="add-on">$</span>';
+        $return .= '<input class="span2" id="appendedPrependedInput" type="text">';
+        $return .= '<span class="add-on">.00</span>';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;div class="input-prepend input-append"&gt;';
+        $return .= '  &lt;span class="add-on"&gt;$&lt;/span&gt;';
+        $return .= '  &lt;input class="span2" id="appendedPrependedInput" type="text"&gt;';
+        $return .= '  &lt;span class="add-on"&gt;.00&lt;/span&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h4>Buttons instead of text</h4>';
+        $return .= '<p>Instead of a <code>&lt;span&gt;</code> with text, use a <code>.btn</code> to attach a button (or two) ';
+        $return .= 'to an input.</p>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<div class="input-append">';
+        $return .= '<input class="span2" id="appendedInputButton" type="text">';
+        $return .= '<button class="btn" type="button">Go!</button>';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;div class="input-append"&gt;';
+        $return .= '  &lt;input class="span2" id="appendedInputButton" type="text"&gt;';
+        $return .= '  &lt;button class="btn" type="button"&gt;Go!&lt;/button&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '</pre>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<div class="input-append">';
+        $return .= '<input class="span2" id="appendedInputButtons" type="text">';
+        $return .= '<button class="btn" type="button">Search</button>';
+        $return .= '<button class="btn" type="button">Options</button>';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;div class="input-append"&gt;';
+        $return .= '  &lt;input class="span2" id="appendedInputButtons" type="text"&gt;';
+        $return .= '  &lt;button class="btn" type="button"&gt;Search&lt;/button&gt;';
+        $return .= '  &lt;button class="btn" type="button"&gt;Options&lt;/button&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h4>Button dropdowns</h4>';
+        $return .= '<p></p>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<div class="input-append">';
+        $return .= '<input class="span2" id="appendedDropdownButton" type="text">';
+        $return .= '<div class="btn-group">';
+        $return .= '<button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>';
+        $return .= '<ul class="dropdown-menu">';
+        $return .= '  <li><a href="#">Action</a></li>';
+        $return .= '  <li><a href="#">Another action</a></li>';
+        $return .= '  <li><a href="#">Something else here</a></li>';
+        $return .= '  <li class="divider"></li>';
+        $return .= '  <li><a href="#">Separated link</a></li>';
+        $return .= '</ul>';
+        $return .= '</div><!-- /btn-group -->';
+        $return .= '</div><!-- /input-append -->';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;div class="input-append"&gt;';
+        $return .= '  &lt;input class="span2" id="appendedDropdownButton" type="text"&gt;';
+        $return .= '  &lt;div class="btn-group"&gt;';
+        $return .= '    &lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;';
+        $return .= '      Action';
+        $return .= '      &lt;span class="caret"&gt;&lt;/span&gt;';
+        $return .= '    &lt;/button&gt;';
+        $return .= '    &lt;ul class="dropdown-menu"&gt;';
+        $return .= '      ...';
+        $return .= '    &lt;/ul&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '</pre>';
+
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<div class="input-prepend">';
+        $return .= '<div class="btn-group">';
+        $return .= '<button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>';
+        $return .= '<ul class="dropdown-menu">';
+        $return .= '  <li><a href="#">Action</a></li>';
+        $return .= '  <li><a href="#">Another action</a></li>';
+        $return .= '  <li><a href="#">Something else here</a></li>';
+        $return .= '  <li class="divider"></li>';
+        $return .= '  <li><a href="#">Separated link</a></li>';
+        $return .= '</ul>';
+        $return .= '</div><!-- /btn-group -->';
+        $return .= '<input class="span2" id="prependedDropdownButton" type="text">';
+        $return .= '</div><!-- /input-prepend -->';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;div class="input-prepend"&gt;';
+        $return .= '  &lt;div class="btn-group"&gt;';
+        $return .= '    &lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;';
+        $return .= '      Action';
+        $return .= '      &lt;span class="caret"&gt;&lt;/span&gt;';
+        $return .= '    &lt;/button&gt;';
+        $return .= '    &lt;ul class="dropdown-menu"&gt;';
+        $return .= '      ...';
+        $return .= '    &lt;/ul&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '  &lt;input class="span2" id="prependedDropdownButton" type="text"&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '</pre>';
+
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<div class="input-prepend input-append">';
+        $return .= '<div class="btn-group">';
+        $return .= '<button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>';
+        $return .= '<ul class="dropdown-menu">';
+        $return .= '  <li><a href="#">Action</a></li>';
+        $return .= '  <li><a href="#">Another action</a></li>';
+        $return .= '  <li><a href="#">Something else here</a></li>';
+        $return .= '  <li class="divider"></li>';
+        $return .= '  <li><a href="#">Separated link</a></li>';
+        $return .= '</ul>';
+        $return .= '</div><!-- /btn-group -->';
+        $return .= '<input class="span2" id="appendedPrependedDropdownButton" type="text">';
+        $return .= '<div class="btn-group">';
+        $return .= '<button class="btn dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>';
+        $return .= '<ul class="dropdown-menu">';
+        $return .= '  <li><a href="#">Action</a></li>';
+        $return .= '  <li><a href="#">Another action</a></li>';
+        $return .= '  <li><a href="#">Something else here</a></li>';
+        $return .= '  <li class="divider"></li>';
+        $return .= '  <li><a href="#">Separated link</a></li>';
+        $return .= '</ul>';
+        $return .= '</div><!-- /btn-group -->';
+        $return .= '</div><!-- /input-prepend input-append -->';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;div class="input-prepend input-append"&gt;';
+        $return .= '  &lt;div class="btn-group"&gt;';
+        $return .= '    &lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;';
+        $return .= '      Action';
+        $return .= '      &lt;span class="caret"&gt;&lt;/span&gt;';
+        $return .= '    &lt;/button&gt;';
+        $return .= '    &lt;ul class="dropdown-menu"&gt;';
+        $return .= '      ...';
+        $return .= '    &lt;/ul&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '  &lt;input class="span2" id="appendedPrependedDropdownButton" type="text"&gt;';
+        $return .= '  &lt;div class="btn-group"&gt;';
+        $return .= '    &lt;button class="btn dropdown-toggle" data-toggle="dropdown"&gt;';
+        $return .= '      Action';
+        $return .= '      &lt;span class="caret"&gt;&lt;/span&gt;';
+        $return .= '    &lt;/button&gt;';
+        $return .= '    &lt;ul class="dropdown-menu"&gt;';
+        $return .= '      ...';
+        $return .= '    &lt;/ul&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h4>Segmented dropdown groups</h4>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<div class="input-prepend">';
+        $return .= '<div class="btn-group">';
+        $return .= '<button class="btn" tabindex="-1">Action</button>';
+        $return .= '<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">';
+        $return .= '  <span class="caret"></span>';
+        $return .= '</button>';
+        $return .= '<ul class="dropdown-menu">';
+        $return .= '  <li><a href="#">Action</a></li>';
+        $return .= '  <li><a href="#">Another action</a></li>';
+        $return .= '  <li><a href="#">Something else here</a></li>';
+        $return .= '  <li class="divider"></li>';
+        $return .= '  <li><a href="#">Separated link</a></li>';
+        $return .= '</ul>';
+        $return .= '</div>';
+        $return .= '<input type="text">';
+        $return .= '</div>';
+        $return .= '<div class="input-append">';
+        $return .= '<input type="text">';
+        $return .= '<div class="btn-group">';
+        $return .= '<button class="btn" tabindex="-1">Action</button>';
+        $return .= '<button class="btn dropdown-toggle" data-toggle="dropdown" tabindex="-1">';
+        $return .= '  <span class="caret"></span>';
+        $return .= '</button>';
+        $return .= '<ul class="dropdown-menu">';
+        $return .= '  <li><a href="#">Action</a></li>';
+        $return .= '  <li><a href="#">Another action</a></li>';
+        $return .= '  <li><a href="#">Something else here</a></li>';
+        $return .= '  <li class="divider"></li>';
+        $return .= '  <li><a href="#">Separated link</a></li>';
+        $return .= '</ul>';
+        $return .= '</div>';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;form&gt;';
+        $return .= '  &lt;div class="input-prepend"&gt;';
+        $return .= '    &lt;div class="btn-group"&gt;...&lt;/div&gt;';
+        $return .= '    &lt;input type="text"&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '  &lt;div class="input-append"&gt;';
+        $return .= '    &lt;input type="text"&gt;';
+        $return .= '    &lt;div class="btn-group"&gt;...&lt;/div&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '&lt;/form&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h4>Search form</h4>';
+        $return .= '<form class="bs-docs-example form-search">';
+        $return .= '<div class="input-append">';
+        $return .= '<input type="text" class="span2 search-query">';
+        $return .= '<button type="submit" class="btn">Search</button>';
+        $return .= '</div>';
+        $return .= '<div class="input-prepend">';
+        $return .= '<button type="submit" class="btn">Search</button>';
+        $return .= '<input type="text" class="span2 search-query">';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;form class="form-search"&gt;';
+        $return .= '  &lt;div class="input-append"&gt;';
+        $return .= '    &lt;input type="text" class="span2 search-query"&gt;';
+        $return .= '    &lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '  &lt;div class="input-prepend"&gt;';
+        $return .= '    &lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;';
+        $return .= '    &lt;input type="text" class="span2 search-query"&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '&lt;/form&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Control sizing</h3>';
+        $return .= '<p>Use relative sizing classes like <code>.input-large</code> or match your inputs to the grid ';
+        $return .= 'column sizes using <code>.span*</code> classes.</p>';
+
+        $return .= '<h4>Block level inputs</h4>';
+        $return .= '<p>Make any <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> element behave like a ';
+        $return .= 'block level element.</p>';
+        $return .= '<form class="bs-docs-example" style="padding-bottom: 15px;">';
+        $return .= '<div class="controls">';
+        $return .= '<input class="input-block-level" type="text" placeholder=".input-block-level">';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;input class="input-block-level" type="text" placeholder=".input-block-level"&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h4>Relative sizing</h4>';
+        $return .= '<form class="bs-docs-example" style="padding-bottom: 15px;">';
+        $return .= '<div class="controls docs-input-sizes">';
+        $return .= '<input class="input-mini" type="text" placeholder=".input-mini">';
+        $return .= '<input class="input-small" type="text" placeholder=".input-small">';
+        $return .= '<input class="input-medium" type="text" placeholder=".input-medium">';
+        $return .= '<input class="input-large" type="text" placeholder=".input-large">';
+        $return .= '<input class="input-xlarge" type="text" placeholder=".input-xlarge">';
+        $return .= '<input class="input-xxlarge" type="text" placeholder=".input-xxlarge">';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;input class="input-mini" type="text" placeholder=".input-mini"&gt;';
+        $return .= '&lt;input class="input-small" type="text" placeholder=".input-small"&gt;';
+        $return .= '&lt;input class="input-medium" type="text" placeholder=".input-medium"&gt;';
+        $return .= '&lt;input class="input-large" type="text" placeholder=".input-large"&gt;';
+        $return .= '&lt;input class="input-xlarge" type="text" placeholder=".input-xlarge"&gt;';
+        $return .= '&lt;input class="input-xxlarge" type="text" placeholder=".input-xxlarge"&gt;';
+        $return .= '</pre>';
+        $return .= '<p>';
+        $return .= '<span class="label label-info">Heads up!</span> In future versions, we\'ll be altering the use of ';
+        $return .= 'these relative input classes to match our button sizes. For example, <code>.input-large</code> will ';
+        $return .= 'increase the padding and font-size of an input.';
+        $return .= '</p>';
+
+        $return .= '<h4>Grid sizing</h4>';
+        $return .= '<p>Use <code>.span1</code> to <code>.span12</code> for inputs that match the same sizes of the grid';
+        $return .= 'columns.</p>';
+        $return .= '<form class="bs-docs-example" style="padding-bottom: 15px;">';
+        $return .= '<div class="controls docs-input-sizes">';
+        $return .= '<input class="span1" type="text" placeholder=".span1">';
+        $return .= '<input class="span2" type="text" placeholder=".span2">';
+        $return .= '<input class="span3" type="text" placeholder=".span3">';
+        $return .= '<select class="span1">';
+        $return .= '<option>1</option>';
+        $return .= '<option>2</option>';
+        $return .= '<option>3</option>';
+        $return .= '<option>4</option>';
+        $return .= '<option>5</option>';
+        $return .= '</select>';
+        $return .= '<select class="span2">';
+        $return .= '<option>1</option>';
+        $return .= '<option>2</option>';
+        $return .= '<option>3</option>';
+        $return .= '<option>4</option>';
+        $return .= '<option>5</option>';
+        $return .= '</select>';
+        $return .= '<select class="span3">';
+        $return .= '<option>1</option>';
+        $return .= '<option>2</option>';
+        $return .= '<option>3</option>';
+        $return .= '<option>4</option>';
+        $return .= '<option>5</option>';
+        $return .= '</select>';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;input class="span1" type="text" placeholder=".span1"&gt;';
+        $return .= '&lt;input class="span2" type="text" placeholder=".span2"&gt;';
+        $return .= '&lt;input class="span3" type="text" placeholder=".span3"&gt;';
+        $return .= '&lt;select class="span1"&gt;';
+        $return .= '  ...';
+        $return .= '&lt;/select&gt;';
+        $return .= '&lt;select class="span2"&gt;';
+        $return .= '  ...';
+        $return .= '&lt;/select&gt;';
+        $return .= '&lt;select class="span3"&gt;';
+        $return .= '  ...';
+        $return .= '&lt;/select&gt;';
+        $return .= '</pre>';
+
+        $return .= '<p>For multiple grid inputs per line, <strong>use the <code>.controls-row</code> modifier class for ';
+        $return .= 'proper spacing</strong>. It floats the inputs to collapse white-space, sets the proper margins, and ';
+        $return .= 'clears the float.</p>';
+        $return .= '<form class="bs-docs-example" style="padding-bottom: 15px;">';
+        $return .= '<div class="controls">';
+        $return .= '<input class="span5" type="text" placeholder=".span5">';
+        $return .= '</div>';
+        $return .= '<div class="controls controls-row">';
+        $return .= '<input class="span4" type="text" placeholder=".span4">';
+        $return .= '<input class="span1" type="text" placeholder=".span1">';
+        $return .= '</div>';
+        $return .= '<div class="controls controls-row">';
+        $return .= '<input class="span3" type="text" placeholder=".span3">';
+        $return .= '<input class="span2" type="text" placeholder=".span2">';
+        $return .= '</div>';
+        $return .= '<div class="controls controls-row">';
+        $return .= '<input class="span2" type="text" placeholder=".span2">';
+        $return .= '<input class="span3" type="text" placeholder=".span3">';
+        $return .= '</div>';
+        $return .= '<div class="controls controls-row">';
+        $return .= '<input class="span1" type="text" placeholder=".span1">';
+        $return .= '<input class="span4" type="text" placeholder=".span4">';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;div class="controls"&gt;';
+        $return .= '  &lt;input class="span5" type="text" placeholder=".span5"&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '&lt;div class="controls controls-row"&gt;';
+        $return .= '  &lt;input class="span4" type="text" placeholder=".span4"&gt;';
+        $return .= '  &lt;input class="span1" type="text" placeholder=".span1"&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '...';
+        $return .= '</pre>';
+
+        $return .= '<h3>Uneditable inputs</h3>';
+        $return .= '<p>Present data in a form that\'s not editable without using actual form markup.</p>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<span class="input-xlarge uneditable-input">Some value here</span>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;span class="input-xlarge uneditable-input"&gt;Some value here&lt;/span&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Form actions</h3>';
+        $return .= '<p>End a form with a group of actions (buttons). When placed within a <code>.form-actions</code>, the ';
+        $return .= 'buttons will automatically indent to line up with the form controls.</p>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<div class="form-actions">';
+        $return .= '<button type="submit" class="btn btn-primary">Save changes</button>';
+        $return .= '<button type="button" class="btn">Cancel</button>';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;div class="form-actions"&gt;';
+        $return .= '  &lt;button type="submit" class="btn btn-primary"&gt;Save changes&lt;/button&gt;';
+        $return .= '  &lt;button type="button" class="btn"&gt;Cancel&lt;/button&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Help text</h3>';
+        $return .= '<p>Inline and block level support for help text that appears around form controls.</p>';
+        $return .= '<h4>Inline help</h4>';
+        $return .= '<form class="bs-docs-example form-inline">';
+        $return .= '<input type="text"> <span class="help-inline">Inline help text</span>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;input type="text"&gt;&lt;span class="help-inline"&gt;Inline help text&lt;/span&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h4>Block help</h4>';
+        $return .= '<form class="bs-docs-example form-inline">';
+        $return .= '<input type="text">';
+        $return .= '<span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one ';
+        $return .= 'line.</span>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;input type="text"&gt;&lt;span class="help-block"&gt;A longer block of help text that breaks onto a new ';
+        $return .= 'line and may extend beyond one line.&lt;/span&gt;';
+        $return .= '</pre>';
+
+        $return .= '<hr class="bs-docs-separator">';
+
+        $return .= '<h2>Form control states</h2>';
+        $return .= '<p>Provide feedback to users or visitors with basic feedback states on form controls and labels.</p>';
+
+        $return .= '<h3>Input focus</h3>';
+        $return .= '<p>We remove the default <code>outline</code> styles on some form controls and apply a <code>box-shadow';
+        $return .= '</code> in its place for <code>:focus</code>.</p>';
+        $return .= '<form class="bs-docs-example form-inline">';
+        $return .= '<input class="input-xlarge focused" id="focusedInput" type="text" value="This is focused...">';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;input class="input-xlarge" id="focusedInput" type="text" value="This is focused..."&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Invalid inputs</h3>';
+        $return .= '<p>Style inputs via default browser functionality with <code>:invalid</code>. Specify a <code>type</code>,';
+        $return .= 'add the <code>required</code> attribute if the field is not optional, and (if applicable) specify a <code>';
+        $return .= 'pattern</code>.</p>';
+        $return .= '<p>This is not available in versions of Internet Explorer 7-9 due to lack of support for CSS pseudo ';
+        $return .= 'selectors.</p>';
+        $return .= '<form class="bs-docs-example form-inline">';
+        $return .= '<input class="span3" type="email" placeholder="test@example.com" required>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;input class="span3" type="email" required&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Disabled inputs</h3>';
+        $return .= '<p>Add the <code>disabled</code> attribute on an input to prevent user input and trigger a slightly ';
+        $return .= 'different look.</p>';
+        $return .= '<form class="bs-docs-example form-inline">';
+        $return .= '<input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here…" disabled>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;input class="input-xlarge" id="disabledInput" type="text" placeholder="Disabled input here..." ';
+        $return .= 'disabled&gt;';
+        $return .= '</pre>';
+
+        $return .= '<h3>Validation states</h3>';
+        $return .= '<p>Bootstrap includes validation styles for error, warning, info, and success messages. To use, add the ';
+        $return .= 'appropriate class to the surrounding <code>.control-group</code>.</p>';
+
+        $return .= '<form class="bs-docs-example form-horizontal">';
+        $return .= '<div class="control-group warning">';
+        $return .= '<label class="control-label" for="inputWarning">Input with warning</label>';
+        $return .= '<div class="controls">';
+        $return .= '<input type="text" id="inputWarning">';
+        $return .= '<span class="help-inline">Something may have gone wrong</span>';
+        $return .= '</div>';
+        $return .= '</div>';
+        $return .= '<div class="control-group error">';
+        $return .= '<label class="control-label" for="inputError">Input with error</label>';
+        $return .= '<div class="controls">';
+        $return .= '<input type="text" id="inputError">';
+        $return .= '<span class="help-inline">Please correct the error</span>';
+        $return .= '</div>';
+        $return .= '</div>';
+        $return .= '<div class="control-group info">';
+        $return .= '<label class="control-label" for="inputInfo">Input with info</label>';
+        $return .= '<div class="controls">';
+        $return .= '<input type="text" id="inputInfo">';
+        $return .= '<span class="help-inline">Username is taken</span>';
+        $return .= '</div>';
+        $return .= '</div>';
+        $return .= '<div class="control-group success">';
+        $return .= '<label class="control-label" for="inputSuccess">Input with success</label>';
+        $return .= '<div class="controls">';
+        $return .= '<input type="text" id="inputSuccess">';
+        $return .= '<span class="help-inline">Woohoo!</span>';
+        $return .= '</div>';
+        $return .= '</div>';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;div class="control-group warning"&gt;';
+        $return .= '  &lt;label class="control-label" for="inputWarning"&gt;Input with warning&lt;/label&gt;';
+        $return .= '  &lt;div class="controls"&gt;';
+        $return .= '    &lt;input type="text" id="inputWarning"&gt;';
+        $return .= '    &lt;span class="help-inline"&gt;Something may have gone wrong&lt;/span&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '&lt;/div&gt;';
+
+        $return .= '&lt;div class="control-group error"&gt;';
+        $return .= '  &lt;label class="control-label" for="inputError"&gt;Input with error&lt;/label&gt;';
+        $return .= '  &lt;div class="controls"&gt;';
+        $return .= '    &lt;input type="text" id="inputError"&gt;';
+        $return .= '    &lt;span class="help-inline"&gt;Please correct the error&lt;/span&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '&lt;/div&gt;';
+
+        $return .= '&lt;div class="control-group info"&gt;';
+        $return .= '  &lt;label class="control-label" for="inputInfo"&gt;Input with info&lt;/label&gt;';
+        $return .= '  &lt;div class="controls"&gt;';
+        $return .= '    &lt;input type="text" id="inputInfo"&gt;';
+        $return .= '    &lt;span class="help-inline"&gt;Username is already taken&lt;/span&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '&lt;/div&gt;';
+
+        $return .= '&lt;div class="control-group success"&gt;';
+        $return .= '  &lt;label class="control-label" for="inputSuccess"&gt;Input with success&lt;/label&gt;';
+        $return .= '  &lt;div class="controls"&gt;';
+        $return .= '    &lt;input type="text" id="inputSuccess"&gt;';
+        $return .= '    &lt;span class="help-inline"&gt;Woohoo!&lt;/span&gt;';
+        $return .= '  &lt;/div&gt;';
+        $return .= '&lt;/div&gt;';
+        $return .= '</pre>';
+
+        $return .= '</section>';
 
         $return .= '<!-- Buttons
         ================================================== -->
