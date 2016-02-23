@@ -32,7 +32,8 @@ class essential_admin_setting_styleguide extends admin_setting {
     /**
      * Constructor
      *
-     * @param string $name unique ascii name, either 'mysetting' for settings that in config, or 'myplugin/mysetting' for ones in config_plugins.
+     * @param string $name unique ascii name, either 'mysetting' for settings that in config, or
+     * 'myplugin/mysetting' for ones in config_plugins.
      * @param string $visiblename localised
      * @param string $description long localised info
      */
@@ -112,7 +113,7 @@ class essential_admin_setting_styleguide extends admin_setting {
      * @return string Always returns an empty string
      */
     public function write_setting($data) {
-        // do not write any setting
+        // Do not write any setting.
         return '';
     }
 
@@ -202,12 +203,14 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= "text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);";
         $return .= "background: #020031; /* Old browsers */";
         $return .= "background: -moz-linear-gradient(45deg,  #020031 0%, #6d3353 100%); /* FF3.6+ */";
-        $return .= "background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), color-stop(100%,#6d3353)); /* Chrome,Safari4+ */";
+        $return .= "background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), ";
+        $return .= "color-stop(100%,#6d3353)); /* Chrome,Safari4+ */";
         $return .= "background: -webkit-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* Chrome10+,Safari5.1+ */";
         $return .= "background: -o-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* Opera 11.10+ */";
         $return .= "background: -ms-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* IE10+ */";
         $return .= "background: linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* W3C */";
-        $return .= "filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020031', endColorstr='#6d3353',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */";
+        $return .= "filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020031', ";
+        $return .= "endColorstr='#6d3353',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */";
         $return .= "-webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);";
         $return .= "-moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);";
         $return .= "box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);";
@@ -241,7 +244,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= "padding: 19px 24px;";
         $return .= "font-size: 24px;";
         $return .= "font-weight: 200;";
-        $return .= "color: #fff; /* redeclare to override the `.jumbotron a` */";
+        $return .= "color: #fff; /* redeclare to override the '.jumbotron a' */";
         $return .= "border: 0;";
         $return .= "-webkit-border-radius: 6px;";
         $return .= "-moz-border-radius: 6px;";
@@ -1663,8 +1666,10 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '&lt;p class="muted"&gt;Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.&lt;/p&gt;'.PHP_EOL;
         $return .= '&lt;p class="text-warning"&gt;Etiam porta sem malesuada magna mollis euismod.&lt;/p&gt;'.PHP_EOL;
         $return .= '&lt;p class="text-error"&gt;Donec ullamcorper nulla non metus auctor fringilla.&lt;/p&gt;'.PHP_EOL;
-        $return .= '&lt;p class="text-info"&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.&lt;/p&gt;'.PHP_EOL;
-        $return .= '&lt;p class="text-success"&gt;Duis mollis, est non commodo luctus, nisi erat porttitor ligula.&lt;/p&gt;'.PHP_EOL;
+        $return .= '&lt;p class="text-info"&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.&lt;';
+        $return .= '/p&gt;'.PHP_EOL;
+        $return .= '&lt;p class="text-success"&gt;Duis mollis, est non commodo luctus, nisi erat porttitor ligula.&lt;';
+        $return .= '/p&gt;'.PHP_EOL;
         $return .= '</pre>';
 
         $return .= '<hr class="bs-docs-separator">';
@@ -1738,7 +1743,8 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</div>';
         $return .= '<pre class="prettyprint linenums">';
         $return .= '&lt;blockquote&gt;'.PHP_EOL;
-        $return .= '  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;'.PHP_EOL;
+        $return .= '  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;';
+        $return .= '/p&gt;'.PHP_EOL;
         $return .= '&lt;/blockquote&gt;'.PHP_EOL;
         $return .= '</pre>';
 
@@ -1756,8 +1762,10 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</div>';
         $return .= '<pre class="prettyprint linenums">';
         $return .= '&lt;blockquote&gt;'.PHP_EOL;
-        $return .= '  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;/p&gt;'.PHP_EOL;
-        $return .= '  &lt;small&gt;Someone famous &lt;cite title="Source Title"&gt;Source Title&lt;/cite&gt;&lt;/small&gt;'.PHP_EOL;
+        $return .= '  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.&lt;';
+        $return .= '/p&gt;'.PHP_EOL;
+        $return .= '  &lt;small&gt;Someone famous &lt;cite title="Source Title"&gt;Source Title&lt;/cite&gt;&lt;/small';
+        $return .= '&gt;'.PHP_EOL;
         $return .= '&lt;/blockquote&gt;'.PHP_EOL;
         $return .= '</pre>';
 
@@ -3299,7 +3307,8 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '<button type="button" class="btn btn-large" disabled>Button</button>';
         $return .= '</p>';
         $return .= '<pre class="prettyprint linenums">';
-        $return .= '&lt;button type="button" class="btn btn-large btn-primary disabled" disabled="disabled"&gt;Primary button&lt;'.PHP_EOL;
+        $return .= '&lt;button type="button" class="btn btn-large btn-primary disabled" disabled="disabled"&gt;Primary ';
+        $return .= 'button&lt;'.PHP_EOL;
         $return .= '/button&gt;'.PHP_EOL;
         $return .= '&lt;button type="button" class="btn btn-large" disabled&gt;Button&lt;/button&gt;'.PHP_EOL;
         $return .= '</pre>';
@@ -3406,10 +3415,12 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</div>';
 
         $return .= '<h2>Example</h2>';
-        $return .= '<p>Toggleable, contextual menu for displaying lists of links. Made interactive with the <a href="./javascript.html#dropdowns">dropdown JavaScript plugin</a>.</p>';
+        $return .= '<p>Toggleable, contextual menu for displaying lists of links. Made interactive with the <a href=';
+        $return .= '"./javascript.html#dropdowns">dropdown JavaScript plugin</a>.</p>';
         $return .= '<div class="bs-docs-example">';
         $return .= '<div class="dropdown clearfix">';
-        $return .= '<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">';
+        $return .= '<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; ';
+        $return .= 'position: static; margin-bottom: 5px; *width: 180px;">';
         $return .= '<li><a tabindex="-1" href="#">Action</a></li>';
         $return .= '<li><a tabindex="-1" href="#">Another action</a></li>';
         $return .= '<li><a tabindex="-1" href="#">Something else here</a></li>';
@@ -4206,7 +4217,8 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</pre>';
         $return .= '<p>';
         $return .= '<span class="label label-info">Note</span>';
-        $return .= 'For nesting within a nav list, include <code>class="nav nav-list"</code> on any nested <code>&lt;ul&gt;</code>.';
+        $return .= 'For nesting within a nav list, include <code>class="nav nav-list"</code> on any nested <code>&lt;ul&gt;';
+        $return .= '</code>.';
         $return .= '</p>';
 
         $return .= '<h3>Horizontal dividers</h3>';
@@ -5419,7 +5431,8 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '<h3>Dismiss buttons</h3>';
         $return .= '<p>Mobile Safari and Mobile Opera browsers, in addition to the <code>data-dismiss="alert"</code> attribute, ';
         $return .= 'require an <code>href="#"</code> for the dismissal of alerts when using an <code>&lt;a&gt;</code> tag.</p>';
-        $return .= '<pre class="prettyprint linenums">&lt;a href="#" class="close" data-dismiss="alert"&gt;&amp;times;&lt;/a&gt;</pre>';
+        $return .= '<pre class="prettyprint linenums">&lt;a href="#" class="close" data-dismiss="alert"&gt;&amp;times;&lt;/a&gt;';
+        $return .= '</pre>';
         $return .= '<p>Alternatively, you may use a <code>&lt;button&gt;</code> element with the data attribute, which we have ';
         $return .= 'opted to do for our docs. When using <code>&lt;button&gt;</code>, you must include <code>type="button"';
         $return .= '</code> or your forms may not submit.</p>';
@@ -5724,8 +5737,8 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</a>';
         $return .= '<div class="media-body">';
         $return .= '<h4 class="media-heading">Nested media heading</h4>';
-        $return .= 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus ';
-        $return .= 'odio, vestibulum in vulputate at, tempus viverra turpis.';
+        $return .= 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras ';
+        $return .= 'purus odio, vestibulum in vulputate at, tempus viverra turpis.';
         $return .= '<!-- Nested media object -->';
         $return .= '<div class="media">';
         $return .= '<a class="pull-left" href="#">';
@@ -5733,8 +5746,8 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</a>';
         $return .= '<div class="media-body">';
         $return .= '<h4 class="media-heading">Nested media heading</h4>';
-        $return .= 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus ';
-        $return .= 'odio, vestibulum in vulputate at, tempus viverra turpis.';
+        $return .= 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras ';
+        $return .= 'purus odio, vestibulum in vulputate at, tempus viverra turpis.';
         $return .= '</div>';
         $return .= '</div>';
         $return .= '</div>';
@@ -5746,8 +5759,8 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</a>';
         $return .= '<div class="media-body">';
         $return .= '<h4 class="media-heading">Nested media heading</h4>';
-        $return .= 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus ';
-        $return .= 'odio, vestibulum in vulputate at, tempus viverra turpis.';
+        $return .= 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras ';
+        $return .= 'purus odio, vestibulum in vulputate at, tempus viverra turpis.';
         $return .= '</div>';
         $return .= '</div>';
         $return .= '</div>';
