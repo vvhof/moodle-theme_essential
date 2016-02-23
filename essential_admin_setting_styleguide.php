@@ -1106,6 +1106,22 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= ".bs-docs-example .navbar {";
         $return .= "position: static;";
         $return .= "}";
+        $return .= ".bs-docs-example .carousel-control {";
+        $return .= "color: #30add1;";
+        $return .= "border: 3px solid #30add1;";
+        $return .= "}";
+        $return .= ".bs-docs-example .carousel-indicators {";
+        $return .= "background-color: #30add1;";
+        $return .= "border-radius: 4px;";
+        $return .= "padding: 2px;";
+        $return .= "}";
+        $return .= ".bs-docs-example .carousel-indicators li {";
+        $return .= "margin-left: 2px;";
+        $return .= "margin-right: 2px;";
+        $return .= "}";
+        $return .= ".bs-docs-example .carousel-inner img {";
+        $return .= "margin: 0 auto;";
+        $return .= "}";
         $return .= '/* ]]> */';
         $return .= '</style>';
 
@@ -7349,7 +7365,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</ol>';
         $return .= '<div class="carousel-inner">';
         $return .= '<div class="item active">';
-        $return .= '<img src="assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="">';
+        $return .= '<img src="'.$OUTPUT->pix_url('default_slide', 'theme').'" alt="">';
         $return .= '<div class="carousel-caption">';
         $return .= '<h4>First Thumbnail label</h4>';
         $return .= '<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida ';
@@ -7357,7 +7373,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</div>';
         $return .= '</div>';
         $return .= '<div class="item">';
-        $return .= '<img src="assets/img/bootstrap-mdo-sfmoma-02.jpg" alt="">';
+        $return .= '<img src="'.$OUTPUT->pix_url('default_slide', 'theme').'" alt="">';
         $return .= '<div class="carousel-caption">';
         $return .= '<h4>Second Thumbnail label</h4>';
         $return .= '<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida ';
@@ -7365,7 +7381,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</div>';
         $return .= '</div>';
         $return .= '<div class="item">';
-        $return .= '<img src="assets/img/bootstrap-mdo-sfmoma-03.jpg" alt="">';
+        $return .= '<img src="'.$OUTPUT->pix_url('default_slide', 'theme').'" alt="">';
         $return .= '<div class="carousel-caption">';
         $return .= '<h4>Third Thumbnail label</h4>';
         $return .= '<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida ';
