@@ -43,15 +43,15 @@ class essential_admin_setting_styleguide extends admin_setting {
         if ($PAGE->bodyid == 'page-admin-setting-' . $name) {
             $bc = new block_contents();
             $bc->title = get_string('styleguide', 'theme_essential');
-            $bc->attributes['class'] = 'block';
-            $bc->content = '<ul class="nav nav-list bs-docs-sidenav">
-<li><a href="#typography"><i class="icon-chevron-right"></i> Typography</a></li>
-<li><a href="#code"><i class="icon-chevron-right"></i> Code</a></li>
-<li><a href="#tables"><i class="icon-chevron-right"></i> Tables</a></li>
-<li><a href="#forms"><i class="icon-chevron-right"></i> Forms</a></li>
-<li><a href="#buttons"><i class="icon-chevron-right"></i> Buttons</a></li>
-<li><a href="#images"><i class="icon-chevron-right"></i> Images</a></li>
-</ul>';
+            $bc->attributes['class'] = 'block block_style_guide';
+            $bc->content = '<ul class="nav nav-list bs-docs-sidenav">';
+            $bc->content .= '<li><a href="#typography"><i class="fa fa-hand-o-right"></i> Typography</a></li>';
+            $bc->content .= '<li><a href="#code"><i class="fa fa-hand-o-right"></i> Code</a></li>';
+            $bc->content .= '<li><a href="#tables"><i class="fa fa-hand-o-right"></i> Tables</a></li>';
+            $bc->content .= '<li><a href="#forms"><i class="fa fa-hand-o-right"></i> Forms</a></li>';
+            $bc->content .= '<li><a href="#buttons"><i class="fa fa-hand-o-right"></i> Buttons</a></li>';
+            $bc->content .= '<li><a href="#images"><i class="fa fa-hand-o-right"></i> Images</a></li>';
+            $bc->content .= '</ul>';
             $defaultregion = $PAGE->blocks->get_default_region();
             $PAGE->blocks->add_fake_block($bc, $defaultregion);
         }
@@ -1696,169 +1696,177 @@ class essential_admin_setting_styleguide extends admin_setting {
 
         $return .= '</section>';
 
-        $return .= '<!-- Buttons
-        ================================================== -->
-        <section id="buttons">
-          <div class="page-header">
-            <h1>Buttons</h1>
-          </div>
+        $return .= '<!-- Buttons';
+        $return .= '================================================== -->';
+        $return .= '<section id="buttons">';
+        $return .= '<div class="page-header">';
+        $return .= '<h1>Buttons</h1>';
+        $return .= '</div>';
 
-          <h2>Default buttons</h2>
-          <p>Button styles can be applied to anything with the <code>.btn</code> class applied. However, typically you\'ll want to apply these to only <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> elements for the best rendering.</p>
-          <table class="table table-bordered table-striped">
-            <thead>
-              <tr>
-                <th>Button</th>
-                <th>class=""</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><button type="button" class="btn">Default</button></td>
-                <td><code>btn</code></td>
-                <td>Standard gray button with gradient</td>
-              </tr>
-              <tr>
-                <td><button type="button" class="btn btn-primary">Primary</button></td>
-                <td><code>btn btn-primary</code></td>
-                <td>Provides extra visual weight and identifies the primary action in a set of buttons</td>
-              </tr>
-              <tr>
-                <td><button type="button" class="btn btn-info">Info</button></td>
-                <td><code>btn btn-info</code></td>
-                <td>Used as an alternative to the default styles</td>
-              </tr>
-              <tr>
-                <td><button type="button" class="btn btn-success">Success</button></td>
-                <td><code>btn btn-success</code></td>
-                <td>Indicates a successful or positive action</td>
-              </tr>
-              <tr>
-                <td><button type="button" class="btn btn-warning">Warning</button></td>
-                <td><code>btn btn-warning</code></td>
-                <td>Indicates caution should be taken with this action</td>
-              </tr>
-              <tr>
-                <td><button type="button" class="btn btn-danger">Danger</button></td>
-                <td><code>btn btn-danger</code></td>
-                <td>Indicates a dangerous or potentially negative action</td>
-              </tr>
-              <tr>
-                <td><button type="button" class="btn btn-inverse">Inverse</button></td>
-                <td><code>btn btn-inverse</code></td>
-                <td>Alternate dark gray button, not tied to a semantic action or use</td>
-              </tr>
-              <tr>
-                <td><button type="button" class="btn btn-link">Link</button></td>
-                <td><code>btn btn-link</code></td>
-                <td>Deemphasize a button by making it look like a link while maintaining button behavior</td>
-              </tr>
-            </tbody>
-          </table>
+        $return .= '<h2>Default buttons</h2>';
+        $return .= '<p>Button styles can be applied to anything with the <code>.btn</code> class applied. However, typically ';
+        $return .= 'you\'ll want to apply these to only <code>&lt;a&gt;</code> and <code>&lt;button&gt;</code> elements for ';
+        $return .= 'the best rendering.</p>';
+        $return .= '<table class="table table-bordered table-striped">';
+        $return .= '<thead>';
+        $return .= '<tr>';
+        $return .= '<th>Button</th>';
+        $return .= '<th>class=""</th>';
+        $return .= '<th>Description</th>';
+        $return .= '</tr>';
+        $return .= '</thead>';
+        $return .= '<tbody>';
+        $return .= '<tr>';
+        $return .= '<td><button type="button" class="btn">Default</button></td>';
+        $return .= '<td><code>btn</code></td>';
+        $return .= '<td>Standard gray button with gradient</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td><button type="button" class="btn btn-primary">Primary</button></td>';
+        $return .= '<td><code>btn btn-primary</code></td>';
+        $return .= '<td>Provides extra visual weight and identifies the primary action in a set of buttons</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td><button type="button" class="btn btn-info">Info</button></td>';
+        $return .= '<td><code>btn btn-info</code></td>';
+        $return .= '<td>Used as an alternative to the default styles</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td><button type="button" class="btn btn-success">Success</button></td>';
+        $return .= '<td><code>btn btn-success</code></td>';
+        $return .= '<td>Indicates a successful or positive action</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td><button type="button" class="btn btn-warning">Warning</button></td>';
+        $return .= '<td><code>btn btn-warning</code></td>';
+        $return .= '<td>Indicates caution should be taken with this action</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td><button type="button" class="btn btn-danger">Danger</button></td>';
+        $return .= '<td><code>btn btn-danger</code></td>';
+        $return .= '<td>Indicates a dangerous or potentially negative action</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td><button type="button" class="btn btn-inverse">Inverse</button></td>';
+        $return .= '<td><code>btn btn-inverse</code></td>';
+        $return .= '<td>Alternate dark gray button, not tied to a semantic action or use</td>';
+        $return .= '</tr>';
+        $return .= '<tr>';
+        $return .= '<td><button type="button" class="btn btn-link">Link</button></td>';
+        $return .= '<td><code>btn btn-link</code></td>';
+        $return .= '<td>Deemphasize a button by making it look like a link while maintaining button behavior</td>';
+        $return .= '</tr>';
+        $return .= '</tbody>';
+        $return .= '</table>';
 
-          <h4>Cross browser compatibility</h4>
-          <p>IE9 doesn\'t crop background gradients on rounded corners, so we remove it. Related, IE9 jankifies disabled <code>button</code> elements, rendering text gray with a nasty text-shadow that we cannot fix.</p>
+        $return .= '<h4>Cross browser compatibility</h4>';
+        $return .= '<p>IE9 doesn\'t crop background gradients on rounded corners, so we remove it. Related, IE9 jankifies ';
+        $return .= 'disabled <code>button</code> elements, rendering text gray with a nasty text-shadow that we cannot fix.</p>';
 
+        $return .= '<h2>Button sizes</h2>';
+        $return .= '<p>Fancy larger or smaller buttons? Add <code>.btn-large</code>, <code>.btn-small</code>, or <code>.btn-mini';
+        $return .= '</code> for additional sizes.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<p>';
+        $return .= '<button type="button" class="btn btn-large btn-primary">Large button</button>';
+        $return .= '<button type="button" class="btn btn-large">Large button</button>';
+        $return .= '</p>';
+        $return .= '<p>';
+        $return .= '<button type="button" class="btn btn-primary">Default button</button>';
+        $return .= '<button type="button" class="btn">Default button</button>';
+        $return .= '</p>';
+        $return .= '<p>';
+        $return .= '<button type="button" class="btn btn-small btn-primary">Small button</button>';
+        $return .= '<button type="button" class="btn btn-small">Small button</button>';
+        $return .= '</p>';
+        $return .= '<p>';
+        $return .= '<button type="button" class="btn btn-mini btn-primary">Mini button</button>';
+        $return .= '<button type="button" class="btn btn-mini">Mini button</button>';
+        $return .= '</p>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;p&gt;';
+        $return .= '&lt;button class="btn btn-large btn-primary" type="button"&gt;Large button&lt;/button&gt;';
+        $return .= '&lt;button class="btn btn-large" type="button"&gt;Large button&lt;/button&gt;';
+        $return .= '&lt;/p&gt;';
+        $return .= '&lt;p&gt;';
+        $return .= '&lt;button class="btn btn-primary" type="button"&gt;Default button&lt;/button&gt;';
+        $return .= '&lt;button class="btn" type="button"&gt;Default button&lt;/button&gt;';
+        $return .= '&lt;/p&gt;';
+        $return .= '&lt;p&gt;';
+        $return .= '&lt;button class="btn btn-small btn-primary" type="button"&gt;Small button&lt;/button&gt;';
+        $return .= '&lt;button class="btn btn-small" type="button"&gt;Small button&lt;/button&gt;';
+        $return .= '&lt;/p&gt;';
+        $return .= '&lt;p&gt;';
+        $return .= '&lt;button class="btn btn-mini btn-primary" type="button"&gt;Mini button&lt;/button&gt;';
+        $return .= '&lt;button class="btn btn-mini" type="button"&gt;Mini button&lt;/button&gt;';
+        $return .= '&lt;/p&gt;';
+        $return .= '</pre>';
+        $return .= '<p>Create block level buttons&mdash;those that span the full width of a parent&mdash; by adding <code>';
+        $return .= '.btn-block</code>.</p>';
+        $return .= '<div class="bs-docs-example">';
+        $return .= '<div class="well" style="max-width: 400px; margin: 0 auto 10px;">';
+        $return .= '<button type="button" class="btn btn-large btn-block btn-primary">Block level button</button>';
+        $return .= '<button type="button" class="btn btn-large btn-block">Block level button</button>';
+        $return .= '</div>';
+        $return .= '</div>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;button class="btn btn-large btn-block btn-primary" type="button"&gt;Block level button&lt;/button&gt;';
+        $return .= '&lt;button class="btn btn-large btn-block" type="button"&gt;Block level button&lt;/button&gt;';
+        $return .= '</pre>';
 
-          <h2>Button sizes</h2>
-          <p>Fancy larger or smaller buttons? Add <code>.btn-large</code>, <code>.btn-small</code>, or <code>.btn-mini</code> for additional sizes.</p>
-          <div class="bs-docs-example">
-            <p>
-              <button type="button" class="btn btn-large btn-primary">Large button</button>
-              <button type="button" class="btn btn-large">Large button</button>
-            </p>
-            <p>
-              <button type="button" class="btn btn-primary">Default button</button>
-              <button type="button" class="btn">Default button</button>
-            </p>
-            <p>
-              <button type="button" class="btn btn-small btn-primary">Small button</button>
-              <button type="button" class="btn btn-small">Small button</button>
-            </p>
-            <p>
-              <button type="button" class="btn btn-mini btn-primary">Mini button</button>
-              <button type="button" class="btn btn-mini">Mini button</button>
-            </p>
-          </div>
-<pre class="prettyprint linenums">
-&lt;p&gt;
-  &lt;button class="btn btn-large btn-primary" type="button"&gt;Large button&lt;/button&gt;
-  &lt;button class="btn btn-large" type="button"&gt;Large button&lt;/button&gt;
-&lt;/p&gt;
-&lt;p&gt;
-  &lt;button class="btn btn-primary" type="button"&gt;Default button&lt;/button&gt;
-  &lt;button class="btn" type="button"&gt;Default button&lt;/button&gt;
-&lt;/p&gt;
-&lt;p&gt;
-  &lt;button class="btn btn-small btn-primary" type="button"&gt;Small button&lt;/button&gt;
-  &lt;button class="btn btn-small" type="button"&gt;Small button&lt;/button&gt;
-&lt;/p&gt;
-&lt;p&gt;
-  &lt;button class="btn btn-mini btn-primary" type="button"&gt;Mini button&lt;/button&gt;
-  &lt;button class="btn btn-mini" type="button"&gt;Mini button&lt;/button&gt;
-&lt;/p&gt;
-</pre>
-          <p>Create block level buttons&mdash;those that span the full width of a parent&mdash; by adding <code>.btn-block</code>.</p>
-          <div class="bs-docs-example">
-            <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
-              <button type="button" class="btn btn-large btn-block btn-primary">Block level button</button>
-              <button type="button" class="btn btn-large btn-block">Block level button</button>
-            </div>
-          </div>
-<pre class="prettyprint linenums">
-&lt;button class="btn btn-large btn-block btn-primary" type="button"&gt;Block level button&lt;/button&gt;
-&lt;button class="btn btn-large btn-block" type="button"&gt;Block level button&lt;/button&gt;
-</pre>
+        $return .= '<h2>Disabled state</h2>';
+        $return .= '<p>Make buttons look unclickable by fading them back 50%.</p>';
 
+        $return .= '<h3>Anchor element</h3>';
+        $return .= '<p>Add the <code>.disabled</code> class to <code>&lt;a&gt;</code> buttons.</p>';
+        $return .= '<p class="bs-docs-example">';
+        $return .= '<a href="#" class="btn btn-large btn-primary disabled">Primary link</a>';
+        $return .= '<a href="#" class="btn btn-large disabled">Link</a>';
+        $return .= '</p>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;a href="#" class="btn btn-large btn-primary disabled"&gt;Primary link&lt;/a&gt;';
+        $return .= '&lt;a href="#" class="btn btn-large disabled"&gt;Link&lt;/a&gt;';
+        $return .= '</pre>';
+        $return .= '<p>';
+        $return .= '<span class="label label-info">Heads up!</span>';
+        $return .= 'We use <code>.disabled</code> as a utility class here, similar to the common <code>.active</code> class, so ';
+        $return .= 'no prefix is required. Also, this class is only for aesthetic; you must use custom JavaScript to disable ';
+        $return .= 'links here.';
+        $return .= '</p>';
 
-          <h2>Disabled state</h2>
-          <p>Make buttons look unclickable by fading them back 50%.</p>
+        $return .= '<h3>Button element</h3>';
+        $return .= '<p>Add the <code>disabled</code> attribute to <code>&lt;button&gt;</code> buttons.</p>';
+        $return .= '<p class="bs-docs-example">';
+        $return .= '<button type="button" class="btn btn-large btn-primary disabled" disabled="disabled">Primary button</button>';
+        $return .= '<button type="button" class="btn btn-large" disabled>Button</button>';
+        $return .= '</p>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;button type="button" class="btn btn-large btn-primary disabled" disabled="disabled"&gt;Primary button&lt;';
+        $return .= '/button&gt;';
+        $return .= '&lt;button type="button" class="btn btn-large" disabled&gt;Button&lt;/button&gt;';
+        $return .= '</pre>';
 
-          <h3>Anchor element</h3>
-          <p>Add the <code>.disabled</code> class to <code>&lt;a&gt;</code> buttons.</p>
-          <p class="bs-docs-example">
-            <a href="#" class="btn btn-large btn-primary disabled">Primary link</a>
-            <a href="#" class="btn btn-large disabled">Link</a>
-          </p>
-<pre class="prettyprint linenums">
-&lt;a href="#" class="btn btn-large btn-primary disabled"&gt;Primary link&lt;/a&gt;
-&lt;a href="#" class="btn btn-large disabled"&gt;Link&lt;/a&gt;
-</pre>
-          <p>
-            <span class="label label-info">Heads up!</span>
-            We use <code>.disabled</code> as a utility class here, similar to the common <code>.active</code> class, so no prefix is required. Also, this class is only for aesthetic; you must use custom JavaScript to disable links here.
-          </p>
+        $return .= '<h2>One class, multiple tags</h2>';
+        $return .= '<p>Use the <code>.btn</code> class on an <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, or <code>&lt;';
+        $return .= 'input&gt;</code> element.</p>';
+        $return .= '<form class="bs-docs-example">';
+        $return .= '<a class="btn" href="">Link</a>';
+        $return .= '<button class="btn" type="submit">Button</button>';
+        $return .= '<input class="btn" type="button" value="Input">';
+        $return .= '<input class="btn" type="submit" value="Submit">';
+        $return .= '</form>';
+        $return .= '<pre class="prettyprint linenums">';
+        $return .= '&lt;a class="btn" href=""&gt;Link&lt;/a&gt;';
+        $return .= '&lt;button class="btn" type="submit"&gt;Button&lt;/button&gt;';
+        $return .= '&lt;input class="btn" type="button" value="Input"&gt;';
+        $return .= '&lt;input class="btn" type="submit" value="Submit"&gt;';
+        $return .= '</pre>';
+        $return .= '<p>As a best practice, try to match the element for your context to ensure matching cross-browser ';
+        $return .= 'rendering.  If you have an <code>input</code>, use an <code>&lt;input type="submit"&gt;</code> for ';
+        $return .= 'your button.</p>';
 
-          <h3>Button element</h3>
-          <p>Add the <code>disabled</code> attribute to <code>&lt;button&gt;</code> buttons.</p>
-          <p class="bs-docs-example">
-            <button type="button" class="btn btn-large btn-primary disabled" disabled="disabled">Primary button</button>
-            <button type="button" class="btn btn-large" disabled>Button</button>
-          </p>
-<pre class="prettyprint linenums">
-&lt;button type="button" class="btn btn-large btn-primary disabled" disabled="disabled"&gt;Primary button&lt;/button&gt;
-&lt;button type="button" class="btn btn-large" disabled&gt;Button&lt;/button&gt;
-</pre>
-
-
-          <h2>One class, multiple tags</h2>
-          <p>Use the <code>.btn</code> class on an <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, or <code>&lt;input&gt;</code> element.</p>
-          <form class="bs-docs-example">
-            <a class="btn" href="">Link</a>
-            <button class="btn" type="submit">Button</button>
-            <input class="btn" type="button" value="Input">
-            <input class="btn" type="submit" value="Submit">
-          </form>
-<pre class="prettyprint linenums">
-&lt;a class="btn" href=""&gt;Link&lt;/a&gt;
-&lt;button class="btn" type="submit"&gt;Button&lt;/button&gt;
-&lt;input class="btn" type="button" value="Input"&gt;
-&lt;input class="btn" type="submit" value="Submit"&gt;
-</pre>
-          <p>As a best practice, try to match the element for your context to ensure matching cross-browser rendering. If you have an <code>input</code>, use an <code>&lt;input type="submit"&gt;</code> for your button.</p>
-
-        </section>';
+        $return .= '</section>';
 
         $return .= '<!-- Images';
         $return .= '================================================== -->';
