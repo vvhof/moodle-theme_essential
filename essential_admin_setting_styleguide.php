@@ -99,7 +99,7 @@ class essential_admin_setting_styleguide extends admin_setting {
                     'generalbox formsettingheading');
         }
 
-        $return .= '        <!-- Typography';
+        $return .= '<!-- Typography';
         $return .= '================================================== -->';
         $return .= '<section id="typography">';
         $return .= '<div class="page-header">';
@@ -148,9 +148,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= 'and the second is the base line-height. We use those variables and some simple math to create the margins, ';
         $return .= 'paddings, and line-heights of all our type and more. Customize them and Bootstrap adapts.</p>';
 
-
         $return .= '<hr class="bs-docs-separator">';
-
 
         $return .= '<h2 id="emphasis">Emphasis</h2>';
         $return .= '<p>Make use of HTML\'s default emphasis tags with lightweight styles.</p>';
