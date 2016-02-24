@@ -390,29 +390,6 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= "margin: 0 auto 30px;";
         $return .= "max-height: 145px;";
         $return .= "}";
-        $return .= "/* Footer";
-        $return .= "-------------------------------------------------- */";
-        $return .= ".footer {";
-        $return .= "text-align: center;";
-        $return .= "padding: 30px 0;";
-        $return .= "margin-top: 70px;";
-        $return .= "border-top: 1px solid #e5e5e5;";
-        $return .= "background-color: #f5f5f5;";
-        $return .= "}";
-        $return .= ".footer p {";
-        $return .= "margin-bottom: 0;";
-        $return .= "color: #777;";
-        $return .= "}";
-        $return .= ".footer-links {";
-        $return .= "margin: 10px 0;";
-        $return .= "}";
-        $return .= ".footer-links li {";
-        $return .= "display: inline;";
-        $return .= "padding: 0 2px;";
-        $return .= "}";
-        $return .= ".footer-links li:first-child {";
-        $return .= "padding-left: 0;";
-        $return .= "}";
         $return .= "/* Special grid styles";
         $return .= "-------------------------------------------------- */";
         $return .= ".show-grid {";
@@ -5771,8 +5748,8 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</a>';
         $return .= '<div class="media-body">';
         $return .= '<h4 class="media-heading">Media heading</h4>';
-        $return .= 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus ';
-        $return .= 'odio, vestibulum in vulputate at, tempus viverra turpis.';
+        $return .= 'Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras ';
+        $return .= 'purus odio, vestibulum in vulputate at, tempus viverra turpis.';
         $return .= '</div>';
         $return .= '</li>';
         $return .= '</ul>';
@@ -5923,7 +5900,7 @@ class essential_admin_setting_styleguide extends admin_setting {
 
         $return .= '<p>That said, in some situations it may be desirable to turn this functionality off.  Therefore, we also ';
         $return .= 'provide the ability to disable the data attribute API by unbinding all events on the body namespaced with ';
-        $return .= '`\'data-api\'`. This looks like this:';
+        $return .= '\'data-api\'. This looks like this:';
         $return .= '<pre class="prettyprint linenums">$(\'body\').off(\'.data-api\')</pre>';
 
         $return .= '<p>Alternatively, to target a specific plugin, just include the plugin\'s name as a namespace along with the ';
@@ -5941,7 +5918,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '$("#myModal").modal({ keyboard: false })   // initialized with no keyboard'.PHP_EOL;
         $return .= '$("#myModal").modal(\'show\')                // initializes and invokes show immediately</p>'.PHP_EOL;
         $return .= '</pre>';
-        $return .= '<p>Each plugin also exposes its raw constructor on a `Constructor` property: <code>$.fn.popover.Constructor';
+        $return .= '<p>Each plugin also exposes its raw constructor on a \'Constructor\' property: <code>$.fn.popover.Constructor';
         $return .= '</code>. If you\'d like to get a particular plugin instance, retrieve it directly from an element: <code>';
         $return .= '$(\'[rel=popover]\').data(\'popover\')</code>.</p>';
 
@@ -6055,7 +6032,8 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= 'some amazing content. It\'s very engaging. right?">button</a> should trigger a popover on click.</p>';
 
         $return .= '<h4>Tooltips in a modal</h4>';
-        $return .= '<p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.</p>';
+        $return .= '<p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" ';
+        $return .= 'title="Tooltip">that link</a> should have tooltips on hover.</p>';
 
         $return .= '<hr>';
 
@@ -6671,8 +6649,10 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '<div class="bs-docs-example tooltip-demo">';
         $return .= '<ul class="bs-docs-tooltip-examples">';
         $return .= '<li><a href="#" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</a></li>';
-        $return .= '<li><a href="#" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</a></li>';
-        $return .= '<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</a></li>';
+        $return .= '<li><a href="#" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</a>';
+        $return .= '</li>';
+        $return .= '<li><a href="#" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom';
+        $return .= '</a></li>';
         $return .= '<li><a href="#" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</a></li>';
         $return .= '</ul>';
         $return .= '</div>';
@@ -6729,7 +6709,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '<td>title</td>';
         $return .= '<td>string | function</td>';
         $return .= '<td>\'\'</td>';
-        $return .= '<td>default title value if `title` tag isn\'t present</td>';
+        $return .= '<td>default title value if \'title\' tag isn\'t present</td>';
         $return .= '</tr>';
         $return .= '<tr>';
         $return .= '<td>trigger</td>';
@@ -6914,13 +6894,13 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '<td>title</td>';
         $return .= '<td>string | function</td>';
         $return .= '<td>\'\'</td>';
-        $return .= '<td>default title value if `title` attribute isn\'t present</td>';
+        $return .= '<td>default title value if \'title\' attribute isn\'t present</td>';
         $return .= '</tr>';
         $return .= '<tr>';
         $return .= '<td>content</td>';
         $return .= '<td>string | function</td>';
         $return .= '<td>\'\'</td>';
-        $return .= '<td>default content value if `data-content` attribute isn\'t present</td>';
+        $return .= '<td>default content value if \'data-content\' attribute isn\'t present</td>';
         $return .= '</tr>';
         $return .= '<tr>';
         $return .= '<td>delay</td>';
