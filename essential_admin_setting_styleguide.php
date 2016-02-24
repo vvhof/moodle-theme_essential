@@ -1086,10 +1086,6 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= ".bs-docs-example .navbar {";
         $return .= "position: static;";
         $return .= "}";
-        $return .= ".bs-docs-example .carousel-control {";
-        $return .= "color: #30add1;";
-        $return .= "border: 3px solid #30add1;";
-        $return .= "}";
         $return .= ".bs-docs-example .carousel-indicators {";
         $return .= "background-color: #30add1;";
         $return .= "border-radius: 4px;";
@@ -1101,6 +1097,10 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= "}";
         $return .= ".bs-docs-example .carousel-inner img {";
         $return .= "margin: 0 auto;";
+        $return .= "}";
+        $return .= "#forms .checkbox input[type=checkbox] {";
+        $return .= "margin-left: 0;";
+        $return .= "margin-right: 0;";
         $return .= "}";
         $return .= '/* ]]> */';
         $return .= '</style>';
@@ -5050,22 +5050,22 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '<ul class="thumbnails">';
         $return .= '<li class="span3">';
         $return .= '<a href="#" class="thumbnail">';
-        $return .= '<img data-src="holder.js/260x180" alt="">';
+        $return .= $this->twosixtyoneeighty();
         $return .= '</a>';
         $return .= '</li>';
         $return .= '<li class="span3">';
         $return .= '<a href="#" class="thumbnail">';
-        $return .= '<img data-src="holder.js/260x180" alt="">';
+        $return .= $this->twosixtyoneeighty();
         $return .= '</a>';
         $return .= '</li>';
         $return .= '<li class="span3">';
         $return .= '<a href="#" class="thumbnail">';
-        $return .= '<img data-src="holder.js/260x180" alt="">';
+        $return .= $this->twosixtyoneeighty();
         $return .= '</a>';
         $return .= '</li>';
         $return .= '<li class="span3">';
         $return .= '<a href="#" class="thumbnail">';
-        $return .= '<img data-src="holder.js/260x180" alt="">';
+        $return .= $this->twosixtyoneeighty();
         $return .= '</a>';
         $return .= '</li>';
         $return .= '</ul>';
@@ -5078,7 +5078,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '<ul class="thumbnails">';
         $return .= '<li class="span4">';
         $return .= '<div class="thumbnail">';
-        $return .= '<img data-src="holder.js/300x200" alt="">';
+        $return .= $this->threehundredtwohundred();
         $return .= '<div class="caption">';
         $return .= '<h3>Thumbnail label</h3>';
         $return .= '<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at ';
@@ -5089,7 +5089,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</li>';
         $return .= '<li class="span4">';
         $return .= '<div class="thumbnail">';
-        $return .= '<img data-src="holder.js/300x200" alt="">';
+        $return .= $this->threehundredtwohundred();
         $return .= '<div class="caption">';
         $return .= '<h3>Thumbnail label</h3>';
         $return .= '<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at ';
@@ -5100,7 +5100,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</li>';
         $return .= '<li class="span4">';
         $return .= '<div class="thumbnail">';
-        $return .= '<img data-src="holder.js/300x200" alt="">';
+        $return .= $this->threehundredtwohundred();
         $return .= '<div class="caption">';
         $return .= '<h3>Thumbnail label</h3>';
         $return .= '<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at ';
@@ -7138,8 +7138,21 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '</div>';
         $return .= '</div>';
         $return .= '</div>';
-        $return .= '<a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>';
-        $return .= '<a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>';
+        $left = true;
+        if (right_to_left()) {
+            $left = false;
+        }
+        $faleft = 'left';
+        $faright = 'right';
+        if (!$left) {
+            $temp = $faleft;
+            $faleft = $faright;
+            $faright = $temp;
+        }
+        $return .= '<a class="left carousel-control" href="#myCarousel" data-slide="prev">';
+        $return .= '<i class="fa fa-chevron-circle-'.$faleft.'"></i></a>';
+        $return .= '<a class="right carousel-control" href="#myCarousel" data-slide="next">';
+        $return .= '<i class="fa fa-chevron-circle-'.$faright.'"></i></a>';
         $return .= '</div>';
         $return .= '</div>';
         $return .= '<pre class="prettyprint linenums">';
@@ -7535,7 +7548,7 @@ class essential_admin_setting_styleguide extends admin_setting {
     }
 
     private function options() {
-        $return .= '<h3>Options</h3>';
+        $return = '<h3>Options</h3>';
         $return .= '<p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to ';
         $return .= '<code>data-</code>, as in <code>data-animation=""</code>.</p>';
         $return .= '<table class="table table-bordered table-striped">';
@@ -7560,6 +7573,92 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '<td>false</td>';
         $return .= '<td>Insert html into the tooltip. If false, jquery\'s <code>text</code> method will be used to insert ';
         $return .= 'content into the dom. Use text if you\'re worried about XSS attacks.</td>';
+
+        return $return;
+    }
+
+    private function twosixtyoneeighty() {
+        $return = '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQQAAAC0CAYAAABytVLLAAALB0lEQVR4Xu2aBY/dOhBGvWVGlZlJ5';
+        $return .= 'f//C8rMzLRlhq0+63mVvb3bN11pRxnNifTU19Q3Hp+JT8ZORkZHR8cKBwQgAIFSyghC4D6AAAQaAYTAvQABCIwTQAjcDBCAAELgHoAABP4kQI';
+        $return .= 'XAXQEBCFAhcA9AAAJUCNwDEIDAXwiwZOD2gAAEWDJwD0AAAiwZuAcgAAGWDNwDEICAhQB7CBZKtIFAEgIIIUmiGSYELAQQgoUSbSCQhABCSJJ';
+        $return .= 'ohgkBCwGEYKFEGwgkIYAQkiSaYULAQgAhWCjRBgJJCCCEJIlmmBCwEEAIFkq0gUASAgghSaIZJgQsBBCChRJtIJCEAEJIkmiGCQELAYRgoUQb';
+        $return .= 'CCQhgBCSJJphQsBCACFYKNEGAkkIIIQkiWaYELAQQAgWSrSBQBICCCFJohkmBCwEEIKFEm0gkIQAQkiSaIYJAQsBhGChRBsIJCGAEJIkmmFCw';
+        $return .= 'EIAIVgo0QYCSQgghCSJZpgQsBBACBZKtIFAEgIIIUmiGSYELAQQgoUSbSCQhABCSJJohgkBCwGEYKFEGwgkIYAQkiSaYULAQgAhWCjRBgJJCC';
+        $return .= 'CEJIlmmBCwEEAIFkq0gUASAgghSaIZJgQsBBCChRJtIJCEAEJIkmiGCQELAYRgoUQbCCQhgBCSJJphQsBCACFYKNEGAkkIIIQkiWaYELAQQAg';
+        $return .= 'WSrSBQBICCCFJohkmBCwEEIKFEm0gkIQAQkiSaIYJAQsBhGChRBsIJCGAEJIkmmFCwEIAIVgo0QYCSQgghCSJZpgQsBBACBZKtIFAEgIIIUmi';
+        $return .= 'GSYELAQQgoUSbSCQhABCSJJohgkBCwGEYKFEGwgkIYAQkiSaYULAQgAhWCjRBgJJCCCEJIlmmBCwEEAIFkq0gUASAgghSaIZJgQsBBCChRJtI';
+        $return .= 'JCEAEJIkmiGCQELAYRgoUQbCCQhgBCSJJphQsBCACFYKNEGAkkIIIQkiWaYELAQQAgWSrSBQBICCCFJohkmBCwEEIKFEm0gkIQAQkiSaIYJAQ';
+        $return .= 'sBhGChRBsIJCGAEJIkmmFCwEIAIVgo0QYCSQgghJ4l+suXL+XKlSvl9evX5devX2XWrFll3bp1ZdeuXWXGjBk12rGxsXL79u3y4MGD8uPHjzJ';
+        $return .= 'z5syyYcOG2mZkZKS20fnr16+Xp0+f1uvMnTu3/vvatWunNGJdR3HpOseOHSvz5s0bj+X+/fvl3r175du3b7X/xYsXl3379tU/2/Hy5cty7dq1';
+        $return .= '8vnz5zqOlStXlv3795fZs2dPKR5+ND0EEML0cJ3SVb9//15OnTpVPnz48Mfv169fXyeQDsngzp07VQzt0ETcvn172bZtWz1/6dKlKoPuIbkcO';
+        $return .= 'HCgrFq16p/ie//+fblw4UL59OlTWbBgwQQhSAY3btyYEIsuvmjRonL8+PE64d+8eVPOnz9fhdE9JIUjR46MS+yfgqLxtBBACNOCdWoXffToUX';
+        $return .= '2KanLv3r27rFmzpj6Vnz17Vp/MR48erRc+c+ZMrQB27NhRn/jnzp0rmrTLli2rE0xCaW22bNlSJBO1+fjxY73mwYMHTQGqsnj48GGVj2SlY1A';
+        $return .= 'IJ0+erBNe59X3q1evqiA0BlUJik9yevLkyXgbiUrXVGVz+PDhsnz5clM8NJp+Aghh+hmbe1CJLymoHNfk15+PHz8uV69erZNHpfq7d++qNObP';
+        $return .= 'n1//LlEMHu2pPWfOnHodPa01SVXWL1y4sE7Cixcv1mu16+gaZ8+erdJYsWJFbaMlyc2bN+vkVrthFcKJEyfK27dv67JG1YfEdPr06SosLVF0v';
+        $return .= 'lU9mzZtKnv27KnXURstj9RG0uLoBwGE0I88TBqFKoQmCQlA/98mtn6kCSxZbN68uS4ZNHnb5O8+zfUbnZckdB2t5fXk1sTVhFQFIPno3w8dOl';
+        $return .= 'SrDf1G5zRpVXVIDoMVQouvVQiDT38Jq03+nTt3lq1bt5avX7/Wc4q9uxTqeSpShIcQepxmldmqDn7+/Fk2btxY9u7dO15+D4bd3UPoluhtA7B';
+        $return .= 'tCmpDT+e04dfaSSjad9B/mrBaigwed+/eHSoETW7tL2jZ0A7tVegaqghaxSDhNCGo3WBl0eM0pAoNIfQ03do3kAw0kVTma32usr07ibXPsHr1';
+        $return .= '6ro/0Nbxmuy3bt0aX7P/TQh6QmuvQaW7jiVLllRZaEJbhaDlgpYfqjjaITkpLu0h6LyqAYTQ0xttICyE0MM8dWWgfQRtAi5durRGOmw50PYMN';
+        $return .= 'JE1oVXma/3fLe/bE74tGbSvoOPy5cu1vQ5VB3qKDzuGVQiqXDTZJQUtMbTvMDo6WkXW9hC0HyHpqJJoFYIEpN9pL4ElQ79uQITQr3xMeEWnCS';
+        $return .= '0ZdN/nt8nfNgMljPZ2om08alJKHO3NxOCmYtuMfPHixfg+gjB09w8sFcKw5YDeTGgTsW00SgJtv4BNxZ7dbEPCQQg9ypGenHqaqpSfbHK2V4p';
+        $return .= '6p68nuiaZ3vFrydDe/auNlhF6gmvDUPsPeoOg8+21o57gmqh606Alif6up7heAepJP7hsGFYhdN8WdCsEVR3quwlAewyqetrGo0SkZY32M3jt';
+        $return .= '2KMbsJSCEHqUD+3ia+INO/SBT9sM7Jb53XV798MkTcLnz59PuFT3w6S29GjntNbXOR3tOt0fT7apOCwW/U7Vid5WaKmjikXSknS6Bx8m9ejm+';
+        $return .= 'y8UhNCjnLSPfP5PCCrL26fLehKrmlAloFePlk+Xu18OtjW8rqOqQpO3O5lbLJMJQW8m9JGRPmDqfrqs7w3avoeuwafLPbrR/hIKQoiRJ6KEgA';
+        $return .= 'sBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIM';
+        $return .= 'AQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsB';
+        $return .= 'hOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQ';
+        $return .= 'oiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhO';
+        $return .= 'CCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoi';
+        $return .= 'RJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCC';
+        $return .= 'mU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ';
+        $return .= '6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU';
+        $return .= '4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6KEgAsBhOCCmU4gEIMAQoiRJ6K';
+        $return .= 'EgAsBhOCCmU4gEIMAQoiRJ6KEgAuB35F4E2PJA9gjAAAAAElFTkSuQmCC" alt="">';
+
+        return $return;
+    }
+
+    private function threehundredtwohundred() {
+        $return = '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAADICAYAAABS39xVAAAMH0lEQVR4Xu3bZ48cxRYG4DaYZILJWY';
+        $return .= 'AR2YjM//8BZGMwSWSRsckZfPW21KtmvGb3YF/XHPT0p9VsTdfpp2peVdf0HDh58uTpyUGAAIEGAgcEVoNRUiIBArOAwDIRCBBoIyCw2gyVQgk';
+        $return .= 'QEFjmAAECbQQEVpuhUigBAgLLHCBAoI2AwGozVAolQEBgmQMECLQREFhthkqhBAgILHOAAIE2AgKrzVAplAABgWUOECDQRkBgtRkqhRIgILDM';
+        $return .= 'AQIE2ggIrDZDpVACBASWOUCAQBsBgdVmqBRKgIDAMgcIEGgjILDaDJVCCRAQWOYAAQJtBARWm6FSKAECAsscIECgjYDAajNUCiVAQGCZAwQIt';
+        $return .= 'BEQWG2GSqEECAgsc4AAgTYCAqvNUCmUAAGBZQ4QINBGQGC1GSqFEiAgsMwBAgTaCAisNkOlUAIEBJY5QIBAGwGB1WaoFEqAgMAyBwgQaCMgsN';
+        $return .= 'oMlUIJEBBY5gABAm0EBFaboVIoAQICyxwgQKCNgMBqM1QKJUBAYJkDBAi0ERBYbYZKoQQICCxzgACBNgICq81QKZQAAYFlDhAg0EZAYLUZKoU';
+        $return .= 'SICCwzAECBNoICKw2Q6VQAgQEljlAgEAbAYHVZqgUSoCAwDIHCBBoIyCw2gyVQgkQEFjmAAECbQQEVpuhUigBAgLLHCBAoI2AwGozVAolQEBg';
+        $return .= 'mQMECLQREFhthkqhBAgILHOAAIE2AgKrzVAplAABgWUOECDQRkBgtRkqhRIgILDMAQIE2ggIrDZDpVACBASWOUCAQBsBgdVmqBRKgIDAMgcIE';
+        $return .= 'GgjILDaDJVCCRAQWOYAAQJtBARWm6FSKAECAsscIECgjYDAajNUCiVAQGCZAwQItBEQWG2GSqEECAgsc4AAgTYCAqvNUCmUAAGBZQ4QINBGQG';
+        $return .= 'C1GSqFEiAgsMwBAgTaCAisNkOlUAIEBJY5QIBAGwGB1WaoFEqAgMAyBwgQaCMgsNoMlUIJEBBY5gABAm0EBFaboVIoAQICyxwgQKCNgMBqM1Q';
+        $return .= 'KJUBAYJkDBAi0ERBYbYZKoQQICCxzgACBNgICq81QKZQAAYH1H5oDX3311fTOO+9MP/7443T69Onp0ksvne68887pyJEj04EDB3auNP979913';
+        $return .= 'p48++mj6448/posuumg6fPjw9MADD0xXX33130Ty/7feemv6/PPPpz///HO6+OKLp+uvv3566KGHpssuu+xf6X377bdznd999918ztR25ZVXT';
+        $return .= 'vfdd9904403/u2cuab0/9NPP82vX3HFFdM999wz3XHHHX9rV7mmf1W0N22FgMDaimE49yISKK+//vocAJtHQisBsxxp98knn5zRLqHxxBNPzK';
+        $return .= 'GQI+d65ZVXppMnT57R9rrrrpsef/zx6eDBg6Xiv/nmm+nYsWPTb7/9dsb7Eoap87bbbpv/d7Zr2myXtvu9plKxGm+dgMDauiGpF5TVxcsvvzx';
+        $return .= '9/fXX8wooK6UESl7LyiQroSeffHK66qqrplOnTs0hlJXTtddeO4fOF198Ma9iElBZuTz88MNzEQm1N954Y/rrr7+mW2+9dX79vffemz744IP5';
+        $return .= '//fff/901113lQp+9dVX5yDKquruu++e7r333unLL7+c+/n999/nld5TTz01n/PFF1+cshrLSvHRRx+dLr/88p1rSrg+88wz0yWXXFK6plKxG';
+        $return .= 'm+dgMDauiGpF/Trr79Ob7755pTVS8IpH/h8kBNMCYP8nddyu/f222/PgZNgSwAliBJUL7zwwnyLliBI25xn/f4E3jXXXDMHYILkl19+mQMvoZ';
+        $return .= 'HbywRZgjOvpW3Ov/SVK7r55punBx98cD5nzpEQSj8JoRzPPffcHE5LrQnUJViz4jp69Ojcbl3/I488Mt1yyy2la6rresc2CQisbRqN81hLVlu';
+        $return .= 'vvfbafOuVldXTTz991hBLt8ePH58+++yzncA4dOjQTojl7yVcEkoJl4Tb8npuCxNieS37YQmm9JnASf/rFd5ul7g+5xJYOVdCOKu77G1l3ypH';
+        $return .= 'aszt3/r13YJ5t2va3J87j9xOdYEEBNYFgr6Q3SSoPv3007nLrJhyO7V8WJeVTFY2CaGETo7lPcvKKyulhFBWQ1lZJfDyv91WQzn3er8pYbXcq';
+        $return .= 'uXWb69bx/V7lxBMMGVjfgnAZZM9r584cWJeFS4rr/1eU1aTjt4CAqv3+O1a/fPPPz/fHuZIyGSfKPtF67BZr5r2CqzsKz377LM7fW3eviWwsk';
+        $return .= 'rK/lT2w9ZHvlHMPtkSdpsFp868L7e1OZYvCN5///05sNa3rssK62yBtdc1Caz+k11g9R/DM64gm9c58sFOgKw/9EvY7PXhXq+w9hNY6e+HH36';
+        $return .= 'YXnrppZ3wyT7VY489Nu9r7XZkzyphlf2wZTW4fEspsP6DE/M8XJLAOg+I23qK9TeCN9xww7wZ/m8CK7eEWWEtz3LttsKKwfrbyiWAlm/y9lpZ';
+        $return .= 'bYbbEli5Jczm+rI6+qdbwr1C2AprW2fq/usSWPu3atfy+++/n/ehlscFEjpZAWVDfv3NYS5sc9M9e1z55jCrpr023Zdv+rJvlscT1s+C5VY0e';
+        $return .= '1jrI3VlZbU8DLo8tpDbx+X48MMP52//EoJ7bbrv95psurebwmcULLD6j+HOc1QJpjw+sDwCsF5h3XTTTfNe0v/jsYYQpu8l4LIqypFv8jZXTn';
+        $return .= 'lcYflGMW12C6u8vq7dYw3/gUl6ni5BYJ0nyJGnWe8dJQASWLmNy9f92dROgOQJ8ttvv730kGXlwdH1M1cJmNSxPGC63nhft9vtifXFMas0D46';
+        $return .= 'OnFXb2bfA2s5xKVe1fnhz880JkOwDZQ8qt1h5jml57GHddvOnOcvDm1ntbB7rn+asf26T28PslSWw1iuuPJuVfbTlUYmzXeD6VnW3W8y8bzPo';
+        $return .= 'KtdUhvWGrRIQWFs1HOdWTDakE1w///zznj9+zpPpH3/88fxg514/fs6qKOfe7cfP698bbj5ztQ6c7INlPyvnShDuJ7DSJj9+znvyg+4c//Tj5';
+        $return .= '/1e07kpe/dIAYE1Ul/fBAiUBARWiUtjAgRGCgiskfr6JkCgJCCwSlwaEyAwUkBgjdTXNwECJQGBVeLSmACBkQICa6S+vgkQKAkIrBKXxgQIjB';
+        $return .= 'QQWCP19U2AQElAYJW4NCZAYKSAwBqpr28CBEoCAqvEpTEBAiMFBNZIfX0TIFASEFglLo0JEBgpILBG6uubAIGSgMAqcWlMgMBIAYE1Ul/fBAi';
+        $return .= 'UBARWiUtjAgRGCgiskfr6JkCgJCCwSlwaEyAwUkBgjdTXNwECJQGBVeLSmACBkQICa6S+vgkQKAkIrBKXxgQIjBQQWCP19U2AQElAYJW4NCZA';
+        $return .= 'YKSAwBqpr28CBEoCAqvEpTEBAiMFBNZIfX0TIFASEFglLo0JEBgpILBG6uubAIGSgMAqcWlMgMBIAYE1Ul/fBAiUBARWiUtjAgRGCgiskfr6J';
+        $return .= 'kCgJCCwSlwaEyAwUkBgjdTXNwECJQGBVeLSmACBkQICa6S+vgkQKAkIrBKXxgQIjBQQWCP19U2AQElAYJW4NCZAYKSAwBqpr28CBEoCAqvEpT';
+        $return .= 'EBAiMFBNZIfX0TIFASEFglLo0JEBgpILBG6uubAIGSgMAqcWlMgMBIAYE1Ul/fBAiUBARWiUtjAgRGCgiskfr6JkCgJCCwSlwaEyAwUkBgjdT';
+        $return .= 'XNwECJQGBVeLSmACBkQICa6S+vgkQKAkIrBKXxgQIjBQQWCP19U2AQElAYJW4NCZAYKSAwBqpr28CBEoCAqvEpTEBAiMFBNZIfX0TIFASEFgl';
+        $return .= 'Lo0JEBgpILBG6uubAIGSgMAqcWlMgMBIAYE1Ul/fBAiUBARWiUtjAgRGCgiskfr6JkCgJCCwSlwaEyAwUkBgjdTXNwECJQGBVeLSmACBkQICa';
+        $return .= '6S+vgkQKAkIrBKXxgQIjBQQWCP19U2AQElAYJW4NCZAYKSAwBqpr28CBEoCAqvEpTEBAiMFBNZIfX0TIFASEFglLo0JEBgpILBG6uubAIGSgM';
+        $return .= 'AqcWlMgMBIAYE1Ul/fBAiUBARWiUtjAgRGCgiskfr6JkCgJCCwSlwaEyAwUkBgjdTXNwECJQGBVeLSmACBkQICa6S+vgkQKAkIrBKXxgQIjBQ';
+        $return .= 'QWCP19U2AQElAYJW4NCZAYKSAwBqpr28CBEoCAqvEpTEBAiMFBNZIfX0TIFASEFglLo0JEBgp8D9TOmQ6K0s50AAAAABJRU5ErkJggg==" ';
+        $return .= 'alt="">';
 
         return $return;
     }
