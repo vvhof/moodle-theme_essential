@@ -1104,267 +1104,6 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= "margin-left: 0;";
         $return .= "margin-right: 0;";
         $return .= "}";
-        $return .= '
-.row_theme_essential_styleguide {
-  margin-left: -20px;
-  *zoom: 1;
-}
-.row_theme_essential_styleguide:before,
-.row_theme_essential_styleguide:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-.row_theme_essential_styleguide:after {
-  clear: both;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span12 {
-  width: 940px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span11 {
-  width: 860px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span10 {
-  width: 780px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span9 {
-  width: 700px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span8 {
-  width: 620px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span7 {
-  width: 540px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span6 {
-  width: 460px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span5 {
-  width: 380px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span4 {
-  width: 300px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span3 {
-  width: 220px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span2 {
-  width: 140px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .span1 {
-  width: 60px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset12 {
-  margin-left: 980px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset11 {
-  margin-left: 900px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset10 {
-  margin-left: 820px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset9 {
-  margin-left: 740px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset8 {
-  margin-left: 660px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset7 {
-  margin-left: 580px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset6 {
-  margin-left: 500px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset5 {
-  margin-left: 420px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset4 {
-  margin-left: 340px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset3 {
-  margin-left: 260px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset2 {
-  margin-left: 180px;
-}
-.theme_essential_styleguide .row_theme_essential_styleguide .offset1 {
-  margin-left: 100px;
-}
-@media (min-width: 1200px) {
-  .row_theme_essential_styleguide {
-    margin-left: -30px;
-    *zoom: 1;
-  }
-  .row_theme_essential_styleguide:before,
-  .row_theme_essential_styleguide:after {
-    display: table;
-    content: "";
-    line-height: 0;
-  }
-  .row_theme_essential_styleguide:after {
-    clear: both;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span12 {
-    width: 1170px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span11 {
-    width: 1070px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span10 {
-    width: 970px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span9 {
-    width: 870px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span8 {
-    width: 770px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span7 {
-    width: 670px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span6 {
-    width: 570px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span5 {
-    width: 470px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span4 {
-    width: 370px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span3 {
-    width: 270px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span2 {
-    width: 170px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span1 {
-    width: 70px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset12 {
-    margin-left: 1230px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset11 {
-    margin-left: 1130px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset10 {
-    margin-left: 1030px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset9 {
-    margin-left: 930px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset8 {
-    margin-left: 830px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset7 {
-    margin-left: 730px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset6 {
-    margin-left: 630px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset5 {
-    margin-left: 530px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset4 {
-    margin-left: 430px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset3 {
-    margin-left: 330px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset2 {
-    margin-left: 230px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset1 {
-    margin-left: 130px;
-  }
-}
-@media (min-width: 768px) and (max-width: 979px) {
-  .row_theme_essential_styleguide {
-    margin-left: -20px;
-    *zoom: 1;
-  }
-  .row_theme_essential_styleguide:before,
-  .row_theme_essential_styleguide:after {
-    display: table;
-    content: "";
-    line-height: 0;
-  }
-  .row_theme_essential_styleguide:after {
-    clear: both;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span12 {
-    width: 724px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span11 {
-    width: 662px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span10 {
-    width: 600px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span9 {
-    width: 538px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span8 {
-    width: 476px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span7 {
-    width: 414px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span6 {
-    width: 352px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span5 {
-    width: 290px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span4 {
-    width: 228px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span3 {
-    width: 166px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span2 {
-    width: 104px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .span1 {
-    width: 42px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset12 {
-    margin-left: 764px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset11 {
-    margin-left: 702px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset10 {
-    margin-left: 640px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset9 {
-    margin-left: 578px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset8 {
-    margin-left: 516px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset7 {
-    margin-left: 454px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset6 {
-    margin-left: 392px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset5 {
-    margin-left: 330px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset4 {
-    margin-left: 268px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset3 {
-    margin-left: 206px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset2 {
-    margin-left: 144px;
-  }
-  .theme_essential_styleguide .row_theme_essential_styleguide .offset1 {
-    margin-left: 82px;
-  }
-}
-';
         $return .= '/* ]]> */';
         $return .= '</style>';
 
@@ -5390,28 +5129,28 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= '<h2>More examples</h2>';
         $return .= '<p>Explore all your options with the various grid classes available to you. You can also mix and match ';
         $return .= 'different sizes.</p>';
-        $return .= '<ul class="thumbnails">';
-        $return .= '<li class="span4">';
+        $return .= '<ul class="thumbnails row-fluid">';
+        $return .= '<li class="span5">';
         $return .= '<a href="#" class="thumbnail">';
         $return .= $this->threesixtytwoseventy();
         $return .= '</a>';
         $return .= '</li>';
-        $return .= '<li class="span3">';
+        $return .= '<li class="span4">';
         $return .= '<a href="#" class="thumbnail">';
         $return .= $this->twosixtyonetwenty();
         $return .= '</a>';
         $return .= '</li>';
-        $return .= '<li class="span2">';
+        $return .= '<li class="span3">';
         $return .= '<a href="#" class="thumbnail">';
         $return .= $this->onesixtyonetwenty();
         $return .= '</a>';
         $return .= '</li>';
-        $return .= '<li class="span3">';
+        $return .= '<li class="span4">';
         $return .= '<a href="#" class="thumbnail">';
         $return .= $this->twosixtyonetwenty();
         $return .= '</a>';
         $return .= '</li>';
-        $return .= '<li class="span2">';
+        $return .= '<li class="span3">';
         $return .= '<a href="#" class="thumbnail">';
         $return .= $this->onesixtyonetwenty();
         $return .= '</a>';
