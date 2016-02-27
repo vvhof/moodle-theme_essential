@@ -5034,34 +5034,7 @@ class essential_admin_setting_styleguide extends admin_setting {
         $return .= 'markup.</p>';
         $return .= '<div class="row-fluid">';
         $return .= '<ul class="thumbnails">';
-        $return .= '<li class="span3">';
-        $return .= '<a href="#" class="thumbnail">';
-        $return .= '<div class="thumbnail-container">';
-        $return .= $this->twosixtyoneeighty();
-        $return .= '</div>';
-        $return .= '</a>';
-        $return .= '</li>';
-        $return .= '<li class="span3">';
-        $return .= '<a href="#" class="thumbnail">';
-        $return .= '<div class="thumbnail-container">';
-        $return .= $this->twosixtyoneeighty();
-        $return .= '</div>';
-        $return .= '</a>';
-        $return .= '</li>';
-        $return .= '<li class="span3">';
-        $return .= '<a href="#" class="thumbnail">';
-        $return .= '<div class="thumbnail-container">';
-        $return .= $this->twosixtyoneeighty();
-        $return .= '</div>';
-        $return .= '</a>';
-        $return .= '</li>';
-        $return .= '<li class="span3">';
-        $return .= '<a href="#" class="thumbnail">';
-        $return .= '<div class="thumbnail-container">';
-        $return .= $this->twosixtyoneeighty();
-        $return .= '</div>';
-        $return .= '</a>';
-        $return .= '</li>';
+        $return .= $this->fourthumbnails();
         $return .= '</ul>';
         $return .= '</div>';
 
@@ -7638,6 +7611,20 @@ class essential_admin_setting_styleguide extends admin_setting {
             $return .= '<p><a href="#" class="btn btn-primary">Action</a> <a href="#" class="btn">Action</a></p>';
             $return .= '</div>';
             $return .= '</div>';
+            $return .= '</li>';
+        }
+        return $return;
+    }
+
+    private function fourthumbnails() {
+        $return = '';
+        for ($i = 0; $i < 4; $i++) {
+            $return .= '<li class="span3">';
+            $return .= '<a href="#" class="thumbnail">';
+            $return .= '<div class="thumbnail-container">';
+            $return .= $this->twosixtyoneeighty();
+            $return .= '</div>';
+            $return .= '</a>';
             $return .= '</li>';
         }
         return $return;
