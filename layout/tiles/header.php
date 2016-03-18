@@ -50,7 +50,7 @@ echo $OUTPUT->doctype();
 
 <?php echo $OUTPUT->standard_top_of_body_html(); ?>
 
-<header role="banner">
+<div role="banner">
 <?php
 if (!$oldnavbar) {
     require_once(\theme_essential\toolbox::get_tile_file('navbar'));
@@ -138,4 +138,4 @@ if ($oldnavbar) {
     require_once(\theme_essential\toolbox::get_tile_file('navbar'));
 }
 ?>
-</header>
+</div>

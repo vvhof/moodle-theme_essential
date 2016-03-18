@@ -1,18 +1,49 @@
 /* @group Navbar */
 @import "../fontawesome/variables";
 
-/* @group Custom Menu */
+#page-header {
+  padding-top: @navbarHeight;
+  &.oldnavbar {
+    padding-top: 0;
+    padding-bottom: @navbarHeight;
+  }
+}
+
+.navbar {
+  &.affix {
+    top: 0;
+    right: 0;
+  }
+
+  &.affix-top {
+    position: fixed;
+  }
+
+  &.oldnavbar.affix-top {
+    top: @navbarHeight;
+  }
+}
+
+.pagewidthnarrow {
+  #page-header {
+    padding-top: @navbarHeight * 2;
+    &.oldnavbar {
+      padding-top: 0;
+      padding-bottom: @navbarHeight * 2;
+    }
+  }
+  .navbar {
+    &.oldnavbar.affix-top {
+      top: @navbarHeight * 2;
+    }
+  }
+}
 
 .navbar {
   margin-bottom: 0px;
   width: 100%;
   background-image: none;
   z-index: 200;
-
-  &.affix {
-    top: 0px;
-    right: 0px;
-  }
 
   .navbar-inner {
     .reset-filter();
@@ -290,6 +321,11 @@
   }
 }
 
+.pagelayout-secure .navbar,
+.pagelayout-popup .navbar {
+  position: relative;
+}
+
 /* @end */
 
 /* @group Theme Colours Menu */
@@ -299,11 +335,4 @@ a {
     border-radius: 2px;
   }
 }
-/* @end */
-
-.pagelayout-secure .navbar,
-.pagelayout-popup .navbar {
-  position: relative;
-}
-
 /* @end */
