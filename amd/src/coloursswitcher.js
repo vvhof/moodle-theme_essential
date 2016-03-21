@@ -16,7 +16,7 @@ define(['jquery', 'core/log'], function($, log) {
 
             constructor: ColoursSwitcher,
             init: function(data) {
-            var i, s;
+                var i, s;
                 /* Attach events to the links to change colours scheme so we can do it with
                    JavaScript without refreshing the page. */
                 log.debug('Colour switcher on: ' + data.div);
@@ -28,20 +28,25 @@ define(['jquery', 'core/log'], function($, log) {
                         this.scheme = s;
                         log.debug('Colour switcher current scheme: ' + s);
                     }
-                    /*
-                    Y.all(config.div + ' .colours-' + s).each(function (node) {
-                        node.ancestor().on('click', this.setScheme, this, s);
-                    }, this); */
                     var us = this;
                     $(data.div + ' .' + s).each(function() {
-                        log.debug('init each: ' + s + ' fn: ' + us.setScheme.length);
-                        $(this).click({scheme: s}, us.setScheme);
+                        log.debug('Colour switcher init each: ' + s + ' fn: ' + us.setScheme.length);
+                        $(this).click({scheme: s, us: us}, us.setScheme);
                     });
                 }
             },
             setScheme: function(event) {
                 event.preventDefault();
-                log.debug('setScheme scheme: ' + event.data.scheme);
+                log.debug('Colour switcher setScheme scheme: ' + event.data.scheme);
+                log.debug('Colour switcher setScheme(before) our scheme: ' + event.data.us.scheme);
+                // Switch over the CSS classes on the body.
+                var prefix = 'essential-colours-';
+                event.data.us.$element.removeClass(prefix + event.data.us.scheme).addClass(prefix + event.data.scheme);
+                // Update the current colour.
+                event.data.us.scheme = event.data.scheme;
+                // Store the users selection (Uses AJAX to save to the database).
+                M.util.set_user_preference('theme_essential_colours', event.data.us.scheme);
+                log.debug('Colour switcher setScheme(after) our scheme: ' + event.data.us.scheme);
             },
             blip: function(thing) {
                 log.debug('Thing: ' + thing);
