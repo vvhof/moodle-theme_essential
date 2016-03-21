@@ -3,12 +3,9 @@ define(['jquery', 'core/log'], function($, log) {
 
     "use strict"; // jshint ;_;
 
-    // http://ajax911.com/jquery-object-oriented-plugins/.
-
     log.debug('Essential Colour Switcher AMD');
 
     !(function($) {
-
         var ColoursSwitcher = function (element) {
             this.$element = $(element);
             this.SCHEMES = ['default', 'alternative1', 'alternative2', 'alternative3', 'alternative4'];
@@ -30,11 +27,21 @@ define(['jquery', 'core/log'], function($, log) {
                     if (body.hasClass('essential-colours-' + s)) {
                         this.scheme = s;
                         log.debug('Colour switcher current scheme: ' + s);
-                    } /*
+                    }
+                    /*
                     Y.all(config.div + ' .colours-' + s).each(function (node) {
                         node.ancestor().on('click', this.setScheme, this, s);
                     }, this); */
+                    var us = this;
+                    $(data.div + ' .' + s).each(function() {
+                        log.debug('init each: ' + s + ' fn: ' + us.setScheme.length);
+                        $(this).click({scheme: s}, us.setScheme);
+                    });
                 }
+            },
+            setScheme: function(event) {
+                event.preventDefault();
+                log.debug('setScheme scheme: ' + event.data.scheme);
             },
             blip: function(thing) {
                 log.debug('Thing: ' + thing);
