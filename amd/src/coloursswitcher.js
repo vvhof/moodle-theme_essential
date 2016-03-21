@@ -15,32 +15,31 @@ define(['jquery', 'core/log'], function($, log) {
         }
 
         ColoursSwitcher.prototype = {
-
             constructor: ColoursSwitcher,
             init: function(data) {
-                var i, s;
+                var index, scheme;
                 /* Attach events to the links to change colours scheme so we can do it with
                    JavaScript without refreshing the page. */
                 log.debug('Colour switcher on element: ' + data.div);
                 var body = $('body');
-                for (i in this.SCHEMES) {
-                    s = this.SCHEMES[i];
+                for (index in this.SCHEMES) {
+                    scheme = this.SCHEMES[index];
                     // Check if this is the current colour.
-                    if (body.hasClass('essential-colours-' + s)) {
-                        this.scheme = s;
-                        log.debug('Colour switcher current scheme: ' + s);
+                    if (body.hasClass('essential-colours-' + scheme)) {
+                        this.scheme = scheme;
+                        log.debug('Colour switcher current scheme: ' + scheme);
                     }
                     var us = this;
-                    $(data.div + ' .' + s).each(function() {
-                        log.debug('Colour switcher \'init\' each: ' + s);
-                        $(this).click({scheme: s, us: us}, us.setScheme);
+                    $(data.div + ' .' + scheme).each(function() {
+                        log.debug('Colour switcher \'init\' each: ' + scheme);
+                        $(this).click({scheme: scheme, us: us}, us.setScheme);
                     });
                 }
             },
             setScheme: function(event) {
                 event.preventDefault();
-                log.debug('Colour switcher setScheme scheme: ' + event.data.scheme);
-                log.debug('Colour switcher setScheme our scheme: ' + event.data.us.scheme);
+                log.debug('Colour switcher \'setScheme\' scheme: ' + event.data.scheme);
+                log.debug('Colour switcher \'setScheme\' our scheme: ' + event.data.us.scheme);
                 if (event.data.scheme != event.data.us.scheme) {
                     // Switch over the CSS classes on the body.
                     var prefix = 'essential-colours-';
@@ -48,10 +47,10 @@ define(['jquery', 'core/log'], function($, log) {
                     event.data.us.$element.removeClass(prefix + event.data.us.scheme).addClass(prefix + event.data.scheme);
                     // Update the current colour.
                     event.data.us.scheme = event.data.scheme;
-                    // Store the users selection (Uses AJAX to save to the database).
+                    // Store the users selection (uses AJAX to save to the database).
                     // Core YUI function, so only need to replace if core changes.
                     M.util.set_user_preference('theme_essential_colours', event.data.us.scheme);
-                    log.debug('Colour switcher setScheme our scheme now: ' + event.data.us.scheme);
+                    log.debug('Colour switcher \'setScheme\' our scheme now: ' + event.data.us.scheme);
                 }
             }
         };
