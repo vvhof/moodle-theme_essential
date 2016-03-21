@@ -6,10 +6,12 @@ define(['jquery', 'core/log'], function($, log) {
     log.debug('Essential Colour Switcher AMD');
 
     !(function($) {
-        var ColoursSwitcher = function (element) {
+        // Constructor.
+        var ColoursSwitcher = function (element, data) {
             this.$element = $(element);
             this.SCHEMES = ['default', 'alternative1', 'alternative2', 'alternative3', 'alternative4'];
             this.scheme = 'default';
+            this.init(data);
         }
 
         ColoursSwitcher.prototype = {
@@ -19,7 +21,7 @@ define(['jquery', 'core/log'], function($, log) {
                 var i, s;
                 /* Attach events to the links to change colours scheme so we can do it with
                    JavaScript without refreshing the page. */
-                log.debug('Colour switcher on: ' + data.div);
+                log.debug('Colour switcher on element: ' + data.div);
                 var body = $('body');
                 for (i in this.SCHEMES) {
                     s = this.SCHEMES[i];
@@ -30,7 +32,7 @@ define(['jquery', 'core/log'], function($, log) {
                     }
                     var us = this;
                     $(data.div + ' .' + s).each(function() {
-                        log.debug('Colour switcher init each: ' + s + ' fn: ' + us.setScheme.length);
+                        log.debug('Colour switcher \'init\' each: ' + s);
                         $(this).click({scheme: s, us: us}, us.setScheme);
                     });
                 }
@@ -38,41 +40,43 @@ define(['jquery', 'core/log'], function($, log) {
             setScheme: function(event) {
                 event.preventDefault();
                 log.debug('Colour switcher setScheme scheme: ' + event.data.scheme);
-                log.debug('Colour switcher setScheme(before) our scheme: ' + event.data.us.scheme);
-                // Switch over the CSS classes on the body.
-                var prefix = 'essential-colours-';
-                event.data.us.$element.removeClass(prefix + event.data.us.scheme).addClass(prefix + event.data.scheme);
-                // Update the current colour.
-                event.data.us.scheme = event.data.scheme;
-                // Store the users selection (Uses AJAX to save to the database).
-                // Core YUI function, so only need to replace if core changes.
-                M.util.set_user_preference('theme_essential_colours', event.data.us.scheme);
-                log.debug('Colour switcher setScheme(after) our scheme: ' + event.data.us.scheme);
+                log.debug('Colour switcher setScheme our scheme: ' + event.data.us.scheme);
+                if (event.data.scheme != event.data.us.scheme) {
+                    // Switch over the CSS classes on the body.
+                    var prefix = 'essential-colours-';
+                    // The $element is the 'body', see module 'init' below.
+                    event.data.us.$element.removeClass(prefix + event.data.us.scheme).addClass(prefix + event.data.scheme);
+                    // Update the current colour.
+                    event.data.us.scheme = event.data.scheme;
+                    // Store the users selection (Uses AJAX to save to the database).
+                    // Core YUI function, so only need to replace if core changes.
+                    M.util.set_user_preference('theme_essential_colours', event.data.us.scheme);
+                    log.debug('Colour switcher setScheme our scheme now: ' + event.data.us.scheme);
+                }
             }
         };
 
-        var old = $.fn.ColoursSwitcher
+        // Plugin definition.
+        var old = $.fn.ColoursSwitcher;
 
         $.fn.ColoursSwitcher = function(data) {
-            this.colourswitcher = new ColoursSwitcher(this);
-            this.colourswitcher.init(data);
-
+            new ColoursSwitcher(this, data);
             return this;
         };
 
+        // No conflict.
         $.fn.ColoursSwitcher.noConflict = function () {
-            $.fn.ColoursSwitcher = old
-            return this
+            $.fn.ColoursSwitcher = old;
+            return this;
         }
     })($);
 
     return {
         init: function(data) {
             $(document).ready(function($) {
-                log.debug('jQuery version: ' + $.fn.jquery);
+                log.debug('Essential Colour Switcher AMD init');
                 return $(document.body).ColoursSwitcher(data);
             });
-            log.debug('Essential Colour Switcher AMD init');
         }
     }
 });
