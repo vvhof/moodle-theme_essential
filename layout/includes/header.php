@@ -52,6 +52,49 @@ echo $OUTPUT->doctype() ?>
     <div id="page-header" class="clearfix<?php echo ($oldnavbar) ? ' oldnavbar' : ''; ?>">
         <div class="container-fluid">
             <div class="row-fluid">
+                    <div class="custommenus span6 pull-<?php echo (!$left) ? 'left' : 'right'; ?>">
+                        <a class="btn btn-icon" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </a>
+                        <div class="pull-<?php echo ($left) ? 'right' : 'left'; ?>">
+                            <div class="gotobottommenu">
+                                <?php echo $OUTPUT->custom_menu_goto_bottom(); ?>
+                            </div>
+                            <div class="messagemenu">
+                                <?php echo $OUTPUT->custom_menu_messages(); ?>
+                            </div>
+                            <div class="usermenu">
+                                <?php echo $OUTPUT->custom_menu_user(); ?>
+                            </div>
+                        </div>
+                        <div class="nav-collapse collapse pull-<?php echo ($left) ? 'left' : 'right'; ?>">
+                            <div id="custom_menu_language">
+                                <?php echo $OUTPUT->custom_menu_language(); ?>
+                            </div>
+                            <div id="custom_menu_courses">
+                                <?php echo $OUTPUT->custom_menu_courses(); ?>
+                            </div>
+                            <?php if ($colourswitcher) { ?>
+                                <div id="custom_menu_themecolours">
+                                    <?php echo $OUTPUT->custom_menu_themecolours(); ?>
+                                </div>
+                            <?php } ?>
+                            <div id="custom_menu">
+                                <?php echo $OUTPUT->custom_menu(); ?>
+                            </div>
+                            <div id="custom_menu_activitystream">
+                                <?php echo $OUTPUT->custom_menu_activitystream(); ?>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+    <nav role="navigation">
+        <div id='essentialnavbar' class="navbar<?php echo ($oldnavbar) ? ' oldnavbar' : ''; ?> moodle-has-zindex">
+            <div class="container-fluid navbar-inner">
+                <div class="row-fluid">
                 <!-- HEADER: LOGO AREA -->
                 <div class="<?php echo $logoclass;
                 echo (!$left) ? ' pull-right' : ' pull-left'; ?>">
@@ -64,8 +107,9 @@ echo $OUTPUT->doctype() ?>
                         <a class="logo" href="<?php echo preg_replace("(https?:)", "", $CFG->wwwroot); ?>" title="<?php print_string('home'); ?>"></a>
                     <?php } ?>
                 </div>
+
                 <?php if ($hassocialnetworks || $hasmobileapps) { ?>
-                <a class="btn btn-icon" data-toggle="collapse" data-target=".icon-collapse">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".icon-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -78,7 +122,6 @@ echo $OUTPUT->doctype() ?>
                     if ($hassocialnetworks) {
                         ?>
                         <div class="pull-<?php echo ($left) ? 'right' : 'left'; ?>" id="socialnetworks">
-                            <p id="socialheading"><?php echo get_string('socialnetworks', 'theme_essential') ?></p>
                             <ul class="socials unstyled">
                                 <?php
                                 echo $OUTPUT->render_social_network('googleplus');
@@ -118,50 +161,8 @@ echo $OUTPUT->doctype() ?>
                 </div>
             <?php } ?>
             </div>
-        </div>
-    </div>
-    <nav role="navigation">
-        <div id='essentialnavbar' class="navbar<?php echo ($oldnavbar) ? ' oldnavbar' : ''; ?> moodle-has-zindex">
-            <div class="container-fluid navbar-inner">
-                <div class="row-fluid">
-                    <div class="custommenus pull-<?php echo ($left) ? 'left' : 'right'; ?>">
-                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </a>
-                        <?php echo theme_essential_get_title('navbar'); ?>
-                    <div class="pull-<?php echo ($left) ? 'right' : 'left'; ?>">
-                        <div class="usermenu">
-                            <?php echo $OUTPUT->custom_menu_user(); ?>
-                        </div>
-                        <div class="messagemenu">
-                            <?php echo $OUTPUT->custom_menu_messages(); ?>
-                        </div>
-                        <div class="gotobottommenu">
-                            <?php echo $OUTPUT->custom_menu_goto_bottom(); ?>
-                        </div>
-                    </div>
-                        <div class="nav-collapse collapse pull-<?php echo ($left) ? 'left' : 'right'; ?>">
-                            <div id="custom_menu_language">
-                                <?php echo $OUTPUT->custom_menu_language(); ?>
-                            </div>
-                            <div id="custom_menu_courses">
-                                <?php echo $OUTPUT->custom_menu_courses(); ?>
-                            </div>
-                            <?php if ($colourswitcher) { ?>
-                                <div id="custom_menu_themecolours">
-                                    <?php echo $OUTPUT->custom_menu_themecolours(); ?>
-                                </div>
-                            <?php } ?>
-                            <div id="custom_menu">
-                                <?php echo $OUTPUT->custom_menu(); ?>
-                            </div>
-                            <div id="custom_menu_activitystream">
-                                <?php echo $OUTPUT->custom_menu_activitystream(); ?>
-                            </div>
-                        </div>
-                    </div>
+
+
                 </div>
             </div>
         </div>

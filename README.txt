@@ -167,6 +167,7 @@ Teachstone changes
 ==================
   1. Favicon.
   2. Fix header and footer social icons.
+  3. Fix page header background.
 
 New in 2.7.9.5.2
 ================

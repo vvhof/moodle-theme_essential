@@ -559,7 +559,7 @@ img.profilepicture {
 /* @end */
 /* @group Header */
 #page-header {
-  background: url('[[setting:headerbackground]]') repeat;
+  background: url('[[setting:headerbackground]]') center top no-repeat;;
 }
 a.logo {
   background-image: [[setting:logo]];

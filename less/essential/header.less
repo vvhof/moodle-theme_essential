@@ -2,7 +2,7 @@
 
 #page-header {
   height: 75px;
-  margin-top: 40px;
+  margin-top: 75px;
   border-bottom: 1px solid #DDD;
   .row-fluid [class*="span"] {
     padding-right: 5px;
@@ -12,8 +12,8 @@
     float: right;
     padding: 7px 10px;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 85px;
+    left: 10px;
     background-image: none;
     background-color: #ededed;
     .icon-bar {
@@ -45,7 +45,7 @@
     display: block;
     float: left;
     height: 65px;
-    margin: 5px;
+    padding-top: 5px;
     width: 100%;
     background-size: contain;
     background-position: left center;
@@ -107,14 +107,95 @@
   }
 }
 
+// Teachstone extra.
+.navbar {
+    border-bottom: 10px solid #fff;
+    box-sizing: border-box;
+    .navbar-inner {
+        height: 65px;
+    }
+}
+
+.gotobottommenu, .messagemenu, .usermenu {
+    display: inline-block;
+    .nav > li > a, .nav > li > a:visited {
+        color: #fff;
+    }
+    .nav > li > a {
+        &:focus, &:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+.gotobottommenu, .messagemenu {
+    margin-right: 10px;
+}
+
+#custom_menu_courses {
+    padding: 10px;
+    background-color: #03A475;
+    border-radius: 5px;
+    ul {
+        margin: 0;
+    }
+    &:focus, &:hover {
+        background-color: #039364;
+    }
+    .nav > li > a {
+        color: #fff;
+        &:focus, &:hover {
+            color: #fff;
+            background-color: #039364;
+        }
+    }
+}
+
+.gotobottommenu, .messagemenu, .usermenu {
+    margin-top: 22px;
+}
+
+.usermenu img.userpicture {
+    box-shadow: 0px 0px 3px #fff;
+}
+
+.usermenu .dropdown-submenu > .dropdown-menu {
+    left: -125%;
+}
+
+.usermenu .dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 5px 5px 5px;
+    border-right-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.usermenu, #custom_menu_courses {
+    .nav >li > a .fa {
+        margin-left: 4px;
+    }
+}
+
+#custom_menu_courses .dropdown-menu {
+    left: -10px;
+}
+
 /* @end */
 
 /* @group Social Buttons */
 
 #socialnetworks,
 #mobileapps {
-  height: 75px;
+  height: 63px;
   margin-right: 10px;
+  padding-top: 12px;
 }
 
 .socials {
