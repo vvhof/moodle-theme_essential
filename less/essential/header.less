@@ -125,16 +125,17 @@
   }
 }
 
-button {
-  &.socialicon {
-    background-color: #bbbbbb;
-    border-radius: 5px;
-    border: 0px none;
-    font-size: 1.6em;
-    padding: 5px;
-    text-align: center;
-    background-image: none;
-    min-width: 29px;
+.socialicon {
+  background-color: #bbbbbb;
+  border-radius: 5px;
+  border: 0px none;
+  font-size: 1.6em;
+  padding: 5px;
+  text-align: center;
+  background-image: none;
+  > i {
+      min-height: 24px;
+      min-width: 24px;
   }
   &.facebook:hover, &.facebook:focus {
     background-color: #4a6ea9;
