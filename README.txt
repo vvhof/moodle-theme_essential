@@ -168,6 +168,8 @@ Teachstone changes
   1. Favicon.
   2. Fix header and footer social icons.
   3. Fix page header background.
+  4. 'return to myCLASS' custom menu item in header adjustments.
+  5. Revert to older style user login state message.
 
 New in 2.7.9.5.2
 ================

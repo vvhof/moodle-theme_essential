@@ -114,15 +114,20 @@ class theme_essential_core_renderer extends core_renderer {
      * @param string $custommenuitems
      * @return render_custom_menu for $custommenu
      */
-    public function custom_menu($custommenuitems = '')
-    {
+    public function custom_menu($custommenuitems = '') {
         global $CFG;
 
         if (empty($custommenuitems) && !empty($CFG->custommenuitems)) {
             $custommenuitems = $CFG->custommenuitems;
         }
         $custommenu = new custom_menu($custommenuitems, current_language());
-        return $this->render_custom_menu($custommenu);
+
+        $custommenucontent = $this->render_custom_menu($custommenu);
+        if (!empty($custommenucontent)) {
+            $custommenucontent = '<div id="custom_menu">'.$custommenucontent.'</div>';
+        }
+
+        return $custommenucontent;
     }
 
     /**
@@ -130,15 +135,17 @@ class theme_essential_core_renderer extends core_renderer {
      * @param custom_menu $menu
      * @return string $content
      */
-    protected function render_custom_menu(custom_menu $menu)
-    {
+    protected function render_custom_menu(custom_menu $menu) {
+        $hascontent = false;
 
         $content = '<ul class="nav">';
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
+            $hascontent = true;
         }
         $content .= '</ul>';
-        return $content;
+
+        return ($hascontent) ? $content : '';
     }
 
     /**
@@ -233,14 +240,10 @@ class theme_essential_core_renderer extends core_renderer {
      * Outputs the courses menu
      * @return custom_menu object
      */
-    public function custom_menu_courses()
-    {
-        global $CFG;
-
-        $coursemenu = new custom_menu();
-
+    public function custom_menu_courses() {
         $hasdisplaymycourses = theme_essential_get_setting('displaymycourses');
         if (isloggedin() && !isguestuser() && $hasdisplaymycourses) {
+            $coursemenu = new custom_menu();
             $mycoursetitle = theme_essential_get_setting('mycoursetitle');
             if ($mycoursetitle == 'module') {
                 $branchtitle = get_string('mymodules', 'theme_essential');
@@ -262,6 +265,7 @@ class theme_essential_core_renderer extends core_renderer {
             $branch->add($homelabel, new moodle_url('/my/index.php'), $hometext);
 
             // Get 'My courses' sort preference from admin config.
+            global $CFG;
             if (!$sortorder = $CFG->navsortmycoursessort) {
                 $sortorder = 'sortorder';
             }
@@ -286,16 +290,16 @@ class theme_essential_core_renderer extends core_renderer {
                 $noenrolments = get_string('noenrolments', 'theme_essential');
                 $branch->add('<em>' . $noenrolments . '</em>', new moodle_url('#'), $noenrolments);
             }
+            return '<div id="custom_menu_courses">'.$this->render_custom_menu($coursemenu).'</div>';
         }
-        return $this->render_custom_menu($coursemenu);
+        return '';
     }
 
     /**
      * Outputs the alternative colours menu
      * @return custom_menu object
      */
-    public function custom_menu_themecolours()
-    {
+    public function custom_menu_themecolours() {
         $colourmenu = new custom_menu();
 
         if (!isguestuser()) {
@@ -643,8 +647,7 @@ class theme_essential_core_renderer extends core_renderer {
      * Outputs the user menu.
      * @return custom_menu object
      */
-    public function custom_menu_user()
-    {
+    public function custom_menu_user() {
         // die if executed during install
         if (during_initial_install()) {
             return false;

@@ -52,7 +52,7 @@ echo $OUTPUT->doctype() ?>
     <div id="page-header" class="clearfix<?php echo ($oldnavbar) ? ' oldnavbar' : ''; ?>">
         <div class="container-fluid">
             <div class="row-fluid">
-                    <div class="custommenus span6 pull-<?php echo (!$left) ? 'left' : 'right'; ?>">
+                    <div class="custommenus span7 pull-<?php echo (!$left) ? 'left' : 'right'; ?>">
                         <a class="btn btn-icon" data-toggle="collapse" data-target=".nav-collapse">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -62,28 +62,24 @@ echo $OUTPUT->doctype() ?>
                             <div class="gotobottommenu">
                                 <?php echo $OUTPUT->custom_menu_goto_bottom(); ?>
                             </div>
-                            <div class="messagemenu">
-                                <?php echo $OUTPUT->custom_menu_messages(); ?>
-                            </div>
                             <div class="usermenu">
-                                <?php echo $OUTPUT->custom_menu_user(); ?>
+                                <ul class="nav">
+                                    <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
+                                    <li class="navbar-text"><?php echo $OUTPUT->login_info() ?></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="nav-collapse collapse pull-<?php echo ($left) ? 'left' : 'right'; ?>">
                             <div id="custom_menu_language">
                                 <?php echo $OUTPUT->custom_menu_language(); ?>
                             </div>
-                            <div id="custom_menu_courses">
-                                <?php echo $OUTPUT->custom_menu_courses(); ?>
-                            </div>
+                            <?php echo $OUTPUT->custom_menu_courses(); ?>
                             <?php if ($colourswitcher) { ?>
                                 <div id="custom_menu_themecolours">
                                     <?php echo $OUTPUT->custom_menu_themecolours(); ?>
                                 </div>
                             <?php } ?>
-                            <div id="custom_menu">
-                                <?php echo $OUTPUT->custom_menu(); ?>
-                            </div>
+                            <?php echo $OUTPUT->custom_menu(); ?>
                             <div id="custom_menu_activitystream">
                                 <?php echo $OUTPUT->custom_menu_activitystream(); ?>
                             </div>
