@@ -433,6 +433,9 @@ function theme_essential_process_css($css, $theme) {
     $marketingimage = \theme_essential\toolbox::setting_file_url($setting, $setting);
     $css = \theme_essential\toolbox::set_marketingimage($css, $marketingimage, $setting);
 
+    // Category course title images.
+    $css = \theme_essential\toolbox::set_categorycoursetitleimages($css);
+
     // Set custom CSS.
     $customcss = \theme_essential\toolbox::get_setting('customcss');
     $css = \theme_essential\toolbox::set_customcss($css, $customcss);

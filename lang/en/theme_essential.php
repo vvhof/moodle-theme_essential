@@ -572,6 +572,15 @@ $string['categoryctimagedesc'] = 'Image for the course title in category \'{$a->
 $string['categoryctiheight'] = 'Category {$a->category} course title image height';
 $string['categoryctiheightdesc'] = 'Image height for the course title in category \'{$a->category}\' between {$a->lower} and {$a->upper} pixels.';
 
+$string['categoryctitextcolour'] = 'Category {$a->category} course title text colour';
+$string['categoryctitextcolourdesc'] = 'Text colour for the course title in category \'{$a->category}\'.';
+
+$string['categoryctitextbackgroundcolour'] = 'Category {$a->category} course title text background colour';
+$string['categoryctitextbackgroundcolourdesc'] = 'Text background colour for the course title in category \'{$a->category}\'.';
+
+$string['categoryctitextbackgroundopacity'] = 'Category {$a->category} course title text background opacity';
+$string['categoryctitextbackgroundopacitydesc'] = 'Text background opacity for the course title in category \'{$a->category}\'.';
+
 // Category Icons.
 $string['categoryiconheading'] = 'Category icons';
 $string['categoryiconheadingsub'] = 'Use icons to represent your categories';

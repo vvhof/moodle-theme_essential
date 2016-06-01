@@ -1910,7 +1910,6 @@ if ($ADMIN->fulltree) {
 
     // We only want to output category course title image options if the parent setting is enabled.
     if (get_config('theme_essential', 'enablecategorycti')) {
-        //$categories = \theme_essential\toolbox::get_categories();
         // Get all category IDs and their pretty names.
         require_once($CFG->libdir . '/coursecatlib.php');
         $coursecats = coursecat::make_categories_list();
@@ -1943,6 +1942,45 @@ if ($ADMIN->fulltree) {
             $setting = new essential_admin_setting_configinteger($name, $title, $description, $default, $lower, $upper);
             $essentialsettingscategorycti->add($setting);
 
+            // Category course title text colour setting.
+            $name = 'theme_essential/categorycti'.$key.'textcolour';
+            $title = get_string('categoryctitextcolour', 'theme_essential', array('category' => $value));
+            $description = get_string('categoryctitextcolourdesc', 'theme_essential', array('category' => $value));
+            $default = '#000000';
+            $previewconfig = null;
+            $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+            $setting->set_updatedcallback('theme_reset_all_caches');
+            $essentialsettingscategorycti->add($setting);
+
+            // Category course title text background colour setting.
+            $name = 'theme_essential/categorycti'.$key.'textbackgroundcolour';
+            $title = get_string('categoryctitextbackgroundcolour', 'theme_essential', array('category' => $value));
+            $description = get_string('categoryctitextbackgroundcolourdesc', 'theme_essential', array('category' => $value));
+            $default = '#ffffff';
+            $previewconfig = null;
+            $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+            $setting->set_updatedcallback('theme_reset_all_caches');
+            $essentialsettingscategorycti->add($setting);
+
+            $name = 'theme_essential/categorycti'.$key.'textbackgroundopactity';
+            $title = get_string('categoryctitextbackgroundopacity', 'theme_essential', array('category' => $value));
+            $description = get_string('categoryctitextbackgroundopacitydesc', 'theme_essential', array('category' => $value));
+            $default = '0.8';
+            $choices = array(
+                '0' => '0',
+                '0.1' => '0.1',
+                '0.2' => '0.2',
+                '0.3' => '0.3',
+                '0.4' => '0.4',
+                '0.5' => '0.5',
+                '0.6' => '0.6',
+                '0.7' => '0.7',
+                '0.8' => '0.8',
+                '0.9' => '0.9',
+                '1' => '1'
+            );
+            $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+            $essentialsettingscategorycti->add($setting);
         }
     }
 }
