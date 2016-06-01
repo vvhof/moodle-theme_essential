@@ -577,6 +577,14 @@ $string['categoryiconinfodesc'] = 'Enter the name of the icon you wish to use.  
 
 $string['numberofcoursesandsubcatcourses'] = 'Number of courses - sub category courses';
 
+// Category Course Title Image.
+$string['categoryctiheading'] = 'Category course title images';
+$string['categoryctiheadingsub'] = 'Use images to represent your categories in a course';
+$string['categoryctidesc'] = 'If enabled this will allow you to set images for each category.';
+
+$string['enablecategorycti'] = 'Enable category course title images';
+$string['enablecategoryctidesc'] = 'If enabled you will be able to select category course title images after clicking "Save changes".';
+
 // Header Settings.
 $string['headerheading'] = 'Header';
 $string['headertitle'] = 'Header title';

@@ -1884,7 +1884,7 @@ if ($ADMIN->fulltree) {
 }
 $ADMIN->add('theme_essential', $essentialsettingsslideshow);
 
-// Category settings.
+// Category icon settings.
 $essentialsettingscategoryicon = new admin_settingpage('theme_essential_categoryicon',
     get_string('categoryiconheading', 'theme_essential'));
 if ($ADMIN->fulltree) {
@@ -1961,6 +1961,32 @@ if ($ADMIN->fulltree) {
 }
 $ADMIN->add('theme_essential', $essentialsettingscategoryicon);
 
+// Category course title image settings.
+$essentialsettingscategorycti = new admin_settingpage('theme_essential_categorycti',
+    get_string('categoryctiheading', 'theme_essential'));
+if ($ADMIN->fulltree) {
+    $essentialsettingscategoryicon->add(new admin_setting_heading('theme_essential_categorycti',
+        get_string('categoryctiheadingsub', 'theme_essential'),
+        format_text(get_string('categoryctidesc', 'theme_essential'), FORMAT_MARKDOWN)));
+
+    // Category icons.
+    $name = 'theme_essential/enablecategorycti';
+    $title = get_string('enablecategorycti', 'theme_essential');
+    $description = get_string('enablecategoryctidesc', 'theme_essential');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $essentialsettingscategorycti->add($setting);
+
+    // We only want to output category course title image options if the parent setting is enabled.
+    if (get_config('theme_essential', 'enablecategorycti')) {
+        $categories = \theme_essential\toolbox::get_categories();
+        error_log('SC: '.print_r($categories, true));
+    }
+
+    // Dev.
+}
+$ADMIN->add('theme_essential', $essentialsettingscategorycti);
 
 // Analytics settings.
 $essentialsettingsanalytics = new admin_settingpage('theme_essential_analytics', get_string('analytics', 'theme_essential'));

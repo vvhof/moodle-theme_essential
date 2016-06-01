@@ -358,6 +358,29 @@ class toolbox {
         return $default;
     }
 
+    static public function get_categories() {
+        global $CFG;
+        include_once($CFG->libdir . '/coursecatlib.php');
+
+        $cid = array();
+        $categories = \coursecat::get(0)->get_children();
+
+        self::traverse_categories($categories, $cid);
+
+        return $cid;
+    }
+
+    static private function traverse_categories($categories, &$cid) {
+        foreach($categories as $category){
+            $cid[$category->id] = array('name' => $category->name, 'depth' => $category->depth, 'parent' => $category->parent);
+            error_log(print_r($category, true));
+            $catchildren = \coursecat::get($category->id)->get_children();
+            if ($catchildren) {
+                self::traverse_categories($catchildren, $cid);
+            }
+        }
+    }
+
     static public function set_font($css, $type, $fontname) {
         $familytag = '[[setting:' . $type . 'font]]';
         $facetag = '[[setting:fontfiles' . $type . ']]';
