@@ -554,6 +554,24 @@ $string['website'] = 'Website';
 $string['websiteurl'] = 'Website URL';
 $string['websitedesc'] = 'Enter the URL of your own website. (i.e http://about.me/gjbarnard)';
 
+
+// Category Course Title Image.
+$string['categoryctiheading'] = 'Category course title images';
+$string['categoryctiheadingsub'] = 'Use images to represent your categories in a course';
+$string['categoryctidesc'] = 'If enabled this will allow you to set images for each category.';
+
+$string['enablecategorycti'] = 'Enable category course title images';
+$string['enablecategoryctidesc'] = 'If enabled you will be able to select category course title images after clicking "Save changes".';
+
+$string['categoryctiinfo'] = '{$a->category} settings';
+$string['categoryctiinfodesc'] = 'Category course title image settings for: {$a->category}.';
+
+$string['categoryctimage'] = 'Category {$a->category} course title image';
+$string['categoryctimagedesc'] = 'Image for the course title in category \'{$a->category}\'.';
+
+$string['categoryctiheight'] = 'Category {$a->category} course title image height';
+$string['categoryctiheightdesc'] = 'Image height for the course title in category \'{$a->category}\' between {$a->lower} and {$a->upper} pixels.';
+
 // Category Icons.
 $string['categoryiconheading'] = 'Category icons';
 $string['categoryiconheadingsub'] = 'Use icons to represent your categories';
@@ -576,14 +594,6 @@ $string['categoryiconinfo'] = 'Set custom category icons';
 $string['categoryiconinfodesc'] = 'Enter the name of the icon you wish to use.  List is <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_new">here</a>. Just enter what is after "fa-".';
 
 $string['numberofcoursesandsubcatcourses'] = 'Number of courses - sub category courses';
-
-// Category Course Title Image.
-$string['categoryctiheading'] = 'Category course title images';
-$string['categoryctiheadingsub'] = 'Use images to represent your categories in a course';
-$string['categoryctidesc'] = 'If enabled this will allow you to set images for each category.';
-
-$string['enablecategorycti'] = 'Enable category course title images';
-$string['enablecategoryctidesc'] = 'If enabled you will be able to select category course title images after clicking "Save changes".';
 
 // Header Settings.
 $string['headerheading'] = 'Header';

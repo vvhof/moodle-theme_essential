@@ -373,12 +373,17 @@ class toolbox {
     static private function traverse_categories($categories, &$cid) {
         foreach($categories as $category){
             $cid[$category->id] = array('name' => $category->name, 'depth' => $category->depth, 'parent' => $category->parent);
-            error_log(print_r($category, true));
             $catchildren = \coursecat::get($category->id)->get_children();
             if ($catchildren) {
                 self::traverse_categories($catchildren, $cid);
             }
         }
+    }
+
+    static public function get_current_category() {
+        $us = self::check_corerenderer();
+
+        return $us->get_current_category();
     }
 
     static public function set_font($css, $type, $fontname) {
