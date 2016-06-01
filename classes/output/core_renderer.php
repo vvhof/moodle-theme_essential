@@ -189,6 +189,82 @@ class core_renderer extends \core_renderer {
     }
 
     /**
+     * Outputs the course title.
+     *
+     * @return string the HTML to output.
+     */
+    public function course_title() {
+        $content = '';
+        if ($this->page->course->id > 1) {
+            $enablecategorycti = $this->get_setting('enablecategorycti');
+            if ($enablecategorycti) {
+                $imagecatid = $this->get_categorycti_catid();
+                if ($imagecatid) {
+                    $content .= '<div class=\'categorycti categorycti-'.$imagecatid.'\' >';
+                } else {
+                    $enablecategorycti = false;
+                }
+            }
+            $content .= $this->heading(format_string($this->page->course->fullname), 1, 'coursetitle');
+
+            if ($enablecategorycti) {
+                $content .= '</div>';
+            }
+
+            $content .= '<div class="bor"></div>';
+        }
+
+        return $content;
+    }
+
+    /**
+     * Gets the current category.
+     *
+     * @return int Category id.
+     */
+    protected function get_current_category() {
+        $catid = 0;
+
+        if (is_array($this->page->categories)) {
+            $catids = array_keys($this->page->categories);
+            $catid = reset($catids);
+        } else if (!empty($$this->page->course->category)) {
+            $catid = $this->page->course->category;
+        }
+
+        return $catid;
+    }
+
+    /**
+     * Gets the category course title image category id for the given category or 0 if not found.
+     * Walks up the parent tree if the current category does not have an image.
+     *
+     * @return int Category id.
+     */
+    protected function get_categorycti_catid() {
+        $catid = 0;
+        $currentcatid = $this->get_current_category();
+
+        if ($currentcatid) {
+            $image = $this->get_setting('categoryct'.$currentcatid.'image');
+            if ($image) {
+                $catid = $currentcatid;
+            } else {
+                $parents = array_reverse(\coursecat::get($currentcatid)->get_parents());
+                foreach ($parents as $parent) {
+                    $image = $this->get_setting('categoryct'.$parent.'image');
+                    if ($image) {
+                        $catid = $parent;
+                        break;
+                    }
+                }
+            }
+        }
+
+        return $catid;
+    }
+
+    /**
      * Returns course-specific information to be output immediately below content on any course page
      * (for the current course)
      *

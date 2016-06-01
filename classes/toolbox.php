@@ -371,7 +371,7 @@ class toolbox {
     }
 
     static private function traverse_categories($categories, &$cid) {
-        foreach($categories as $category) {
+        foreach ($categories as $category) {
             $cid[] = $category->id;
             $catchildren = \coursecat::get($category->id)->get_children();
             if ($catchildren) {
@@ -477,11 +477,11 @@ class toolbox {
         if (self::get_setting('enablecategorycti')) {
             $categories = self::get_categories();
 
-            foreach($categories as $cid) {
+            foreach ($categories as $cid) {
                 $image = self::get_setting('categoryct'.$cid.'image');
                 if ($image) {
                     $replacement .= '.categorycti-'.$cid.' {';
-                    $replacement .= 'backgroundimage: url(\''.self::setting_file_url('categoryct'.$cid.'image', 'categoryct'.$cid.'image').'\');';
+                    $replacement .= 'background-image: url(\''.self::setting_file_url('categoryct'.$cid.'image', 'categoryct'.$cid.'image').'\');';
                     $replacement .= 'height: '.self::get_setting('categorycti'.$cid.'height').'px;';
                     $replacement .= '}';
                     $replacement .= '.categorycti-'.$cid.' .coursetitle {';
