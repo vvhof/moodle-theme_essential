@@ -34,6 +34,10 @@ if (\theme_essential\toolbox::not_lte_ie9()) {
     $breadcrumbstyle = \theme_essential\toolbox::get_setting('breadcrumbstyle');
     if ($PAGE->pagelayout == 'course') {
         $PAGE->requires->js_call_amd('theme_essential/course_navigation', 'init');
+        // Only when not editing.
+        if ((!$PAGE->user_is_editing()) && (\theme_essential\toolbox::get_setting('enablecategorycti'))) {
+            $PAGE->requires->js_call_amd('theme_essential/category_cti', 'init');
+        }
     }
     if ($breadcrumbstyle == '1') {
         $PAGE->requires->js_call_amd('theme_essential/jBreadCrumb', 'init');
