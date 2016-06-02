@@ -1908,12 +1908,28 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $essentialsettingscategorycti->add($setting);
 
+    $essentialsettingscategorycti->add(new admin_setting_heading('theme_essential_categorycticourses',
+        get_string('ctioverride', 'theme_essential'), get_string('ctioverridedesc', 'theme_essential')));
+
     // We only want to output category course title image options if the parent setting is enabled.
     if (get_config('theme_essential', 'enablecategorycti')) {
         // Get all category IDs and their pretty names.
         require_once($CFG->libdir . '/coursecatlib.php');
         $coursecats = coursecat::make_categories_list();
 
+        $opactitychoices = array(
+            '0' => '0',
+            '0.1' => '0.1',
+            '0.2' => '0.2',
+            '0.3' => '0.3',
+            '0.4' => '0.4',
+            '0.5' => '0.5',
+            '0.6' => '0.6',
+            '0.7' => '0.7',
+            '0.8' => '0.8',
+            '0.9' => '0.9',
+            '1' => '1'
+        );
         // Go through all categories and create the necessary settings.
         foreach ($coursecats as $key => $value) {
             // This is the descriptor for category course title image.
@@ -1966,20 +1982,7 @@ if ($ADMIN->fulltree) {
             $title = get_string('categoryctitextbackgroundopacity', 'theme_essential', array('category' => $value));
             $description = get_string('categoryctitextbackgroundopacitydesc', 'theme_essential', array('category' => $value));
             $default = '0.8';
-            $choices = array(
-                '0' => '0',
-                '0.1' => '0.1',
-                '0.2' => '0.2',
-                '0.3' => '0.3',
-                '0.4' => '0.4',
-                '0.5' => '0.5',
-                '0.6' => '0.6',
-                '0.7' => '0.7',
-                '0.8' => '0.8',
-                '0.9' => '0.9',
-                '1' => '1'
-            );
-            $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+            $setting = new admin_setting_configselect($name, $title, $description, $default, $opactitychoices);
             $essentialsettingscategorycti->add($setting);
         }
     }

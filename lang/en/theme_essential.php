@@ -566,20 +566,23 @@ $string['enablecategoryctidesc'] = 'If enabled you will be able to select catego
 $string['categoryctiinfo'] = '{$a->category} settings';
 $string['categoryctiinfodesc'] = 'Category course title image settings for: {$a->category}.';
 
-$string['categoryctimage'] = 'Category {$a->category} course title image';
+$string['categoryctimage'] = 'Category \'{$a->category}\' course title image';
 $string['categoryctimagedesc'] = 'Image for the course title in category \'{$a->category}\'.';
 
-$string['categoryctiheight'] = 'Category {$a->category} course title image height';
-$string['categoryctiheightdesc'] = 'Image height for the course title in category \'{$a->category}\' between {$a->lower} and {$a->upper} pixels.';
+$string['categoryctiheight'] = 'Category \'{$a->category}\' course title image height';
+$string['categoryctiheightdesc'] = 'Image height for the course title in category \'{$a->category}\' between {$a->lower} and {$a->upper} pixels.  Do not postfix with \'px\', only enter the number.';
 
-$string['categoryctitextcolour'] = 'Category {$a->category} course title text colour';
+$string['categoryctitextcolour'] = 'Category \'{$a->category}\' course title text colour';
 $string['categoryctitextcolourdesc'] = 'Text colour for the course title in category \'{$a->category}\'.';
 
-$string['categoryctitextbackgroundcolour'] = 'Category {$a->category} course title text background colour';
+$string['categoryctitextbackgroundcolour'] = 'Category \'{$a->category}\' course title text background colour';
 $string['categoryctitextbackgroundcolourdesc'] = 'Text background colour for the course title in category \'{$a->category}\'.';
 
-$string['categoryctitextbackgroundopacity'] = 'Category {$a->category} course title text background opacity';
+$string['categoryctitextbackgroundopacity'] = 'Category \'{$a->category}\' course title text background opacity';
 $string['categoryctitextbackgroundopacitydesc'] = 'Text background opacity for the course title in category \'{$a->category}\'.';
+
+$string['ctioverride'] = 'Overriding category images in a course';
+$string['ctioverridedesc'] = 'If you wish to override the category course title image in a course when this is enabled with the \'enablecategorycti\' setting, then edit the section summary of section zero and add an image.  Then edit in HTML mode, remove the surrounding \'p\' tags and \'br\' tag, then remove the \'style\', \'width\' and \'height\' attributes and any \'classes\' added by the text editor on the \'img\' tag.  Then add the class \'categorycti\'.  To specifiy the height (px) and the contained title text colour, background colour and opacity, use the following attributes: \'ctih\', \'ctit\', \'ctib\' and \'ctio\' respectively, for example:<br/><br/>&lt;img src=&quot;https://mymoodleinstall.me/pluginfile.php/493/course/section/237/myimage.jpg&quot; alt=&quot;Replacement image&quot; class=&quot;categorycti&quot; ctih=&quot;250&quot; ctit=&quot;#afafaf&quot; ctib=&quot;#222222&quot; ctio=&quot;0.5&quot;&gt;<br/><br/>When editing is on the image will be shown in section zero\'s summary and the title left as is.  When editing is off then the image will be used as the background for the course title along with the values specified.  The image in section zero\'s summary will be hidden.';
 
 // Category Icons.
 $string['categoryiconheading'] = 'Category icons';

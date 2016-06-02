@@ -358,34 +358,6 @@ class toolbox {
         return $default;
     }
 
-    static private function get_categories() {
-        global $CFG;
-        include_once($CFG->libdir . '/coursecatlib.php');
-
-        $cid = array();
-        $categories = \coursecat::get(0)->get_children();
-
-        self::traverse_categories($categories, $cid);
-
-        return $cid;
-    }
-
-    static private function traverse_categories($categories, &$cid) {
-        foreach ($categories as $category) {
-            $cid[] = $category->id;
-            $catchildren = \coursecat::get($category->id)->get_children();
-            if ($catchildren) {
-                self::traverse_categories($catchildren, $cid);
-            }
-        }
-    }
-
-    static public function get_current_category() {
-        $us = self::check_corerenderer();
-
-        return $us->get_current_category();
-    }
-
     static public function set_font($css, $type, $fontname) {
         $familytag = '[[setting:' . $type . 'font]]';
         $facetag = '[[setting:fontfiles' . $type . ']]';
@@ -468,6 +440,34 @@ class toolbox {
         }
         $css = str_replace($tag, $replacement, $css);
         return $css;
+    }
+
+    static private function get_categories() {
+        global $CFG;
+        include_once($CFG->libdir . '/coursecatlib.php');
+
+        $cid = array();
+        $categories = \coursecat::get(0)->get_children();
+
+        self::traverse_categories($categories, $cid);
+
+        return $cid;
+    }
+
+    static private function traverse_categories($categories, &$cid) {
+        foreach ($categories as $category) {
+            $cid[] = $category->id;
+            $catchildren = \coursecat::get($category->id)->get_children();
+            if ($catchildren) {
+                self::traverse_categories($catchildren, $cid);
+            }
+        }
+    }
+
+    static public function get_current_category() {
+        $us = self::check_corerenderer();
+
+        return $us->get_current_category();
     }
 
     static public function set_categorycoursetitleimages($css) {

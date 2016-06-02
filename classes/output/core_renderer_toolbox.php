@@ -74,17 +74,4 @@ trait core_renderer_toolbox {
             return dirname(__FILE__) . "/$filename";
         }
     }
-
-    public function get_current_category() {
-        $catid = 0;
-
-        if (is_array($this->page->categories)) {
-            $catids = array_keys($this->page->categories);
-            $catid = reset($catids);
-        } else if (!empty($$this->page->course->category)) {
-            $catid = $this->page->course->category;
-        }
-
-        return $catid;
-    }
 }

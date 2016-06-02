@@ -26,13 +26,13 @@ define(['jquery', 'core/log'], function($, log) {
                     } else {
                         // No, create wrapper.
                         log.debug('ECTI no existing image.');
-                        $categorycti = $('#region-main > .coursetitle');
-                        $categorycti.wrap('<div class="categorycti"><div>');
+                        $('#region-main > .coursetitle').wrap('<div class="categorycti"></div>');
+                        $categorycti = $('#region-main > .categorycti');
                     }
 
                     // Now use the replacement image.
                     $categorycti.css('background-image', 'url(' + $courseImage.attr('src') + ')');
-                    $categorycti.css('height', $courseImage.attr('ctih'));
+                    $categorycti.css('height', $courseImage.attr('ctih') + 'px');
                     var $ctititle = $('.categorycti .coursetitle');
                     $ctititle.css('color', $courseImage.attr('ctit'));
                     $ctititle.css('background-color', $courseImage.attr('ctib'));
