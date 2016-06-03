@@ -197,21 +197,65 @@ class core_renderer extends \core_renderer {
         $content = '';
         if ($this->page->course->id > 1) {
             $enablecategorycti = $this->get_setting('enablecategorycti');
+            $override = false;
             if ($enablecategorycti) {
-                $imagecatid = $this->get_categorycti_catid();
-                if ($imagecatid) {
-                    $content .= '<div class=\'categorycti categorycti-'.$imagecatid.'\' >';
-                } else {
-                    $enablecategorycti = false;
-                }
-				$context = \context_course::instance($this->page->course->id);
-				$summary = file_rewrite_pluginfile_urls($this->page->course->summary, 'pluginfile.php', $context->id, 'course', 'summary', null);
-				error_log($summary);
-				//[03-Jun-2016 18:52:54 Europe/London] <p><img src="https://moodle30.chloe/pluginfile.php/493/course/summary/letters-416960_1920_sm.jpg" alt="CS test" class="categorycti" ctih="250" ctit="#afafaf" ctib="#222222" ctio="0.5"><br></p>
-				//<div class="categorycti" style="height: 250px; background-image: url(&quot;https://moodle30.chloe/pluginfile.php/493/course/section/237/letters-416960_1920_sm.jpg&quot;);"><h1 class="coursetitle" style="color: rgb(175, 175, 175); opacity: 0.5; background-color: rgb(34, 34, 34);">CTI</h1></div>
-            }
-            $content .= $this->heading(format_string($this->page->course->fullname), 1, 'coursetitle');
+                // Is there an override?
+                if (strpos($this->page->course->summary, 'categorycti') !== false) {
+					//[03-Jun-2016 18:48:29 Europe/London] <p><img src="@@PLUGINFILE@@/letters-416960_1920_sm.jpg" alt="CS test" class="categorycti" ctih="250" ctit="#afafaf" ctib="#222222" ctio="0.5"><br></p>
+					//[03-Jun-2016 18:52:54 Europe/London] <p><img src="https://moodle30.chloe/pluginfile.php/493/course/summary/letters-416960_1920_sm.jpg" alt="CS test" class="categorycti" ctih="250" ctit="#afafaf" ctib="#222222" ctio="0.5"><br></p>
+					//<div class="categorycti" style="height: 250px; background-image: url(&quot;https://moodle30.chloe/pluginfile.php/493/course/section/237/letters-416960_1920_sm.jpg&quot;);">
+					//<h1 class="coursetitle" style="color: rgb(175, 175, 175); opacity: 0.5; background-color: rgb(34, 34, 34);">CTI</h1></div>
+                    $context = \context_course::instance($this->page->course->id);
+                    $summary = file_rewrite_pluginfile_urls($this->page->course->summary, 'pluginfile.php', $context->id, 'course', 'summary', null);
 
+                    $matches = array();
+                    if (preg_match_all("/<img[^>]*>/", $summary, $matches) !== false) {
+                        error_log(print_r($matches, true));
+                        foreach ($matches[0] as $imgmatches) {
+                            error_log(print_r($imgmatches, true));
+                            if (strpos($imgmatches, 'categorycti') !== false) {
+                                $imgparts = array();
+                                if (preg_match_all("/(src|ctih|ctit|ctib|ctio)=\"([^\"]*)\"/", $imgmatches, $imgparts) !== false) {
+                                    // Defaults for overridden images - can be a setting.
+                                    $imgvalues = array('ctih' => '200', 'ctit' => '#ffffff', 'ctib' => '#222222', 'ctio' => '0.8');
+									error_log('imgvalues before: '.print_r($imgvalues, true));
+									error_log(print_r($imgparts, true));
+                                    foreach ($imgparts[1] as $imgpartskey => $imgpartsvalue) { // Index '1' is the 'key' and index '2' is the value.  Index '0' is them combined.
+										error_log('key  : '.$imgpartskey);
+										error_log('value: '.$imgpartsvalue);
+										error_log('$imgparts[2][$imgpartskey]: '.$imgparts[2][$imgpartskey]);
+                                        $imgvalues[$imgpartsvalue] = $imgparts[2][$imgpartskey];
+                                    }
+                                    $override = true;
+                                    //$content .= '<div class=\'categorycti\' style=\'height: '.$imgvalues['ctih'].'px; background-image: url(\''.$imgvalues['src'].'\');\'>';
+                                    //$content .= '<div class="categorycti" style="height: '.$imgvalues['ctih'].'px; background-image: url('.urldecode($imgvalues['src']).');">';
+                                    $content .= '<div class="categorycti" style="height: '.$imgvalues['ctih'].'px; background-image: url('.$imgvalues['src'].');">';
+                                    //$content .= '<div class=\'categorycti\' style=\'height: '.$imgvalues['ctih'].'px;\'>';
+                                    // This is a level 1 h1 header so no need to call 'heading' method for return to section and also parent version does not support addition of the style attribute.
+                                    $content .= '<h1 class="coursetitle" style="color: '.$imgvalues['ctit'].'; background-color: '.$imgvalues['ctib'].'; opacity: '.$imgvalues['ctio'].';">'.format_string($this->page->course->fullname).'</h1>';
+                                    // Closing 'div' is below because $enablecategorycti would be true.
+									error_log('imgvalues after: '.print_r($imgvalues, true));
+                                }
+                                break;
+                            }
+                        }
+                    }
+
+					error_log($summary);
+                }
+                // If the override did not exist or was not ok, then see if there is a category image.
+                if ($override == false) {
+                    $imagecatid = $this->get_categorycti_catid();
+                    if ($imagecatid) {
+                        $content .= '<div class=\'categorycti categorycti-'.$imagecatid.'\' >';
+                    } else {
+                        $enablecategorycti = false;
+                    }
+                }
+            }
+            if ($override == false) {
+                $content .= $this->heading(format_string($this->page->course->fullname), 1, 'coursetitle');
+            }
             if ($enablecategorycti) {
                 $content .= '</div>';
             }
