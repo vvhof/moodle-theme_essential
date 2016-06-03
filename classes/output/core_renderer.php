@@ -204,6 +204,11 @@ class core_renderer extends \core_renderer {
                 } else {
                     $enablecategorycti = false;
                 }
+				$context = \context_course::instance($this->page->course->id);
+				$summary = file_rewrite_pluginfile_urls($this->page->course->summary, 'pluginfile.php', $context->id, 'course', 'summary', null);
+				error_log($summary);
+				//[03-Jun-2016 18:52:54 Europe/London] <p><img src="https://moodle30.chloe/pluginfile.php/493/course/summary/letters-416960_1920_sm.jpg" alt="CS test" class="categorycti" ctih="250" ctit="#afafaf" ctib="#222222" ctio="0.5"><br></p>
+				//<div class="categorycti" style="height: 250px; background-image: url(&quot;https://moodle30.chloe/pluginfile.php/493/course/section/237/letters-416960_1920_sm.jpg&quot;);"><h1 class="coursetitle" style="color: rgb(175, 175, 175); opacity: 0.5; background-color: rgb(34, 34, 34);">CTI</h1></div>
             }
             $content .= $this->heading(format_string($this->page->course->fullname), 1, 'coursetitle');
 
