@@ -207,9 +207,7 @@ class core_renderer extends \core_renderer {
 
                     $matches = array();
                     if (preg_match_all("/<img[^>]*>/", $summary, $matches) !== false) {
-                        error_log(print_r($matches, true));
                         foreach ($matches[0] as $imgmatches) {
-                            error_log(print_r($imgmatches, true));
                             if (strpos($imgmatches, 'categorycti') !== false) {
                                 $imgparts = array();
                                 if (preg_match_all("/(src|ctih|ctit|ctib|ctio)=\"([^\"]*)\"/", $imgmatches, $imgparts) !== false) {
