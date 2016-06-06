@@ -289,12 +289,22 @@ class core_renderer extends \core_renderer {
             if ($image) {
                 $catid = $currentcatid;
             } else {
-                $parents = array_reverse(\coursecat::get($currentcatid)->get_parents());
-                foreach ($parents as $parent) {
-                    $image = $this->get_setting('categoryct'.$parent.'image');
-                    if ($image) {
-                        $catid = $parent;
-                        break;
+                $imageurl = $this->get_setting('categoryctimageurl'.$currentcatid);
+                if ($imageurl) {
+                    $catid = $currentcatid;
+                } else {
+                    $parents = array_reverse(\coursecat::get($currentcatid)->get_parents());
+                    foreach ($parents as $parent) {
+                        $image = $this->get_setting('categoryct'.$parent.'image');
+                        if ($image) {
+                            $catid = $parent;
+                            break;
+                        }
+                        $imageurl = $this->get_setting('categoryctimageurl'.$parent);
+                        if ($imageurl) {
+                            $catid = $parent;
+                            break;
+                        }
                     }
                 }
             }

@@ -1918,7 +1918,7 @@ if ($ADMIN->fulltree) {
         $coursecats = coursecat::make_categories_list();
 
         $opactitychoices = array(
-            '0' => '0',
+            '0.0' => '0.0',
             '0.1' => '0.1',
             '0.2' => '0.2',
             '0.3' => '0.3',
@@ -1928,7 +1928,7 @@ if ($ADMIN->fulltree) {
             '0.7' => '0.7',
             '0.8' => '0.8',
             '0.9' => '0.9',
-            '1' => '1'
+            '1.0' => '1.0'
         );
         // Go through all categories and create the necessary settings.
         foreach ($coursecats as $key => $value) {
@@ -1944,6 +1944,15 @@ if ($ADMIN->fulltree) {
             $title = get_string('categoryctimage', 'theme_essential', array('category' => $value));
             $description = get_string('categoryctimagedesc', 'theme_essential', array('category' => $value));
             $setting = new admin_setting_configstoredfile($name, $title, $description, 'categoryct'.$key.'image');
+            $setting->set_updatedcallback('theme_reset_all_caches');
+            $essentialsettingscategorycti->add($setting);
+
+            // Image URL.
+            $name = 'theme_essential/categoryctimageurl'.$key;
+            $title = get_string('categoryctimageurl', 'theme_essential', array('category' => $value));
+            $description = get_string('categoryctimageurldesc', 'theme_essential', array('category' => $value));
+            $default = '';
+            $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
             $setting->set_updatedcallback('theme_reset_all_caches');
             $essentialsettingscategorycti->add($setting);
 

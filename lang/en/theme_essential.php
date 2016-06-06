@@ -566,8 +566,11 @@ $string['enablecategoryctidesc'] = 'If enabled you will be able to select catego
 $string['categoryctiinfo'] = '{$a->category} settings';
 $string['categoryctiinfodesc'] = 'Category course title image settings for: {$a->category}.';
 
-$string['categoryctimage'] = 'Category \'{$a->category}\' course title image';
-$string['categoryctimagedesc'] = 'Image for the course title in category \'{$a->category}\'.';
+$string['categoryctimage'] = 'Category \'{$a->category}\' course title image file';
+$string['categoryctimagedesc'] = 'Image file for the course title in category \'{$a->category}\'.';
+
+$string['categoryctimageurl'] = 'Category \'{$a->category}\' course title image URL';
+$string['categoryctimageurldesc'] = 'Image URL for the course title in category \'{$a->category}\'.  If the file is uploaded then that will override this.';
 
 $string['categoryctiheight'] = 'Category \'{$a->category}\' course title image height';
 $string['categoryctiheightdesc'] = 'Image height for the course title in category \'{$a->category}\' between {$a->lower} and {$a->upper} pixels.  Do not postfix with \'px\', only enter the number.';

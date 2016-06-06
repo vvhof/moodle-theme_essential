@@ -479,9 +479,18 @@ class toolbox {
 
             foreach ($categories as $cid) {
                 $image = self::get_setting('categoryct'.$cid.'image');
+                $imageurl = false;
                 if ($image) {
+                    $imageurl = self::setting_file_url('categoryct'.$cid.'image', 'categoryct'.$cid.'image');
+                } else {
+                   $imageurlsetting = self::get_setting('categoryctimageurl'.$cid);
+                    if ($imageurlsetting) {
+                        $imageurl = $imageurlsetting;
+                    }
+                }
+                if ($imageurl) {
                     $replacement .= '.categorycti-'.$cid.' {';
-                    $replacement .= 'background-image: url(\''.self::setting_file_url('categoryct'.$cid.'image', 'categoryct'.$cid.'image').'\');';
+                    $replacement .= 'background-image: url(\''.$imageurl.'\');';
                     $replacement .= 'height: '.self::get_setting('categorycti'.$cid.'height').'px;';
                     $replacement .= '}';
                     $replacement .= '.categorycti-'.$cid.' .coursetitle {';
