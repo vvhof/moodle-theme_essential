@@ -483,7 +483,7 @@ class toolbox {
                 if ($image) {
                     $imageurl = self::setting_file_url('categoryct'.$cid.'image', 'categoryct'.$cid.'image');
                 } else {
-                   $imageurlsetting = self::get_setting('categoryctimageurl'.$cid);
+                    $imageurlsetting = self::get_setting('categoryctimageurl'.$cid);
                     if ($imageurlsetting) {
                         $imageurl = $imageurlsetting;
                     }
