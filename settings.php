@@ -1908,14 +1908,41 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $essentialsettingscategorycti->add($setting);
 
-    $essentialsettingscategorycti->add(new admin_setting_heading('theme_essential_categorycticourses',
-        get_string('ctioverride', 'theme_essential'), get_string('ctioverridedesc', 'theme_essential')));
-
     // We only want to output category course title image options if the parent setting is enabled.
     if (get_config('theme_essential', 'enablecategorycti')) {
-        // Get all category IDs and their pretty names.
-        require_once($CFG->libdir . '/coursecatlib.php');
-        $coursecats = coursecat::make_categories_list();
+        $essentialsettingscategorycti->add(new admin_setting_heading('theme_essential_categorycticourses',
+            get_string('ctioverride', 'theme_essential'), get_string('ctioverridedesc', 'theme_essential')));
+
+        // Overridden image height.
+        $name = 'theme_essential/ctioverrideheight';
+        $title = get_string('ctioverrideheight', 'theme_essential');
+        $default = 200;
+        $lower = 40;
+        $upper = 400;
+        $description = get_string('ctioverrideheightdesc', 'theme_essential',
+            array('lower' => $lower, 'upper' => $upper));
+        $setting = new essential_admin_setting_configinteger($name, $title, $description, $default, $lower, $upper);
+        $essentialsettingscategorycti->add($setting);
+
+        // Overridden course title text colour setting.
+        $name = 'theme_essential/ctioverridetextcolour';
+        $title = get_string('ctioverridetextcolour', 'theme_essential');
+        $description = get_string('ctioverridetextcolourdesc', 'theme_essential');
+        $default = '#ffffff';
+        $previewconfig = null;
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $essentialsettingscategorycti->add($setting);
+
+        // Overridden course title text background colour setting.
+        $name = 'theme_essential/ctioverridetextbackgroundcolour';
+        $title = get_string('ctioverridetextbackgroundcolour', 'theme_essential');
+        $description = get_string('ctioverridetextbackgroundcolourdesc', 'theme_essential');
+        $default = '#c51230';
+        $previewconfig = null;
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $essentialsettingscategorycti->add($setting);
 
         $opactitychoices = array(
             '0.0' => '0.0',
@@ -1930,6 +1957,19 @@ if ($ADMIN->fulltree) {
             '0.9' => '0.9',
             '1.0' => '1.0'
         );
+
+        // Overridden course title text background opacity setting.
+        $name = 'theme_essential/ctioverridetextbackgroundopacity';
+        $title = get_string('ctioverridetextbackgroundopacity', 'theme_essential');
+        $description = get_string('ctioverridetextbackgroundopacitydesc', 'theme_essential');
+        $default = '0.8';
+        $setting = new admin_setting_configselect($name, $title, $description, $default, $opactitychoices);
+        $essentialsettingscategorycti->add($setting);
+
+        // Get all category IDs and their pretty names.
+        require_once($CFG->libdir . '/coursecatlib.php');
+        $coursecats = coursecat::make_categories_list();
+
         // Go through all categories and create the necessary settings.
         foreach ($coursecats as $key => $value) {
             // This is the descriptor for category course title image.
@@ -1987,6 +2027,7 @@ if ($ADMIN->fulltree) {
             $setting->set_updatedcallback('theme_reset_all_caches');
             $essentialsettingscategorycti->add($setting);
 
+            // Category course title text background opacity setting.
             $name = 'theme_essential/categorycti'.$key.'textbackgroundopactity';
             $title = get_string('categoryctitextbackgroundopacity', 'theme_essential', array('category' => $value));
             $description = get_string('categoryctitextbackgroundopacitydesc', 'theme_essential', array('category' => $value));

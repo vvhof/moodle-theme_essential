@@ -211,13 +211,31 @@ class core_renderer extends \core_renderer {
                             if (strpos($imgmatches, 'categorycti') !== false) {
                                 $imgparts = array();
                                 if (preg_match_all("/(src|ctih|ctit|ctib|ctio)=\"([^\"]*)\"/", $imgmatches, $imgparts) !== false) {
-                                    // Defaults for overridden images - can be a setting.
                                     $imgvalues = array('ctih' => '200', 'ctit' => '#ffffff', 'ctib' => '#222222',
                                         'ctio' => '0.8');
+									error_log('IV1: '.print_r($imgvalues, true));
+                                    $ctihs = $this->get_setting('ctioverrideheight');
+                                    $ctits = $this->get_setting('ctioverridetextcolour');
+                                    $ctibs = $this->get_setting('ctioverridetextbackgroundcolour');
+                                    $ctios = $this->get_setting('ctioverridetextbackgroundopacity');
+                                    if ($ctihs) {
+                                        $imgvalues['ctih'] = $ctihs;
+                                    }
+                                    if ($ctits) {
+                                        $imgvalues['ctit'] = $ctits;
+                                    }
+                                    if ($ctibs) {
+                                        $imgvalues['ctib'] = $ctibs;
+                                    }
+                                    if ($ctios) {
+                                        $imgvalues['ctio'] = $ctios;
+                                    }
+									error_log('IV2: '.print_r($imgvalues, true));
                                     // Index '1' is the 'key' and index '2' is the value.  Index '0' is them combined.
                                     foreach ($imgparts[1] as $imgpartskey => $imgpartsvalue) {
                                         $imgvalues[$imgpartsvalue] = $imgparts[2][$imgpartskey];
                                     }
+									error_log('IV3: '.print_r($imgvalues, true));
                                     $override = true;
                                     $content .= '<div class="categorycti" style="height: '.$imgvalues['ctih'].'px;';
                                     $content .= ' background-image: url('.$imgvalues['src'].');">';
