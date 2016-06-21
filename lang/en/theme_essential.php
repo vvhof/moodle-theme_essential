@@ -181,13 +181,25 @@ $string['contactinfodesc'] = 'Enter your contact information';
 $string['favicon'] = 'Custom favicon';
 $string['favicondesc'] = 'Upload your own favicon.  It should be an .ico file.';
 
-// Custom Menus.
-$string['mycoursesinfo'] = 'Enrolled courses menu';
+// Courses menu.
+$string['mycoursesinfo'] = 'Courses menu';
 $string['mycoursesinfodesc'] = 'Displays a dynamic list of enrolled courses to the user.';
-$string['displaymycourses'] = 'Display enrolled courses';
-$string['displaymycoursesdesc'] = 'Display enrolled courses for users in the \'Custom Menu\'.';
+$string['displaymycourses'] = 'Display courses';
+$string['displaymycoursesdesc'] = 'Display enrolled courses for users on the \'Navbar\'.';
 $string['displayhiddenmycourses'] = 'Display hidden courses';
-$string['displayhiddenmycoursesdesc'] = 'Display hidden courses for users in the \'Custom Menu\' if they have permission to view hidden courses';
+$string['displayhiddenmycoursesdesc'] = 'Display hidden courses for users in the \'Courses menu\' if they have permission to view hidden courses';
+
+$string['mycoursesorder'] = 'Courses order';
+$string['mycoursesorderdesc'] = 'State how the courses should be ordered.  Course sort order can be changed from \'sortorder\' to another field by setting \'$CFG->navsortmycoursessort\' in the config.php file.';
+$string['mycoursesordersort'] = 'Course sort order';
+$string['mycoursesorderid'] = 'Course ID';
+$string['mycoursesorderlast'] = 'Last accessed time or enrolment start time if never accessed';
+$string['mycoursesorderidorder'] = 'Course ID order';
+$string['mycoursesorderidorderdesc'] = 'Course ID order for when \'Course ID\' is set as the \'Course sort order\'.';
+$string['mycoursesorderidasc'] = 'Ascending';
+$string['mycoursesorderiddes'] = 'Descending';
+$string['mycoursesordermax'] = 'Max courses';
+$string['mycoursesordermaxdesc'] = 'State up to how many courses should be listed between {$a->lower} and {$a->upper} where or \'{$a->lower}\' represents all.';
 
 $string['mycoursetitle'] = 'Terminology';
 $string['mycoursetitledesc'] = 'Change the terminology for the "My Courses" link in the drop down menu';
@@ -203,6 +215,7 @@ $string['noenrolments'] = 'You have no current enrolments';
 $string['thiscourse'] = 'This course';
 $string['people'] = 'People';
 
+// User menu.
 $string['helplinktype'] = 'Enable help link in menu';
 $string['helplinktypedesc'] = 'Choose whether you want to enable a help option in the user menu, you can choose to either provide an URL that will be opened in a new window or an email address.';
 $string['helplink'] = 'Help link';

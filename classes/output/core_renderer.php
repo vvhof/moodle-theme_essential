@@ -560,15 +560,34 @@ class core_renderer extends \core_renderer {
             $homelabel = html_writer::tag('span', '', array('class' => 'fa fa-home')).html_writer::tag('span', ' '.$hometext);
             $branch->add($homelabel, new moodle_url('/my/index.php'), $hometext);
 
-            // Get 'My courses' sort preference from admin config.
-            if (!$sortorder = $CFG->navsortmycoursessort) {
-                $sortorder = 'sortorder';
+            $mycoursesorder = \theme_essential\toolbox::get_setting('mycoursesorder');
+            if (!$mycoursesorder) {
+                $mycoursesorder = 1;
             }
 
             // Retrieve courses and add them to the menu when they are visible.
             $numcourses = 0;
             $hasdisplayhiddenmycourses = \theme_essential\toolbox::get_setting('displayhiddenmycourses');
-            if ($courses = enrol_get_my_courses(null, $sortorder . ' ASC')) {
+
+            $courses = array();
+            if (($mycoursesorder == 1) || ($mycoursesorder == 2)) {
+                $direction = 'ASC';
+                if ($mycoursesorder == 1) {
+                    // Get 'My courses' sort preference from admin config.
+                    if (!$sortorder = $CFG->navsortmycoursessort) {
+                        $sortorder = 'sortorder';
+                    }
+                } else if ($mycoursesorder == 2) {
+                    $sortorder = 'id';
+                    $mycoursesorderidorder = \theme_essential\toolbox::get_setting('mycoursesorderidorder');
+                    if ($mycoursesorderidorder == 2) {
+                        $direction = 'DESC';
+                    }
+                }
+                $courses = enrol_get_my_courses(null, $sortorder.' '.$direction);
+            }
+
+            if ($courses) {
                 foreach ($courses as $course) {
                     if ($course->visible) {
                         $branch->add('<span class="fa fa-graduation-cap"></span>'.format_string($course->fullname),

@@ -847,6 +847,45 @@ if ($ADMIN->fulltree) {
     // No need for callback as CSS not changed.
     $essentialsettingsheader->add($setting);
 
+    // My courses order.
+    $name = 'theme_essential/mycoursesorder';
+    $title = get_string('mycoursesorder', 'theme_essential');
+    $description = get_string('mycoursesorderdesc', 'theme_essential');
+    $default = 1;
+    $choices = array(
+        1 => get_string('mycoursesordersort', 'theme_essential'),
+        2 => get_string('mycoursesorderid', 'theme_essential'),
+        3 => get_string('mycoursesorderlast', 'theme_essential')
+    );
+    $setting = new essential_admin_setting_configselect($name, $title, $description, $default, $choices);
+    // No need for callback as CSS not changed.
+    $essentialsettingsheader->add($setting);
+
+    // Course ID order.
+    $name = 'theme_essential/mycoursesorderidorder';
+    $title = get_string('mycoursesorderidorder', 'theme_essential');
+    $description = get_string('mycoursesorderdesc', 'theme_essential');
+    $default = 1;
+    $choices = array(
+        1 => get_string('mycoursesorderidasc', 'theme_essential'),
+        2 => get_string('mycoursesorderiddes', 'theme_essential')
+    );
+    $setting = new essential_admin_setting_configselect($name, $title, $description, $default, $choices);
+    // No need for callback as CSS not changed.
+    $essentialsettingsheader->add($setting);
+
+    // Max courses.
+    $name = 'theme_essential/mycoursesordermax';
+    $title = get_string('mycoursesordermax', 'theme_essential');
+    $default = 0;
+    $lower = 0;
+    $upper = 20;
+    $description = get_string('mycoursesordermaxdesc', 'theme_essential',
+        array('lower' => $lower, 'upper' => $upper));
+    $setting = new essential_admin_setting_configinteger($name, $title, $description, $default, $lower, $upper);
+    // No need for callback as CSS not changed.
+    $essentialsettingsheader->add($setting);
+
     // Set terminology for dropdown course list.
     $name = 'theme_essential/mycoursetitle';
     $title = get_string('mycoursetitle', 'theme_essential');
