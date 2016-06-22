@@ -640,6 +640,10 @@ class core_renderer extends \core_renderer {
             }
 
             if ($courses) {
+                $mycoursesmax = \theme_essential\toolbox::get_setting('mycoursesmax');
+                if (!$mycoursesmax) {
+                    $mycoursesmax = PHP_INT_MAX;
+                }
                 foreach ($courses as $course) {
                     if ($course->visible) {
                         $branch->add('<span class="fa fa-graduation-cap"></span>'.format_string($course->fullname),
@@ -652,6 +656,9 @@ class core_renderer extends \core_renderer {
                         $branchurl = new moodle_url('/course/view.php', array('id' => $course->id));
                         $branch->add($branchlabel, $branchurl, $branchtitle);
                         $numcourses += 1;
+                    }
+                    if ($numcourses == $mycoursesmax) {
+                        break;
                     }
                 }
             }

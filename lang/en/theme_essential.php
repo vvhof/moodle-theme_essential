@@ -198,8 +198,8 @@ $string['mycoursesorderidorder'] = 'Course ID order';
 $string['mycoursesorderidorderdesc'] = 'Course ID order for when \'Course ID\' is set as the \'Course sort order\'.';
 $string['mycoursesorderidasc'] = 'Ascending';
 $string['mycoursesorderiddes'] = 'Descending';
-$string['mycoursesordermax'] = 'Max courses';
-$string['mycoursesordermaxdesc'] = 'State up to how many courses should be listed between {$a->lower} and {$a->upper} where or \'{$a->lower}\' represents all.';
+$string['mycoursesmax'] = 'Max courses';
+$string['mycoursesmaxdesc'] = 'State up to how many courses should be listed between {$a->lower} and {$a->upper} where \'{$a->lower}\' represents all.';
 
 $string['mycoursetitle'] = 'Terminology';
 $string['mycoursetitledesc'] = 'Change the terminology for the "My Courses" link in the drop down menu';

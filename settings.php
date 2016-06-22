@@ -875,12 +875,12 @@ if ($ADMIN->fulltree) {
     $essentialsettingsheader->add($setting);
 
     // Max courses.
-    $name = 'theme_essential/mycoursesordermax';
-    $title = get_string('mycoursesordermax', 'theme_essential');
+    $name = 'theme_essential/mycoursesmax';
+    $title = get_string('mycoursesmax', 'theme_essential');
     $default = 0;
     $lower = 0;
     $upper = 20;
-    $description = get_string('mycoursesordermaxdesc', 'theme_essential',
+    $description = get_string('mycoursesmaxdesc', 'theme_essential',
         array('lower' => $lower, 'upper' => $upper));
     $setting = new essential_admin_setting_configinteger($name, $title, $description, $default, $lower, $upper);
     // No need for callback as CSS not changed.
