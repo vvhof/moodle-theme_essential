@@ -331,10 +331,10 @@ class core_renderer extends \core_renderer {
     }
 
     /**
-     * Returns course-specific information to be output immediately below content on any course page
+     * Returns course-specific information to be output immediately below content on any course page.
      * (for the current course)
      *
-     * @param bool $onlyifnotcalledbefore output content only if it has not been output before
+     * @param bool $onlyifnotcalledbefore output content only if it has not been output before.
      * @return string
      */
     public function course_content_footer($onlyifnotcalledbefore = false) {
@@ -600,7 +600,7 @@ class core_renderer extends \core_renderer {
                     global $DB, $USER;
                     $lastaccess = $DB->get_records('user_lastaccess', array('userid' => $USER->id), '', 'courseid, timeaccess');
                     if ($lastaccess) {
-                        foreach($courses as $course) {
+                        foreach ($courses as $course) {
                             if (!empty($lastaccess[$course->id])) {
                                 $course->timeaccess = $lastaccess[$course->id]->timeaccess;
                             }
@@ -608,7 +608,7 @@ class core_renderer extends \core_renderer {
                     }
                     // Determine if we need to query the enrolment and user enrolment tables.
                     $enrolquery = false;
-                    foreach($courses as $course) {
+                    foreach ($courses as $course) {
                         if (empty($course->timeaccess)) {
                             $enrolquery = true;
                             break;
@@ -623,7 +623,7 @@ class core_renderer extends \core_renderer {
                         $enrolments = $DB->get_records_sql($sql, $params, 0, 0);
                         if ($enrolments) {
                             // We don't need to worry about timeend etc. as our course list will be valid for the user from above.
-                            foreach($courses as $course) {
+                            foreach ($courses as $course) {
                                 if (empty($course->timeaccess)) {
                                     $course->timeaccess = $enrolments[$course->id]->timestart;
                                 }
