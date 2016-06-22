@@ -530,8 +530,7 @@ class core_renderer extends \core_renderer {
     }
 
     protected static function timeaccesscompare($a, $b) {
-		error_log('TAC: a) '.print_r($a, true).' b) '.print_r($b, true));
-        if($a->timeaccess == $b->timeaccess) {
+        if ($a->timeaccess == $b->timeaccess) {
             return 0;
         }
         return ($a->timeaccess > $b->timeaccess) ? -1 : 1;
@@ -615,7 +614,6 @@ class core_renderer extends \core_renderer {
                             break;
                         }
                     }
-					error_log('LA: '.print_r($lastaccess, true));
                     if ($enrolquery) {
                         // We do.
                         $params = array('userid' => $USER->id);
@@ -623,7 +621,6 @@ class core_renderer extends \core_renderer {
                             FROM {enrol} e
                             JOIN {user_enrolments} ue ON (ue.enrolid = e.id AND ue.userid = :userid)";
                         $enrolments = $DB->get_records_sql($sql, $params, 0, 0);
-						error_log('EN: '.print_r($enrolments, true));
                         if ($enrolments) {
                             // We don't need to worry about timeend etc. as our course list will be valid for the user from above.
                             foreach($courses as $course) {
@@ -633,9 +630,7 @@ class core_renderer extends \core_renderer {
                             }
                         }
                     }
-					error_log('CS1: '.print_r($courses, true));
-                    uasort($courses , array($this, 'timeaccesscompare'));
-					error_log('CS2: '.print_r($courses, true));
+                    uasort($courses, array($this, 'timeaccesscompare'));
                 }
             }
 
