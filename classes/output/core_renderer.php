@@ -529,6 +529,14 @@ class core_renderer extends \core_renderer {
         return $this->render_custom_menu($langmenu);
     }
 
+    protected static function timeaccesscompare($a, $b) {
+		error_log('TAC: a) '.print_r($a, true).' b) '.print_r($b, true));
+        if($a->timeaccess == $b->timeaccess) {
+            return 0;
+        }
+        return ($a->timeaccess > $b->timeaccess) ? -1 : 1;
+    }
+
     /**
      * Outputs the courses menu
      * @return custom_menu object
@@ -585,6 +593,50 @@ class core_renderer extends \core_renderer {
                     }
                 }
                 $courses = enrol_get_my_courses(null, $sortorder.' '.$direction);
+            } else if ($mycoursesorder == 3) {
+                // Get the list of enrolled courses as before but as for us, ignore 'navsortmycoursessort'.
+                $courses = enrol_get_my_courses(null, 'sortorder ASC');
+                if ($courses) {
+                    // We have something to work with.  Get the last accessed information for the user and populate.
+                    global $DB, $USER;
+                    $lastaccess = $DB->get_records('user_lastaccess', array('userid' => $USER->id), '', 'courseid, timeaccess');
+                    if ($lastaccess) {
+                        foreach($courses as $course) {
+                            if (!empty($lastaccess[$course->id])) {
+                                $course->timeaccess = $lastaccess[$course->id]->timeaccess;
+                            }
+                        }
+                    }
+                    // Determine if we need to query the enrolment and user enrolment tables.
+                    $enrolquery = false;
+                    foreach($courses as $course) {
+                        if (empty($course->timeaccess)) {
+                            $enrolquery = true;
+                            break;
+                        }
+                    }
+					error_log('LA: '.print_r($lastaccess, true));
+                    if ($enrolquery) {
+                        // We do.
+                        $params = array('userid' => $USER->id);
+                        $sql = "SELECT e.courseid, ue.timestart
+                            FROM {enrol} e
+                            JOIN {user_enrolments} ue ON (ue.enrolid = e.id AND ue.userid = :userid)";
+                        $enrolments = $DB->get_records_sql($sql, $params, 0, 0);
+						error_log('EN: '.print_r($enrolments, true));
+                        if ($enrolments) {
+                            // We don't need to worry about timeend etc. as our course list will be valid for the user from above.
+                            foreach($courses as $course) {
+                                if (empty($course->timeaccess)) {
+                                    $course->timeaccess = $enrolments[$course->id]->timestart;
+                                }
+                            }
+                        }
+                    }
+					error_log('CS1: '.print_r($courses, true));
+                    uasort($courses , array($this, 'timeaccesscompare'));
+					error_log('CS2: '.print_r($courses, true));
+                }
             }
 
             if ($courses) {
