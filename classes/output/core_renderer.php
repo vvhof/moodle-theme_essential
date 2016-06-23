@@ -593,6 +593,17 @@ class core_renderer extends \core_renderer {
                 }
                 $courses = enrol_get_my_courses(null, $sortorder.' '.$direction);
             } else if ($mycoursesorder == 3) {
+                /*
+                 * To test:
+                 * 1. As an administrator...
+                 * 2. Create a test user to be a student.
+                 * 3. Create a course with a start time before the current and enrol the student.
+                 * 4. Log in as the student and access the course.  Note down the time.
+                 * 5. Log back in as an administrator and create a second course and enrol the student ensuring
+                 *    that the enrolment time is at least two minutes more than access time.
+                 * 6. Log back in as the student and navigate to the dashboard.
+                 * 7. Confirm that the second course is listed before the first on the menu.
+                 */
                 // Get the list of enrolled courses as before but as for us, ignore 'navsortmycoursessort'.
                 $courses = enrol_get_my_courses(null, 'sortorder ASC');
                 if ($courses) {
