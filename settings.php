@@ -2164,15 +2164,14 @@ if ($ADMIN->fulltree) {
             }
 
             // Get all category IDs and their pretty names.
-            require_once($CFG->libdir . '/coursecatlib.php');
-            $coursecats = coursecat::make_categories_list();
+            $coursecats = \theme_essential\toolbox::get_categories_list();
 
             // Go through all categories and create the necessary settings.
             foreach ($coursecats as $key => $value) {
                 // Category icons for each category.
                 $name = 'theme_essential/categoryicon';
-                $title = $value;
-                $description = get_string('categoryiconcategory', 'theme_essential', array('category' => $value));
+                $title = $value->namepath;
+                $description = get_string('categoryiconcategory', 'theme_essential', array('category' => $value->namepath));
                 $default = $defaultcategoryicon;
                 $setting = new admin_setting_configtext($name . $key, $title, $description, $default);
                 $setting->set_updatedcallback('theme_reset_all_caches');
