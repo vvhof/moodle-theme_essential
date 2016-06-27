@@ -190,7 +190,7 @@ $string['displayhiddenmycourses'] = 'Display hidden courses';
 $string['displayhiddenmycoursesdesc'] = 'Display hidden courses for users in the \'Courses menu\' if they have permission to view hidden courses';
 
 $string['mycoursesorder'] = 'Courses order';
-$string['mycoursesorderdesc'] = 'State how the courses should be ordered.  Course sort order can be changed from \'sortorder\' to another field by setting \'$CFG->navsortmycoursessort\' in the config.php file.';
+$string['mycoursesorderdesc'] = 'State how the courses should be ordered.  The course sort order can be is set by the core navigation setting \'navsortmycoursessort\'.';
 $string['mycoursesordersort'] = 'Course sort order';
 $string['mycoursesorderid'] = 'Course ID';
 $string['mycoursesorderlast'] = 'Last accessed time or enrolment start time if never accessed';

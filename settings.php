@@ -864,7 +864,7 @@ if ($ADMIN->fulltree) {
     // Course ID order.
     $name = 'theme_essential/mycoursesorderidorder';
     $title = get_string('mycoursesorderidorder', 'theme_essential');
-    $description = get_string('mycoursesorderdesc', 'theme_essential');
+    $description = get_string('mycoursesorderidorderdesc', 'theme_essential');
     $default = 1;
     $choices = array(
         1 => get_string('mycoursesorderidasc', 'theme_essential'),
