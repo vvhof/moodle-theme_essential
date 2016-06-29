@@ -547,15 +547,25 @@ class core_renderer extends \core_renderer {
 
         $hasdisplaymycourses = \theme_essential\toolbox::get_setting('displaymycourses');
         if (isloggedin() && !isguestuser() && $hasdisplaymycourses) {
+            $mycoursesorder = \theme_essential\toolbox::get_setting('mycoursesorder');
+            if (!$mycoursesorder) {
+                $mycoursesorder = 1;
+            }
+
+            $lateststring = '';
+            if ($mycoursesorder == 3) {
+                $lateststring = 'latest';
+            }
+
             $mycoursetitle = \theme_essential\toolbox::get_setting('mycoursetitle');
             if ($mycoursetitle == 'module') {
-                $branchtitle = get_string('mymodules', 'theme_essential');
+                $branchtitle = get_string('my'.$lateststring.'modules', 'theme_essential');
             } else if ($mycoursetitle == 'unit') {
-                $branchtitle = get_string('myunits', 'theme_essential');
+                $branchtitle = get_string('my'.$lateststring.'units', 'theme_essential');
             } else if ($mycoursetitle == 'class') {
-                $branchtitle = get_string('myclasses', 'theme_essential');
+                $branchtitle = get_string('my'.$lateststring.'classes', 'theme_essential');
             } else {
-                $branchtitle = get_string('mycourses', 'theme_essential');
+                $branchtitle = get_string('my'.$lateststring.'courses', 'theme_essential');
             }
             $branchlabel = $this->getfontawesomemarkup('briefcase').$branchtitle;
             $branchurl = new moodle_url('');
@@ -566,11 +576,6 @@ class core_renderer extends \core_renderer {
             $hometext = get_string('myhome');
             $homelabel = html_writer::tag('span', '', array('class' => 'fa fa-home')).html_writer::tag('span', ' '.$hometext);
             $branch->add($homelabel, new moodle_url('/my/index.php'), $hometext);
-
-            $mycoursesorder = \theme_essential\toolbox::get_setting('mycoursesorder');
-            if (!$mycoursesorder) {
-                $mycoursesorder = 1;
-            }
 
             // Retrieve courses and add them to the menu when they are visible.
             $numcourses = 0;

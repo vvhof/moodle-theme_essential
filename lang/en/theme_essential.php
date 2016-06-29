@@ -202,11 +202,15 @@ $string['mycoursesmax'] = 'Max courses';
 $string['mycoursesmaxdesc'] = 'State up to how many courses should be listed between {$a->lower} and {$a->upper} where \'{$a->lower}\' represents all.';
 
 $string['mycoursetitle'] = 'Terminology';
-$string['mycoursetitledesc'] = 'Change the terminology for the "My Courses" link in the drop down menu';
+$string['mycoursetitledesc'] = 'Change the terminology for the "My courses" menu title.  When \'mycoursesorder\' is set to \'Last accessed...\' then the word \'latest\' will be added.';
 $string['mycourses'] = 'My courses';
+$string['mylatestcourses'] = 'My latest courses';
 $string['myunits'] = 'My units';
+$string['mylatestunits'] = 'My latest units';
 $string['mymodules'] = 'My modules';
+$string['mylatestmodules'] = 'My latest modules';
 $string['myclasses'] = 'My classes';
+$string['mylatestclasses'] = 'My latest classes';
 $string['allcourses'] = 'All courses';
 $string['allunits'] = 'All units';
 $string['allmodules'] = 'All modules';
