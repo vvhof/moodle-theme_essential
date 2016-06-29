@@ -200,6 +200,8 @@ $string['mycoursesorderidasc'] = 'Ascending';
 $string['mycoursesorderiddes'] = 'Descending';
 $string['mycoursesmax'] = 'Max courses';
 $string['mycoursesmaxdesc'] = 'State up to how many courses should be listed between {$a->lower} and {$a->upper} where \'{$a->lower}\' represents all.';
+$string['mycoursesorderenrolbackcolour'] = 'Enrolled and not accessed course background colour';
+$string['mycoursesorderenrolbackcolourdesc'] = 'The background colour for enrolled but not accessed courses.  For ehen \'mycoursesorder\' is set to \'Last accessed...\'.';
 
 $string['mycoursetitle'] = 'Terminology';
 $string['mycoursetitledesc'] = 'Change the terminology for the "My courses" menu title.  When \'mycoursesorder\' is set to \'Last accessed...\' then the word \'latest\' will be added.';
@@ -366,6 +368,9 @@ $string['alternativethemenavcolor'] = 'Navigation text colour {$a}';
 $string['alternativethemenavcolordesc'] = 'Set the alternative {$a} text colour for navigation.  Being the navigation bar and the breadcrumb fancy style.';
 $string['alternativethemehovercolor'] = 'Alternative theme hover colour {$a}';
 $string['alternativethemehovercolordesc'] = 'What colour should your theme hovers be for the alternative theme colours {$a}.';
+
+$string['alternativethememycoursesorderenrolbackcolour'] = 'Alternative {$a} enrolled and not accessed course background colour';
+$string['alternativethememycoursesorderenrolbackcolourdesc'] = 'Set alternative {$a} background colour for enrolled but not accessed courses.  For ehen \'mycoursesorder\' is set to \'Last accessed...\'.';
 
 $string['alternativethemefootercolor'] = 'Footer background colour for the alternative theme colours {$a}';
 $string['alternativethemefootercolordesc'] = 'Set what colour the background of the Footer box should be for the alternative theme colours {$a}.';

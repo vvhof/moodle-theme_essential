@@ -530,10 +530,29 @@ class core_renderer extends \core_renderer {
     }
 
     protected static function timeaccesscompare($a, $b) {
-        if ($a->timeaccess == $b->timeaccess) {
-            return 0;
+        // timeaccess is lastaccess entry and timestart an enrol entry.
+        if ((!empty($a->timeaccess)) && (!empty($b->timeaccess))) {
+            // Both last access.
+            if ($a->timeaccess == $b->timeaccess) {
+                return 0;
+            }
+            return ($a->timeaccess > $b->timeaccess) ? -1 : 1;
+        } else if ((!empty($a->timestart)) && (!empty($b->timestart))) {
+            // Both enrol.
+            if ($a->timestart == $b->timestart) {
+                return 0;
+            }
+            return ($a->timestart > $b->timestart) ? -1 : 1;
         }
-        return ($a->timeaccess > $b->timeaccess) ? -1 : 1;
+
+        // Must be comparing an enrol with a last access.
+        // -1 is to say that 'a' comes before 'b'.
+        if (!empty($a->timestart)) {
+            // 'a' is the enrol entry.
+            return -1;
+        }
+        // 'b' must be the enrol entry.
+        return 1;
     }
 
     /**
@@ -574,7 +593,7 @@ class core_renderer extends \core_renderer {
             $branch = $coursemenu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
 
             $hometext = get_string('myhome');
-            $homelabel = html_writer::tag('span', '', array('class' => 'fa fa-home')).html_writer::tag('span', ' '.$hometext);
+            $homelabel = html_writer::tag('span', $this->getfontawesomemarkup('home').html_writer::tag('span', ' '.$hometext));
             $branch->add($homelabel, new moodle_url('/my/index.php'), $hometext);
 
             // Retrieve courses and add them to the menu when they are visible.
@@ -603,9 +622,8 @@ class core_renderer extends \core_renderer {
                  * 1. As an administrator...
                  * 2. Create a test user to be a student.
                  * 3. Create a course with a start time before the current and enrol the student.
-                 * 4. Log in as the student and access the course.  Note down the time.
-                 * 5. Log back in as an administrator and create a second course and enrol the student ensuring
-                 *    that the enrolment time is at least two minutes more than access time.
+                 * 4. Log in as the student and access the course.
+                 * 5. Log back in as an administrator and create a second course and enrol the student.
                  * 6. Log back in as the student and navigate to the dashboard.
                  * 7. Confirm that the second course is listed before the first on the menu.
                  */
@@ -641,7 +659,7 @@ class core_renderer extends \core_renderer {
                             // We don't need to worry about timeend etc. as our course list will be valid for the user from above.
                             foreach ($courses as $course) {
                                 if (empty($course->timeaccess)) {
-                                    $course->timeaccess = $enrolments[$course->id]->timestart;
+                                    $course->timestart = $enrolments[$course->id]->timestart;
                                 }
                             }
                         }
@@ -657,13 +675,23 @@ class core_renderer extends \core_renderer {
                 }
                 foreach ($courses as $course) {
                     if ($course->visible) {
-                        $branch->add('<span class="fa fa-graduation-cap"></span>'.format_string($course->fullname),
-                            new moodle_url('/course/view.php?id=' . $course->id), format_string($course->shortname));
+                        $branchtitle = format_string($course->shortname);
+                        $branchurl = new moodle_url('/course/view.php', array('id' => $course->id));
+                        $enrolledclass = '';
+                        if (!empty($course->timestart)) {
+                            $enrolledclass .= ' class="onlyenrolled"';
+                        }
+                        $branchlabel = '<span'.$enrolledclass.'>'.$this->getfontawesomemarkup('graduation-cap').format_string($course->fullname).'</span>';
+                        $branch->add($branchlabel, $branchurl, $branchtitle);
                         $numcourses += 1;
                     } else if (has_capability('moodle/course:viewhiddencourses', context_course::instance($course->id)) && $hasdisplayhiddenmycourses) {
                         $branchtitle = format_string($course->shortname);
-                        $branchlabel = '<span class="dimmed_text">'.$this->getfontawesomemarkup('eye-slash').
-                            format_string($course->fullname) . '</span>';
+                        $enrolledclass = '';
+                        if (!empty($course->timestart)) {
+                            $enrolledclass .= ' onlyenrolled';
+                        }
+                        $branchlabel = '<span class="dimmed_text'.$enrolledclass.'">'.$this->getfontawesomemarkup('eye-slash').
+                            format_string($course->fullname).'</span>';
                         $branchurl = new moodle_url('/course/view.php', array('id' => $course->id));
                         $branch->add($branchlabel, $branchurl, $branchtitle);
                         $numcourses += 1;
@@ -675,7 +703,7 @@ class core_renderer extends \core_renderer {
             }
             if ($numcourses == 0 || empty($courses)) {
                 $noenrolments = get_string('noenrolments', 'theme_essential');
-                $branch->add('<em>' . $noenrolments . '</em>', new moodle_url('#'), $noenrolments);
+                $branch->add('<em>'.$noenrolments.'</em>', new moodle_url('#'), $noenrolments);
             }
         }
         return $this->render_custom_menu($coursemenu);

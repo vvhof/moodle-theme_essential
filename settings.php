@@ -555,6 +555,16 @@ if ($ADMIN->fulltree) {
         $setting->set_updatedcallback('theme_reset_all_caches');
         $essentialsettingscolour->add($setting);
 
+        // Enrolled and not accessed course background colour.
+        $name = 'theme_essential/alternativethememycoursesorderenrolbackcolour'.$alternativethemenumber;
+        $title = get_string('alternativethememycoursesorderenrolbackcolour', 'theme_essential', $alternativethemenumber);
+        $description = get_string('alternativethememycoursesorderenrolbackcolourdesc', 'theme_essential', $alternativethemenumber);
+        $default = '#a3ebff';
+        $previewconfig = null;
+        $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $essentialsettingscolour->add($setting);
+
         // Footer background colour setting.
         $name = 'theme_essential/alternativethemefootercolor' . $alternativethemenumber;
         $title = get_string('alternativethemefootercolor', 'theme_essential', $alternativethemenumber);
@@ -898,6 +908,16 @@ if ($ADMIN->fulltree) {
         'module' => get_string('mymodules', 'theme_essential')
     );
     $setting = new essential_admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $essentialsettingsheader->add($setting);
+
+    // Enrolled and not accessed course background colour.
+    $name = 'theme_essential/mycoursesorderenrolbackcolour';
+    $title = get_string('mycoursesorderenrolbackcolour', 'theme_essential');
+    $description = get_string('mycoursesorderenrolbackcolourdesc', 'theme_essential');
+    $default = '#a3ebff';
+    $previewconfig = null;
+    $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $essentialsettingsheader->add($setting);
 
