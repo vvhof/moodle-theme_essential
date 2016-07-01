@@ -198,7 +198,7 @@ class toolbox {
         return $us->get_tile_file($filename);
     }
 
-    static public function get_categories_list($separator = ' / ') {
+    static public function get_categories_list() {
         static $catlist = null;
         if (empty($catlist)) {
             global $DB;
@@ -208,15 +208,14 @@ class toolbox {
                 $category->parents = array();
                 if ($category->depth > 1 ) {
                     $path = preg_split('|/|', $category->path, -1, PREG_SPLIT_NO_EMPTY);
-                    $namechunks = array();
+                    $category->namechunks = array();
                     foreach ($path as $parentid) {
-                        $namechunks[] = $catlist[$parentid]->name;
+                        $category->namechunks[] = $catlist[$parentid]->name;
                         $category->parents[] = $parentid;
                     }
-                    $category->namepath = join($separator, $namechunks);
                     $category->parents = array_reverse($category->parents);
                 } else {
-                    $category->namepath = $category->name;
+                    $category->namechunks = array($category->name);
                 }
             }
         }

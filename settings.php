@@ -2036,80 +2036,94 @@ if ($ADMIN->fulltree) {
         $default = '0.8';
         $setting = new essential_admin_setting_configselect($name, $title, $description, $default, $opactitychoices);
         $essentialsettingscategorycti->add($setting);
+    }
+}
+$ADMIN->add('theme_essential', $essentialsettingscategorycti);
 
-        // Get all category IDs and their pretty names.
-        $coursecats = \theme_essential\toolbox::get_categories_list();
+// We only want to output category course title image options if the parent setting is enabled.
+if (get_config('theme_essential', 'enablecategorycti')) {
+    // Get all category IDs and their pretty names.
+    $coursecats = \theme_essential\toolbox::get_categories_list();
 
-        // Go through all categories and create the necessary settings.
-        foreach ($coursecats as $key => $value) {
+    // Go through all categories and create the necessary settings.
+    foreach ($coursecats as $key => $value) {
+        if ($value->depth == 1) {
+            $essentialsettingscategoryctimenu = new admin_settingpage('theme_essential_categorycti_'.$value->id,
+                get_string('categoryctiheadingcategory', 'theme_essential', array('category' => $value->namechunks[0])));
+        }
+
+        if ($ADMIN->fulltree) {
+            $namepath = join(' / ', $value->namechunks);
             // This is the descriptor for category course title image.
             $name = 'theme_essential/categoryctiinfo'.$key;
-            $heading = get_string('categoryctiinfo', 'theme_essential', array('category' => $value->namepath));
-            $information = get_string('categoryctiinfodesc', 'theme_essential', array('category' => $value->namepath));
+            $heading = get_string('categoryctiinfo', 'theme_essential', array('category' => $namepath));
+            $information = get_string('categoryctiinfodesc', 'theme_essential', array('category' => $namepath));
             $setting = new admin_setting_heading($name, $heading, $information);
-            $essentialsettingscategorycti->add($setting);
+            $essentialsettingscategoryctimenu->add($setting);
 
             // Image.
             $name = 'theme_essential/categoryct'.$key.'image';
-            $title = get_string('categoryctimage', 'theme_essential', array('category' => $value->namepath));
-            $description = get_string('categoryctimagedesc', 'theme_essential', array('category' => $value->namepath));
+            $title = get_string('categoryctimage', 'theme_essential', array('category' => $namepath));
+            $description = get_string('categoryctimagedesc', 'theme_essential', array('category' => $namepath));
             $setting = new admin_setting_configstoredfile($name, $title, $description, 'categoryct'.$key.'image');
             $setting->set_updatedcallback('theme_reset_all_caches');
-            $essentialsettingscategorycti->add($setting);
+            $essentialsettingscategoryctimenu->add($setting);
 
             // Image URL.
             $name = 'theme_essential/categoryctimageurl'.$key;
-            $title = get_string('categoryctimageurl', 'theme_essential', array('category' => $value->namepath));
-            $description = get_string('categoryctimageurldesc', 'theme_essential', array('category' => $value->namepath));
+            $title = get_string('categoryctimageurl', 'theme_essential', array('category' => $namepath));
+            $description = get_string('categoryctimageurldesc', 'theme_essential', array('category' => $namepath));
             $default = '';
             $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
             $setting->set_updatedcallback('theme_reset_all_caches');
-            $essentialsettingscategorycti->add($setting);
+            $essentialsettingscategoryctimenu->add($setting);
 
             // Image height.
             $name = 'theme_essential/categorycti'.$key.'height';
-            $title = get_string('categoryctiheight', 'theme_essential', array('category' => $value->namepath));
+            $title = get_string('categoryctiheight', 'theme_essential', array('category' => $namepath));
             $default = 200;
             $lower = 40;
             $upper = 400;
             $description = get_string('categoryctiheightdesc', 'theme_essential',
-                array('category' => $value->namepath, 'lower' => $lower, 'upper' => $upper));
+                array('category' => $namepath, 'lower' => $lower, 'upper' => $upper));
             $setting = new essential_admin_setting_configinteger($name, $title, $description, $default, $lower, $upper);
             $setting->set_updatedcallback('theme_reset_all_caches');
-            $essentialsettingscategorycti->add($setting);
+            $essentialsettingscategoryctimenu->add($setting);
 
             // Category course title text colour setting.
             $name = 'theme_essential/categorycti'.$key.'textcolour';
-            $title = get_string('categoryctitextcolour', 'theme_essential', array('category' => $value->namepath));
-            $description = get_string('categoryctitextcolourdesc', 'theme_essential', array('category' => $value->namepath));
+            $title = get_string('categoryctitextcolour', 'theme_essential', array('category' => $namepath));
+            $description = get_string('categoryctitextcolourdesc', 'theme_essential', array('category' => $namepath));
             $default = '#000000';
             $previewconfig = null;
             $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
             $setting->set_updatedcallback('theme_reset_all_caches');
-            $essentialsettingscategorycti->add($setting);
+            $essentialsettingscategoryctimenu->add($setting);
 
             // Category course title text background colour setting.
             $name = 'theme_essential/categorycti'.$key.'textbackgroundcolour';
-            $title = get_string('categoryctitextbackgroundcolour', 'theme_essential', array('category' => $value->namepath));
-            $description = get_string('categoryctitextbackgroundcolourdesc', 'theme_essential', array('category' => $value->namepath));
+            $title = get_string('categoryctitextbackgroundcolour', 'theme_essential', array('category' => $namepath));
+            $description = get_string('categoryctitextbackgroundcolourdesc', 'theme_essential', array('category' => $namepath));
             $default = '#ffffff';
             $previewconfig = null;
             $setting = new admin_setting_configcolourpicker($name, $title, $description, $default, $previewconfig);
             $setting->set_updatedcallback('theme_reset_all_caches');
-            $essentialsettingscategorycti->add($setting);
+            $essentialsettingscategoryctimenu->add($setting);
 
             // Category course title text background opacity setting.
             $name = 'theme_essential/categorycti'.$key.'textbackgroundopactity';
-            $title = get_string('categoryctitextbackgroundopacity', 'theme_essential', array('category' => $value->namepath));
-            $description = get_string('categoryctitextbackgroundopacitydesc', 'theme_essential', array('category' => $value->namepath));
+            $title = get_string('categoryctitextbackgroundopacity', 'theme_essential', array('category' => $namepath));
+            $description = get_string('categoryctitextbackgroundopacitydesc', 'theme_essential', array('category' => $namepath));
             $default = '0.8';
             $setting = new essential_admin_setting_configselect($name, $title, $description, $default, $opactitychoices);
             $setting->set_updatedcallback('theme_reset_all_caches');
-            $essentialsettingscategorycti->add($setting);
+            $essentialsettingscategoryctimenu->add($setting);
+        }
+        if ($value->depth == 1) {
+            $ADMIN->add('theme_essential', $essentialsettingscategoryctimenu);
         }
     }
 }
-$ADMIN->add('theme_essential', $essentialsettingscategorycti);
 
 // Category icon settings.
 $essentialsettingscategoryicon = new admin_settingpage('theme_essential_categoryicon',
@@ -2168,10 +2182,11 @@ if ($ADMIN->fulltree) {
 
             // Go through all categories and create the necessary settings.
             foreach ($coursecats as $key => $value) {
+                $namepath = join(' / ', $value->namechunks);
                 // Category icons for each category.
                 $name = 'theme_essential/categoryicon';
-                $title = $value->namepath;
-                $description = get_string('categoryiconcategory', 'theme_essential', array('category' => $value->namepath));
+                $title = $namepath;
+                $description = get_string('categoryiconcategory', 'theme_essential', array('category' => $namepath));
                 $default = $defaultcategoryicon;
                 $setting = new admin_setting_configtext($name . $key, $title, $description, $default);
                 $setting->set_updatedcallback('theme_reset_all_caches');
