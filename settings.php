@@ -1958,8 +1958,13 @@ if ($ADMIN->fulltree) {
 $ADMIN->add('theme_essential', $essentialsettingsslideshow);
 
 // Category course title image settings.
-$essentialsettingscategorycti = new admin_settingpage('theme_essential_categorycti',
-    get_string('categoryctiheading', 'theme_essential'));
+$enablecategoryctics = get_config('theme_essential', 'enablecategoryctics');
+if ($enablecategoryctics) {
+    $essentialsettingscategoryctititle = get_string('categoryctiheadingcs', 'theme_essential');
+} else {
+    $essentialsettingscategoryctititle = get_string('categoryctiheading', 'theme_essential');
+}
+$essentialsettingscategorycti = new admin_settingpage('theme_essential_categorycti', $essentialsettingscategoryctititle);
 if ($ADMIN->fulltree) {
     global $CFG;
     if (file_exists("{$CFG->dirroot}/theme/essential/essential_admin_setting_configinteger.php")) {
@@ -1976,7 +1981,16 @@ if ($ADMIN->fulltree) {
     $name = 'theme_essential/enablecategorycti';
     $title = get_string('enablecategorycti', 'theme_essential');
     $description = get_string('enablecategoryctidesc', 'theme_essential');
-    $default = true;
+    $default = false;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $essentialsettingscategorycti->add($setting);
+
+    // Category icons category setting pages.
+    $name = 'theme_essential/enablecategoryctics';
+    $title = get_string('enablecategoryctics', 'theme_essential');
+    $description = get_string('enablecategorycticsdesc', 'theme_essential');
+    $default = false;
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $essentialsettingscategorycti->add($setting);
@@ -2045,9 +2059,13 @@ if (get_config('theme_essential', 'enablecategorycti')) {
     // Get all category IDs and their pretty names.
     $coursecats = \theme_essential\toolbox::get_categories_list();
 
+    if (!$enablecategoryctics) {
+        $essentialsettingscategoryctimenu = $essentialsettingscategorycti;
+    }
+
     // Go through all categories and create the necessary settings.
     foreach ($coursecats as $key => $value) {
-        if ($value->depth == 1) {
+        if (($value->depth == 1) && ($enablecategoryctics)) {
             $essentialsettingscategoryctimenu = new admin_settingpage('theme_essential_categorycti_'.$value->id,
                 get_string('categoryctiheadingcategory', 'theme_essential', array('category' => $value->namechunks[0])));
         }
@@ -2119,7 +2137,7 @@ if (get_config('theme_essential', 'enablecategorycti')) {
             $setting->set_updatedcallback('theme_reset_all_caches');
             $essentialsettingscategoryctimenu->add($setting);
         }
-        if ($value->depth == 1) {
+        if (($value->depth == 1) && ($enablecategoryctics)) {
             $ADMIN->add('theme_essential', $essentialsettingscategoryctimenu);
         }
     }
