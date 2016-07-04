@@ -2056,7 +2056,7 @@ $ADMIN->add('theme_essential', $essentialsettingscategorycti);
 
 // We only want to output category course title image options if the parent setting is enabled.
 if (get_config('theme_essential', 'enablecategorycti')) {
-    // Get all category IDs and their pretty names.
+    // Get all category IDs and their names.
     $coursecats = \theme_essential\toolbox::get_categories_list();
 
     if (!$enablecategoryctics) {
@@ -2195,7 +2195,7 @@ if ($ADMIN->fulltree) {
                 $defaultcategoryicon = 'folder-open';
             }
 
-            // Get all category IDs and their pretty names.
+            // Get all category IDs and their names.
             $coursecats = \theme_essential\toolbox::get_categories_list();
 
             // Go through all categories and create the necessary settings.
