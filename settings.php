@@ -38,8 +38,10 @@ if ($ADMIN->fulltree) {
     global $CFG;
     if (file_exists("{$CFG->dirroot}/theme/essential/essential_admin_setting_configselect.php")) {
         require_once($CFG->dirroot . '/theme/essential/essential_admin_setting_configselect.php');
+        require_once($CFG->dirroot . '/theme/essential/essential_admin_setting_configinteger.php');
     } else if (!empty($CFG->themedir) && file_exists("{$CFG->themedir}/essential/essential_admin_setting_configselect.php")) {
         require_once($CFG->themedir . '/essential/essential_admin_setting_configselect.php');
+        require_once($CFG->themedir . '/essential/essential_admin_setting_configinteger.php');
     }
 
     $sponsor = new moodle_url('http://moodle.org/user/profile.php?id=442195');
@@ -93,6 +95,28 @@ if ($ADMIN->fulltree) {
         100 => get_string('variablewidth', 'theme_essential'));
     $setting = new essential_admin_setting_configselect($name, $title, $description, $default, $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
+    $essentialsettingsgeneric->add($setting);
+
+    // Page top blocks per row.
+    $name = 'theme_essential/pagetopblocksperrow';
+    $title = get_string('pagetopblocksperrow', 'theme_essential');
+    $default = 1;
+    $lower = 1;
+    $upper = 4;
+    $description = get_string('pagetopblocksperrowdesc', 'theme_essential',
+        array('lower' => $lower, 'upper' => $upper));
+    $setting = new essential_admin_setting_configinteger($name, $title, $description, $default, $lower, $upper);
+    $essentialsettingsgeneric->add($setting);
+
+    // Page bottom blocks per row.
+    $name = 'theme_essential/pagebottomblocksperrow';
+    $title = get_string('pagebottomblocksperrow', 'theme_essential');
+    $default = 4;
+    $lower = 1;
+    $upper = 4;
+    $description = get_string('pagebottomblocksperrowdesc', 'theme_essential',
+        array('lower' => $lower, 'upper' => $upper));
+    $setting = new essential_admin_setting_configinteger($name, $title, $description, $default, $lower, $upper);
     $essentialsettingsgeneric->add($setting);
 
     // Custom favicon.

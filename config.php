@@ -71,7 +71,7 @@ $THEME->layouts = array(
     'base' => array(
         'file' => 'columns1.php',
         'regions' => array('footer-left', 'footer-middle', 'footer-right'),
-        'defaultregion' => '',
+        'defaultregion' => 'footer-middle',
     ),
     // Front page.
     'frontpage' => array(
@@ -89,12 +89,12 @@ $THEME->layouts = array(
     // Main course page.
     'course' => array(
         'file' => 'columns3.php',
-        'regions' => array('side-pre', 'side-post', 'footer-left', 'footer-middle', 'footer-right'),
+        'regions' => array('side-pre', 'page-top', 'side-post', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-post',
     ),
     'coursecategory' => array(
         'file' => 'columns2.php',
-        'regions' => array('side-pre', 'footer-left', 'footer-middle', 'footer-right'),
+        'regions' => array('side-pre', 'page-top', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-pre',
     ),
     // Part of course, typical for modules - default page layout if $cm specified in require_login().

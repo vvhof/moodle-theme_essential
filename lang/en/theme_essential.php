@@ -156,6 +156,11 @@ $string['stylefixed'] = 'Fixed';
 $string['styletiled'] = 'Tiled';
 $string['stylestretch'] = 'Stretch';
 
+$string['pagetopblocksperrow'] = 'Page top blocks per row';
+$string['pagetopblocksperrowdesc'] = 'State up to how many blocks per row between {$a->lower} and {$a->upper} for pages with \'Page top blocks\'.  Current pages are: Courses and Course Category.';
+$string['pagebottomblocksperrow'] = 'Page bottom blocks per row';
+$string['pagebottomblocksperrowdesc'] = 'State up to how many blocks per row between {$a->lower} and {$a->upper} for pages with \'Page bottom blocks\'.  Current pages are: Admin plugins, Course management, Grading and Quiz edit.';
+
 $string['customcss'] = 'Custom CSS';
 $string['customcssdesc'] = 'Whatever CSS rules you add to this text area will be reflected in every page, making for easier customisation of this theme.';
 
@@ -253,6 +258,7 @@ $string['region-side-pre'] = 'Left';
 $string['region-home-left'] = 'Home (Left)';
 $string['region-home-middle'] = 'Home (Middle)';
 $string['region-home-right'] = 'Home (Right)';
+$string['region-page-top'] = 'Page top';
 $string['region-footer-left'] = 'Footer (Left)';
 $string['region-footer-middle'] = 'Footer (Middle)';
 $string['region-footer-right'] = 'Footer (Right)';
