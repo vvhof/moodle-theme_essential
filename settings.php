@@ -1450,7 +1450,7 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $essentialsettingsfrontpage->add($setting);
 
-    // Toggle frontpage middle blocks.
+    // Toggle frontpage page top (was middle) blocks.
     $name = 'theme_essential/frontpagemiddleblocks';
     $title = get_string('frontpagemiddleblocks', 'theme_essential');
     $description = get_string('frontpagemiddleblocksdesc', 'theme_essential');
@@ -1464,6 +1464,16 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $essentialsettingsfrontpage->add($setting);
 
+    // Page top blocks per row.
+    $name = 'theme_essential/fppagetopblocksperrow';
+    $title = get_string('fppagetopblocksperrow', 'theme_essential');
+    $default = 1;
+    $lower = 1;
+    $upper = 4;
+    $description = get_string('fppagetopblocksperrowdesc', 'theme_essential',
+        array('lower' => $lower, 'upper' => $upper));
+    $setting = new essential_admin_setting_configinteger($name, $title, $description, $default, $lower, $upper);
+    $essentialsettingsfrontpage->add($setting);
 
     // Marketing spot settings.
     $essentialsettingsfrontpage->add(new admin_setting_heading('theme_essential_marketing',

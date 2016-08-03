@@ -62,7 +62,7 @@ $THEME->plugins_exclude_sheets = array('mod' => array('quiz'));
 
 $addregions = array();
 if (get_config('theme_essential', 'frontpagemiddleblocks') > 0) {
-    $addregions = array('home-left', 'home-middle', 'home-right');
+    $addregions = array('page-top');
 }
 
 

@@ -157,7 +157,7 @@ $string['styletiled'] = 'Tiled';
 $string['stylestretch'] = 'Stretch';
 
 $string['pagetopblocksperrow'] = 'Page top blocks per row';
-$string['pagetopblocksperrowdesc'] = 'State up to how many blocks per row between {$a->lower} and {$a->upper} for pages with \'Page top blocks\'.  Current pages are: Courses and Course Category.';
+$string['pagetopblocksperrowdesc'] = 'State up to how many blocks per row between {$a->lower} and {$a->upper} for pages with \'Page top blocks\'.  Current pages are: Courses and Course Category.  Frontpage has its own setting \'fppagetopblocksperrow\'.';
 $string['pagebottomblocksperrow'] = 'Page bottom blocks per row';
 $string['pagebottomblocksperrowdesc'] = 'State up to how many blocks per row between {$a->lower} and {$a->upper} for pages with \'Page bottom blocks\'.  Current pages are: Admin plugins, Course management, Grading and Quiz edit.';
 
@@ -255,9 +255,6 @@ $string['nobreadcrumb'] = 'Hide';
 // Regions.
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
-$string['region-home-left'] = 'Home (Left)';
-$string['region-home-middle'] = 'Home (Middle)';
-$string['region-home-right'] = 'Home (Right)';
 $string['region-page-top'] = 'Page top';
 $string['region-footer-left'] = 'Footer (Left)';
 $string['region-footer-middle'] = 'Footer (Middle)';
@@ -428,8 +425,10 @@ $string['frontcontentareadesc'] = 'Whatever is typed into this box will display 
 $string['frontpageblocksheading'] = 'Front page blocks';
 $string['frontpageblocks'] = 'Front page blocks alignment';
 $string['frontpageblocksdesc'] = 'Here you can determine if the standard Moodle blocks on the frontpage align to the left or the right.';
-$string['frontpagemiddleblocks'] = 'Enable additional front page middle blocks';
-$string['frontpagemiddleblocksdesc'] = 'If enabled this will display three additional block locations just under the marketing spots.';
+$string['frontpagemiddleblocks'] = 'Enable additional front page \'Page top\' (was \'Middle\') blocks';
+$string['frontpagemiddleblocksdesc'] = 'If enabled this will display an additional block location just under the marketing spots.';
+$string['fppagetopblocksperrow'] = 'Page top (was \'Middle\') blocks per row';
+$string['fppagetopblocksperrowdesc'] = 'State up to how many blocks per row between {$a->lower} and {$a->upper} for the \'Page top blocks\'.';
 
 // Slideshow.
 $string['slideshowheading'] = 'Slide show';

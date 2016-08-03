@@ -157,22 +157,22 @@ if ($enable1alert || $enable2alert || $enable3alert) {
 ?>
 <!-- End Marketing Spots -->
 
-<!-- Start Middle Blocks -->
+<!-- Start Page Top was Middle Blocks -->
 <?php
 $frontpagemiddleblocks = \theme_essential\toolbox::get_setting('frontpagemiddleblocks');
 if ($PAGE->user_is_editing() && ($frontpagemiddleblocks)) {
-    require_once(\theme_essential\toolbox::get_tile_file('middleblocks'));
+    require_once(\theme_essential\toolbox::get_tile_file('fppagetopblocks'));
 } else {
     if ($frontpagemiddleblocks == 1) {
-        require_once(\theme_essential\toolbox::get_tile_file('middleblocks'));
+        require_once(\theme_essential\toolbox::get_tile_file('fppagetopblocks'));
     } else if ($frontpagemiddleblocks == 2 && !isloggedin()) {
-        require_once(\theme_essential\toolbox::get_tile_file('middleblocks'));
+        require_once(\theme_essential\toolbox::get_tile_file('fppagetopblocks'));
     } else if ($frontpagemiddleblocks == 3 && isloggedin()) {
-        require_once(\theme_essential\toolbox::get_tile_file('middleblocks'));
+        require_once(\theme_essential\toolbox::get_tile_file('fppagetopblocks'));
     }
 }
 ?>
-<!-- End Middle Blocks -->
+<!-- End Page Top was Middle Blocks -->
 
         <div id="page-content" class="row-fluid">
             <section id="<?php echo $regionbsid; ?>">
