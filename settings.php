@@ -1450,7 +1450,7 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $essentialsettingsfrontpage->add($setting);
 
-    // Toggle frontpage page top (was middle) blocks.
+    // Toggle frontpage home (was middle) blocks.
     $name = 'theme_essential/frontpagemiddleblocks';
     $title = get_string('frontpagemiddleblocks', 'theme_essential');
     $description = get_string('frontpagemiddleblocksdesc', 'theme_essential');
@@ -1464,15 +1464,29 @@ if ($ADMIN->fulltree) {
     $setting->set_updatedcallback('theme_reset_all_caches');
     $essentialsettingsfrontpage->add($setting);
 
-    // Page top blocks per row.
-    $name = 'theme_essential/fppagetopblocksperrow';
-    $title = get_string('fppagetopblocksperrow', 'theme_essential');
-    $default = 1;
+    // Home blocks per row.
+    $name = 'theme_essential/frontpagehomeblocksperrow';
+    $title = get_string('frontpagehomeblocksperrow', 'theme_essential');
+    $default = 3;
     $lower = 1;
     $upper = 4;
-    $description = get_string('fppagetopblocksperrowdesc', 'theme_essential',
+    $description = get_string('frontpagehomeblocksperrowdesc', 'theme_essential',
         array('lower' => $lower, 'upper' => $upper));
     $setting = new essential_admin_setting_configinteger($name, $title, $description, $default, $lower, $upper);
+    $essentialsettingsfrontpage->add($setting);
+
+    // Toggle frontpage page top blocks.
+    $name = 'theme_essential/fppagetopblocks';
+    $title = get_string('fppagetopblocks', 'theme_essential');
+    $description = get_string('fppagetopblocksdesc', 'theme_essential');
+    $alwaysdisplay = get_string('alwaysdisplay', 'theme_essential');
+    $displaybeforelogin = get_string('displaybeforelogin', 'theme_essential');
+    $displayafterlogin = get_string('displayafterlogin', 'theme_essential');
+    $dontdisplay = get_string('dontdisplay', 'theme_essential');
+    $default = 3;
+    $choices = array(1 => $alwaysdisplay, 2 => $displaybeforelogin, 3 => $displayafterlogin, 0 => $dontdisplay);
+    $setting = new essential_admin_setting_configselect($name, $title, $description, $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
     $essentialsettingsfrontpage->add($setting);
 
     // Marketing spot settings.

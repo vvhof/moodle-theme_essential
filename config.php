@@ -60,11 +60,13 @@ $THEME->editor_sheets = array('editor', 'custom');
 
 $THEME->plugins_exclude_sheets = array('mod' => array('quiz'));
 
-$addregions = array();
+$fpaddregions = array();
 if (get_config('theme_essential', 'frontpagemiddleblocks') > 0) {
-    $addregions = array('page-top');
+    $fpaddregions[] = 'home';
 }
-
+if (get_config('theme_essential', 'fppagetopblocks') > 0) {
+    $fpaddregions[] = 'page-top';
+}
 
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.
@@ -77,7 +79,7 @@ $THEME->layouts = array(
     'frontpage' => array(
         'file' => 'frontpage.php',
         'regions' => array_merge(array('side-pre', 'footer-left', 'footer-middle', 'footer-right', 'hidden-dock'),
-                $addregions),
+                $fpaddregions),
         'defaultregion' => 'side-pre',
     ),
     // Standard layout with blocks, this is recommended for most pages with general information.
