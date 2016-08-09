@@ -431,7 +431,7 @@ $string['frontpagemiddleblocksdesc'] = 'If enabled this will display an addition
 $string['frontpagehomeblocksperrow'] = 'Home (was \'Middle\') blocks per row';
 $string['frontpagehomeblocksperrowdesc'] = 'State up to how many blocks per row between {$a->lower} and {$a->upper} for the \'Home blocks\'.';
 $string['fppagetopblocks'] = 'Enable additional front page \'Page top\' blocks';
-$string['fppagetopblocksdesc'] = 'If enabled this will display an additional block location beside the side blocks and above the content area.';
+$string['fppagetopblocksdesc'] = 'If enabled this will display an additional block location beside the side blocks and above the content area.  Note: The number of blocks per row depends on the setting \'pagetopblocksperrow\'.';
 
 // Slideshow.
 $string['slideshowheading'] = 'Slide show';
