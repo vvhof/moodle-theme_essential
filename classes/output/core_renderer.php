@@ -1784,14 +1784,11 @@ class core_renderer extends \core_renderer {
             if ($blocksperrowsetting !== false) {
                 if (is_int($blocksperrowsetting)) {
                     $blocksperrow = $blocksperrowsetting;
-error_log($region.' - int - '.$blocksperrowsetting.' - '.$blocksperrow);
                 } else {
                     $blocksperrow = \theme_essential\toolbox::get_setting($blocksperrowsetting);
-error_log($region.' - setting - '.$blocksperrowsetting.' - '.$blocksperrow);
                 }
             } else {
                 $blocksperrow = false;
-error_log($region.' - false - '.$blocksperrowsetting.' - '.$blocksperrow);
             }
             $attributes = array(
                 'id' => 'block-region-' . preg_replace('#[^a-zA-Z0-9_\-]+#', '-', $region),
