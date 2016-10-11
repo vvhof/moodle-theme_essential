@@ -1102,6 +1102,23 @@ if ($ADMIN->fulltree) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
     $essentialsettingsheader->add($setting);
 
+    $name = 'theme_essential/haveheaderblock';
+    $title = get_string('haveheaderblock', 'theme_essential');
+    $description = get_string('haveheaderblockdesc', 'theme_essential');
+    $default = true;
+    $setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+    $essentialsettingsheader->add($setting);
+
+    $name = 'theme_essential/headerblocksperrow';
+    $title = get_string('headerblocksperrow', 'theme_essential');
+    $default = 4;
+    $lower = 1;
+    $upper = 4;
+    $description = get_string('headerblocksperrowdesc', 'theme_essential',
+        array('lower' => $lower, 'upper' => $upper));
+    $setting = new essential_admin_setting_configinteger($name, $title, $description, $default, $lower, $upper);
+    $essentialsettingsheader->add($setting);
+
     // Social network settings.
     $essentialsettingsheader->add(new admin_setting_heading('theme_essential_social',
         get_string('socialheadingsub', 'theme_essential'),
