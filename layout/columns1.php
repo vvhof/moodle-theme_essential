@@ -33,7 +33,7 @@ require_once(\theme_essential\toolbox::get_tile_file('header'));
     <!-- Start Main Regions -->
     <div id="page-content" class="row-fluid">
         <section id="region-main" class="span12">
-            <?php 
+            <?php
             if (\theme_essential\toolbox::get_setting('pagetopblocks')) {
                 echo $OUTPUT->essential_blocks('page-top', 'row-fluid', 'aside', 'pagetopblocksperrow');
             }

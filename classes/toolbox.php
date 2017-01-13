@@ -158,7 +158,7 @@ class toolbox {
                 global $PAGE;
                 $corerenderer = null;
                 try {
-                    $corerenderer = $PAGE->get_renderer('theme_'.$PAGE->theme->name, 'core');
+                    $corerenderer = $page->get_renderer('theme_'.$page->theme->name, 'core');
                 } catch (\coding_exception $ce) {
                     // Specialised renderer may not exist in theme.  This is not a coding fault.  We just need to cope.
                     $corerenderer = null;
