@@ -72,11 +72,12 @@ if (get_config('theme_essential', 'haveheaderblock') > 0) {
     $baseregions[] = 'header';
     $fpaddregions[] = 'header';
 }
-$onecolumnregions = array_copy($baseregions);
+$onecolumnregions = array_merge($baseregions);
 if (\theme_essential\toolbox::get_setting('pagetopblocks')) {
     $onecolumnregions[] = 'page-top';
 }
 $standardregions = array_merge(array('side-pre'), $baseregions);
+error_log('BR: '.print_r($baseregions, true).' - 1C: '.print_r($onecolumnregions, true));
 
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default.
